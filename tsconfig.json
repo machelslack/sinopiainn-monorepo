@@ -1,0 +1,15 @@
+{
+  "include": ["packages/*/src"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@sinopiainn/*": ["packages/*/src"]
+    },
+    "lib": ["dom", "esnext"],
+    "jsx": "react",
+    "target": "es5",
+    "module": "commonjs",
+  },
+}

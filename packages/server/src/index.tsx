@@ -9,7 +9,10 @@ const props = {
   label: "adadsa",
   value: "aadsadad"
 };
-console.log(LabelValue);
-app.get("/", (req: any, res: any) => res.send(LabelValue));
+
+const labelMarkUp = ReactDOMServer.renderToString(React.createElement(LabelValue))
+
+console.log(labelMarkUp);
+app.get("/", (req: any, res: any) => res.send(labelMarkUp));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

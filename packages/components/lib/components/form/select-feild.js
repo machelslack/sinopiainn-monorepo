@@ -11,10 +11,13 @@ var selectField = {
     width: "100%",
     padding: "12px",
     border: "1px solid #ccc",
-    "margin-top": "6px",
-    "margin-bottom": "16px",
+    "marginTop": "6px",
+    "marginBottom": "16px",
     resize: "vertical"
 };
-var SelectField = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("input", { type: "text", style: selectField }, " ")); };
+var SelectField = function (_a) {
+    var options = _a.options;
+    return core_1.jsx(react_1.default.Fragment, null,
+        core_1.jsx("select", { style: selectField }, options.map(function (optionItem) { return core_1.jsx("option", { key: optionItem }, optionItem); })));
+};
 exports.default = SelectField;

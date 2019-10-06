@@ -17,5 +17,5 @@ var inputSubmit = {
     }
 };
 var SubmitButton = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("input", { type: "submit", style: inputSubmit }, " ")); };
+    core_1.jsx("input", { type: "submit", style: inputSubmit })); };
 exports.default = SubmitButton;

@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
 declare const SelectField: FunctionComponent<{
-    inputName: any;
+    options: any;
 }>;
 export default SelectField;

@@ -1,5 +1,3 @@
 import { FunctionComponent } from 'react';
-declare const TextField: FunctionComponent<{
-    inputName: any;
-}>;
+declare const TextField: FunctionComponent<{}>;
 export default TextField;

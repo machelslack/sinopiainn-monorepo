@@ -6,16 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 var core_1 = require("@emotion/core");
 var react_1 = __importDefault(require("react"));
-// , select, textarea 
 /* Style inputs */
 var textInput = {
     width: "100%",
     padding: "12px",
     border: "1px solid #ccc",
-    "margin-top": "6px",
-    "margin-bottom": "16px",
+    "marginTop": "6px",
+    "marginBottom": "16px",
     resize: "vertical"
 };
 var TextField = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("input", { type: "text", style: textInput }, " ")); };
+    core_1.jsx("input", { type: "text", style: textInput })); };
 exports.default = TextField;

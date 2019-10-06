@@ -4,17 +4,23 @@ import React, { FunctionComponent, Children } from 'react';
 
 /* Style inputs */
 const selectField = {
-    width: "100%",
-    padding: "12px",
-    border: "1px solid #ccc",
-    "margin-top": "6px",
-    "margin-bottom": "16px",
-    resize: "vertical"
-  } as React.CSSProperties;
-  
+  width: "100%",
+  padding: "12px",
+  border: "1px solid #ccc",
+  "marginTop": "6px",
+  "marginBottom": "16px",
+  resize: "vertical"
+} as React.CSSProperties;
 
-const SelectField: FunctionComponent<{inputName:any}> = () => <React.Fragment>
-    <input type="text" style={selectField}> </input>
+
+const SelectField: FunctionComponent<{ options: any }> = ({ options }) => <React.Fragment>
+  <select style={selectField}>
+
+    {
+      options.map((optionItem: any,) => <option key={optionItem}>{optionItem}</option>)
+    }
+
+  </select>
 </React.Fragment>
 
 

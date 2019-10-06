@@ -12,10 +12,11 @@ var textArea = {
     width: "100%",
     padding: "12px",
     border: "1px solid #ccc",
-    "margin-top": "6px",
-    "margin-bottom": "16px",
-    resize: "vertical"
+    "marginTop": "6px",
+    "marginBottom": "16px",
+    resize: "vertical",
+    height: "170px"
 };
 var TextArea = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("input", { type: "text", style: textArea }, " ")); };
+    core_1.jsx("input", { type: "text", style: textArea })); };
 exports.default = TextArea;

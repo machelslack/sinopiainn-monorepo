@@ -11,7 +11,7 @@ const textArea = {
     "margin-top": "6px",
     "margin-bottom": "16px",
     resize: "vertical"
-  }
+  } as React.CSSProperties;
   
 
 const TextArea: FunctionComponent<{inputName:any}> = () => <React.Fragment>

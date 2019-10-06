@@ -9,7 +9,7 @@ const column = {
     "width": "50%",
     "margin-top": "6px",
     "padding": "20px"
-}
+} as React.CSSProperties;
 
 /* Clear floats after the columns */
 const row = {
@@ -19,7 +19,7 @@ const row = {
         "clear": "both"
     }
 
-}
+} as React.CSSProperties;
 
 const breakpoints = [600]
 

@@ -10,7 +10,7 @@ const selectField = {
     "margin-top": "6px",
     "margin-bottom": "16px",
     resize: "vertical"
-  }
+  } as React.CSSProperties;
   
 
 const SelectField: FunctionComponent<{inputName:any}> = () => <React.Fragment>

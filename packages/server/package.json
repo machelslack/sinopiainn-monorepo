@@ -17,15 +17,15 @@
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "tsc",
     "start": "tsc -w",
-    "dev":"node ./lib/index.js"
+    "dev": "node ./lib/index.js"
   },
   "peerDependencies": {
     "@sinopiainn/components": "1.0.0"
   },
   "devDependencies": {
     "@sinopiainn/components": "*",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"

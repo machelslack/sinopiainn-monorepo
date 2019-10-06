@@ -7,7 +7,7 @@ const styles = {
     'background-repeat': "no-repeat",
     'background-size': "cover",
     position: "relative",
-};
+} as React.CSSProperties;
 
 export const HeroImage: FunctionComponent<{}> = ({ children }) => <section style={styles}>
 

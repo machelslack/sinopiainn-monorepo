@@ -17,12 +17,12 @@ const styles = {
         color: "black"
     },
     float:"left"
-};
+} as React.CSSProperties;
 
 interface MenuItemProps {
     label: string;
 }
 
-const MenuItem: FunctionComponent<MenuItemProps> = ({ label }) => <a css={styles}> {label}</a>
+const MenuItem: FunctionComponent<MenuItemProps> = ({ label }) => <a style={styles}> {label}</a>
 
 export default MenuItem;

@@ -1,75 +1,92 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { Global, jsx, css } from '@emotion/core'
 import React, { FunctionComponent, Children } from 'react';
 
 
 /* Header/Blog Title */
-const header = {
+const headerStyles = {
     padding: "30px",
-    "font-size": "40px",
-    "text-align": "center",
-    background: "white"
-}
+    "fontSize": "40px",
+    "textAlign": "center",
+    backgroundColor: "white",
+} as React.CSSProperties;
 
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
-const leftcolumn = {
+const leftcolumnStyles = {
     float: "left",
-    width: "75%"
-}
+    width: "75%",
+} as React.CSSProperties;
 
 /* Right column */
-const rightcolumn = {
+const rightcolumnStyles = {
     float: "left",
     width: "25%",
-    "padding-left": "20px",
-}
+    "paddingLeft": "20px",
+} as React.CSSProperties;
 
 
 /* Clear floats after the columns */
-const row = {
+const rowStyles = {
     "&:after": {
         content: "",
         display: "table",
-        clear: "both"
+        clear: "both",
     }
-}
+} as React.CSSProperties;
 
 /* Footer */
-const footer = {
+const footerStyles = {
     padding: "20px",
-    "text-align": "center",
-    background: "#ddd",
-    "margin-top": "20px"
-}
+    "textAlign": "center",
+    backgroundColor: "#ddd",
+    "marginTop": "20px",
+} as React.CSSProperties;
 
 
 
 
-const BlogLayout: FunctionComponent<{}> = () => <React.Fragment>
+const BlogLayout: FunctionComponent<{ header: any, leftcolumn: any, rightcolumn: any }> = ({ header, leftcolumn, rightcolumn }) => <React.Fragment>
 
-    <section style={header} className="header">
+
+    <Global
+        styles={css`
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            font-family: Arial;
+            padding: 20px;
+            background: #f1f1f1;
+          }
+          `}
+    />
+
+    <section style={headerStyles} className="header">
+        {header()}
     </section>
 
-    <section className="row">
-        <section style={leftcolumn} className="leftcolumn" css={css`
+    <section style={rowStyles} className="row">
+        <section style={leftcolumnStyles} className="leftcolumn" css={css`
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
     `}>
+            {leftcolumn}
         </section>
-        <section style={rightcolumn} className="rightcolumn" css={css`
+        <section style={rightcolumnStyles} className="rightcolumn" css={css`
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
     `}>
+            {rightcolumn}
         </section>
     </section>
 
-    <section className="footer">
+    <section style={footerStyles} className="footer">
     </section>
 </React.Fragment>
 

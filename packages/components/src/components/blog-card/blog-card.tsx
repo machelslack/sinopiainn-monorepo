@@ -1,14 +1,15 @@
 
-import React, { FunctionComponent, Children } from 'react';
+import React, { FunctionComponent } from 'react';
 
 const card = {
-    "background-color": "white",
+    "backgroundColor": "white",
     padding: "20px",
-    "margin-top": "20px"
+    "marginTop": "20px"
 }
 
-const BlogCard: FunctionComponent<{}> = () => <React.Fragment>
+const BlogCard: FunctionComponent<{}> = ({children }) => <React.Fragment>
     <div style={card} className="card">
+        {children}
     </div>
 </React.Fragment>
 

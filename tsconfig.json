@@ -9,7 +9,7 @@
     },
     "lib": ["dom", "esnext"],
     "jsx": "react",
-    "target": "ESNEXT",
+    "target": "es5",
     "module": "commonjs",
   },
 }

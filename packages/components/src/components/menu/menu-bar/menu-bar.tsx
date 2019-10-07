@@ -1,15 +1,21 @@
 import React, { FunctionComponent } from 'react'; // importing FunctionComponent
 
-const styles = {
-    "background-color": "#333",
-    overflow: "hidden"
+const scrollmenu = {
+    backgroundColor: "#333",
+    overflow: "auto",
+    whiteSpace: "nowrap",
+    "& a": {
+        display: "inline-block",
+        color: "white",
+        textAlign: "center",
+        padding: "14px",
+        textDecoration: "none",
+        "&:hover": {
+            backgroundColor: "#777"
+        }
+    }
+} as React.CSSProperties;
 
-};
-
-export const MenuBar: FunctionComponent<{}> = ({ children }) => <section style={styles}>
-
-    {children}
-
-</section>
+export const MenuBar: FunctionComponent<{}> = ({ children }) => <section style={scrollmenu} className="scrollmenu"> {children} </section>
 
 export default MenuBar;

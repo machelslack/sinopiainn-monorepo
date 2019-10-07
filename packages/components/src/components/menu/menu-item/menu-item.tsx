@@ -2,7 +2,7 @@
 import { jsx, css } from "@emotion/core";
 import React, { FunctionComponent } from 'react'; 
 
-const styles = {
+const menuItem = {
     cursor: "pointer",
     fontSize: 17,
     padding: "14px 16px",
@@ -19,10 +19,6 @@ const styles = {
     float:"left"
 } as React.CSSProperties;
 
-interface MenuItemProps {
-    label: string;
-}
-
-const MenuItem: FunctionComponent<MenuItemProps> = ({ label }) => <a style={styles}> {label}</a>
+const MenuItem: FunctionComponent<{label:any}> = ({ label }) => <a style={menuItem} className="menuItem"> {label}</a>
 
 export default MenuItem;

@@ -9,11 +9,8 @@ const listThree = {
 }
 
 
-
 const UnorderedList: FunctionComponent<{}> = ({ children }) => <React.Fragment>
-
     <ul className="list-three mdl-list" style={listThree}>{children} </ul>
-
 </React.Fragment>
 
 export default UnorderedList;

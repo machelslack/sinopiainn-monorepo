@@ -48,11 +48,11 @@ var mdlListItem = {
     "align-items": "center"
 };
 var shared = {
-    "box-sizing": "border-box",
+    "boxSizing": "border-box",
     display: "-webkit-flex -ms-flexbox flex",
     "-webkit-align-items": "center",
     "-ms-flex-align": "center",
-    "align-items": "center"
+    "alignItems": "center"
 };
 var materialIcons = {
     float: "left",
@@ -60,11 +60,11 @@ var materialIcons = {
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontSize": "24px",
-    "line-height": 1,
-    "letter-spacing": "normal",
-    "text-transform": "none",
-    display: "inline-block",
-    "word-wrap": "normal",
+    "lineHeight": 1,
+    "letterSpacing": "normal",
+    "textTransform": "none",
+    display: "inlineBlock",
+    "wordWrap": "normal",
     "-moz-font-feature-settings": "liga",
     "font-feature-settings": "liga",
     "-webkit-font-feature-settings": 'liga',
@@ -73,7 +73,7 @@ var materialIcons = {
 var listBody = {
     "fontSize": "14px",
     "fontWeight": 400,
-    "letter-spacing": 0,
+    "letterSpacing": 0,
     "lineHeight": "18px",
     height: "52px",
     color: "rgba(0, 0, 0, .54)",
@@ -85,7 +85,7 @@ var UnorderedListItem = function (_a) {
     return React.createElement("li", { className: "mdl-list__item mdl-list__item--three-line", style: mdlListItem },
         React.createElement("span", { className: "mdl-list__item-primary-content", style: shared },
             React.createElement("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar", style: materialIcons }, "done"),
-            React.createElement("span", { style: medium }, "Outdoor Deck And Jerk Pit"),
+            React.createElement("medium", null, "Outdoor Deck And Jerk Pit"),
             React.createElement("span", { className: "mdl-list__item-text-body", style: listBody },
                 React.createElement("small", null, "Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay "))));
 };

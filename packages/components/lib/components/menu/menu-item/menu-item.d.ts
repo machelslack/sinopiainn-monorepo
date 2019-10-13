@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
-interface MenuItemProps {
-    label: string;
-}
-declare const MenuItem: FunctionComponent<MenuItemProps>;
+declare const MenuItem: FunctionComponent<{
+    label: any;
+}>;
 export default MenuItem;

@@ -16,6 +16,6 @@ const iconBarItem = {
     },
 } as React.CSSProperties;
 
-const IconBarItem: FunctionComponent<{ iconType: any }> = ({ iconType }) => <a style={iconBarItem} className="iconBarItem"><i className={iconType}></i></a>
+const IconBarItem: FunctionComponent<{ iconType: any }> = ({ iconType }) => <a style={iconBarItem} className="iconBarItem"><i className={`fa ${iconType}`}></i></a>
 
 export default IconBarItem;

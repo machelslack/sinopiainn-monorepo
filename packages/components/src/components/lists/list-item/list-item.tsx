@@ -51,11 +51,11 @@ const mdlListItem = {
 } as React.CSSProperties;
 
 const shared = {
-    "box-sizing": "border-box",
+    "boxSizing": "border-box",
     display: "-webkit-flex -ms-flexbox flex",
     "-webkit-align-items": "center",
     "-ms-flex-align": "center",
-    "align-items": "center"
+    "alignItems": "center"
 } as React.CSSProperties;
 
 const materialIcons = {
@@ -64,11 +64,11 @@ const materialIcons = {
     "fontWeight": 400,
     "fontStyle": "normal",
     "fontSize": "24px",
-    "line-height": 1,
-    "letter-spacing": "normal",
-    "text-transform": "none",
-    display: "inline-block",
-    "word-wrap": "normal",
+    "lineHeight": 1,
+    "letterSpacing": "normal",
+    "textTransform": "none",
+    display: "inlineBlock",
+    "wordWrap": "normal",
     "-moz-font-feature-settings": "liga",
     "font-feature-settings": "liga",
     "-webkit-font-feature-settings": 'liga',
@@ -78,7 +78,7 @@ const materialIcons = {
 const listBody = {
     "fontSize": "14px",
     "fontWeight": 400,
-    "letter-spacing": 0,
+    "letterSpacing": 0,
     "lineHeight": "18px",
     height: "52px",
     color: "rgba(0, 0, 0, .54)",

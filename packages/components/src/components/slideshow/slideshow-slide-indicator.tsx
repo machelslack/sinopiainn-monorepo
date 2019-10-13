@@ -16,7 +16,7 @@ const dot = {
     borderRadius: "50%",
     display: "inline-block",
     transition: "background-color 0.6s ease",
-    "&:hover": " background-color: #717171;"
+    "&:hover": " background-color: #717171"
 } as React.CSSProperties;
 
 

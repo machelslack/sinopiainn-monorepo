@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import React, { FunctionComponent } from 'react'; 
+import React, { FunctionComponent } from 'react';
 
 const menuItem = {
     cursor: "pointer",
@@ -16,9 +16,13 @@ const menuItem = {
         'background-color': "#ddd",
         color: "black"
     },
-    float:"left"
+    float: "left"
 } as React.CSSProperties;
 
-const MenuItem: FunctionComponent<{label:any}> = ({ label }) => <a style={menuItem} className="menuItem"> {label}</a>
+const MenuItem: FunctionComponent<{ label: any }> = ({ label }) =>
+    <React.Fragment>
+        <a style={menuItem} className="menuItem"> {label}</a>
+        <span className="menudivider">| </span>
+    </React.Fragment>
 
 export default MenuItem;

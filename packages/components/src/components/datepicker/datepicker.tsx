@@ -36,16 +36,12 @@ const formInline = {
 } as React.CSSProperties;
 
 export const MenuBar: FunctionComponent<{}> = ({ children }) => <section style={datepicker} className="datepicker">
-
     <form className="form-inline" action="/action_page.php" style={formInline}>
         <TextField />
         <TextField />
         <TextField />
         <button type="submit">Submit</button>
     </form>
-
-
-
 </section>
 
 export default MenuBar;

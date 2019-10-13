@@ -2,11 +2,11 @@
 import React, { FunctionComponent, Children } from 'react';
 
 const listThree = {
-    'text-align': "left",
+    'textAlign': "left",
     display: "block",
     padding: "8px 0",
-    'list-style': "none"
-}
+    'listStyle': "none"
+} as React.CSSProperties;
 
 
 const UnorderedList: FunctionComponent<{}> = ({ children }) => <React.Fragment>

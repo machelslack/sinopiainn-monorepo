@@ -4,5 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var BodyLayout = function (props) { return react_1.default.createElement(react_1.default.Fragment, null); };
+var layouts_1 = require("../../layouts");
+var BodyLayout = function (props) { return react_1.default.createElement(react_1.default.Fragment, null,
+    react_1.default.createElement("body", null,
+        react_1.default.createElement(layouts_1.PageLayout, null))); };
 exports.default = BodyLayout;

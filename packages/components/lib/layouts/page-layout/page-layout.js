@@ -38,22 +38,26 @@ var inmageBlockProps = {
     heading: 'WELCOME',
     paragragh: "Sinopia Inn would like to welcome you to its rustic hideaway. Here you can experience tropical views with lush\n    green hills and skies streaked with colour, not to mention amazing sunsets that will have you feeling the\n    vibes to just chill.",
 };
-var PageLayout = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx(core_1.Global, { styles: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n          * {\n            box-sizing: border-box;\n          }\n          body {\n            font-family: Arial;\n            padding: 20px;\n            background: #f1f1f1;\n          }\n          "], ["\n          * {\n            box-sizing: border-box;\n          }\n          body {\n            font-family: Arial;\n            padding: 20px;\n            background: #f1f1f1;\n          }\n          "]))) }),
-    core_1.jsx("section", { className: "topNavigation" },
-        core_1.jsx(icon_bar_1.IconBar, null,
-            iconBarItems.map(function (item) {
-                return core_1.jsx(icon_bar_1.IconBarItem, { iconType: item });
-            }),
-            core_1.jsx("i", null, " 001 (876) xxxx"))),
-    core_1.jsx("section", { className: "heroImage" },
-        core_1.jsx(image_text_block_1.ImageTextBlock, __assign({}, inmageBlockProps))),
-    core_1.jsx("section", { className: "mainNavigation" },
-        core_1.jsx(menu_1.MenuBar, null, menuBarItems.map(function (item) {
-            return core_1.jsx(menu_1.MenuItem, { label: item });
-        }))),
-    core_1.jsx("section", { className: "datePicker" }),
-    core_1.jsx("section", { className: "mainCotent" }),
-    core_1.jsx("section", { className: "footer" })); };
+var PageLayout = function (_a) {
+    var children = _a.children;
+    return core_1.jsx(react_1.default.Fragment, null,
+        core_1.jsx(core_1.Global, { styles: core_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n          * {\n            box-sizing: border-box;\n          }\n          body {\n            font-family: Arial;\n            padding: 20px;\n            background: #f1f1f1;\n          }\n          "], ["\n          * {\n            box-sizing: border-box;\n          }\n          body {\n            font-family: Arial;\n            padding: 20px;\n            background: #f1f1f1;\n          }\n          "]))) }),
+        core_1.jsx("section", { className: "topNavigation" },
+            core_1.jsx(icon_bar_1.IconBar, null,
+                iconBarItems.map(function (item) {
+                    return core_1.jsx(icon_bar_1.IconBarItem, { iconType: item });
+                }),
+                core_1.jsx("i", null, " 001 (876) xxxx"))),
+        core_1.jsx("section", { className: "heroImage" },
+            core_1.jsx(image_text_block_1.ImageTextBlock, __assign({}, inmageBlockProps))),
+        core_1.jsx("section", { className: "mainNavigation" },
+            core_1.jsx(menu_1.MenuBar, null, menuBarItems.map(function (item) {
+                return core_1.jsx(menu_1.MenuItem, { label: item });
+            }))),
+        core_1.jsx("section", { className: "datePicker" }),
+        children,
+        core_1.jsx("section", { className: "mainCotent" }),
+        core_1.jsx("section", { className: "footer" }));
+};
 exports.default = PageLayout;
 var templateObject_1;

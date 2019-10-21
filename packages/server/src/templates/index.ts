@@ -1,10 +1,10 @@
 import { renderers } from "@sinopiainn/components/lib/components/renderers/";
 
-export const generateTemplate = (pageData: any) => {
+export const generateTemplate = (pageData: any = {}) => {
 
-    const content = renderers[pageData.type];
+    const content = renderers['home'](pageData);
 
-    const template = `<!DOCTYPE html><html>${content}</html>`;
+    const template = `<!DOCTYPE html><html>${content.head}${content.body}</html>`;
 
     return template;
 

@@ -24,7 +24,7 @@ const inmageBlockProps = {
     vibes to just chill.`,
 }
 
-const PageLayout: FunctionComponent<{}> = () => <React.Fragment>
+const PageLayout: FunctionComponent<{}> = ({children}) => <React.Fragment>
 
     <Global
         styles={css`
@@ -62,6 +62,9 @@ const PageLayout: FunctionComponent<{}> = () => <React.Fragment>
     </section>
     <section className="datePicker">
     </section>
+    {
+        children
+    }
     <section className="mainCotent">
     </section>
     <section className="footer">

@@ -1,1 +1,1 @@
-export declare const generateTemplate: (pageData: any) => string;
+export declare const generateTemplate: (pageData?: any) => string;

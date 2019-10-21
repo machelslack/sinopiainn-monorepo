@@ -1,7 +1,7 @@
 declare const homePageRenderer: {
     type: string;
     renderer: (props: any) => {
-        body: NodeJS.ReadableStream;
+        body: string;
         head: string;
     };
 };

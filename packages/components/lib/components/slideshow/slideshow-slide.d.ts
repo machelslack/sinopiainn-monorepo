@@ -1,5 +1,3 @@
 import { FunctionComponent } from 'react';
-declare const SlideShowSlide: FunctionComponent<{
-    caption: any;
-}>;
+declare const SlideShowSlide: FunctionComponent<{}>;
 export default SlideShowSlide;

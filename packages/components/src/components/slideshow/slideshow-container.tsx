@@ -6,7 +6,6 @@ import React, { FunctionComponent } from 'react';
 
 /* Slideshow container */
 const slideshowContainer = {
-    maxWidth: "1000px",
     position: "relative",
     margin: "auto"
 } as React.CSSProperties;

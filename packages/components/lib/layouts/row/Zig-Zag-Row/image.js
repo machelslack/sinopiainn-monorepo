@@ -4,22 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
-var react_1 = __importDefault(require("react"));
-var breakpoints = [1000];
-var mq = breakpoints.map(function (bp) { return "@media (min-width: " + bp + "px)"; });
-var img = {
+const core_1 = require("@emotion/core");
+const react_1 = __importDefault(require("react"));
+const breakpoints = [1000];
+const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
+const img = {
     display: "block",
     height: "auto",
     'max-width': "100%"
 };
-var ZigZagRowImage = function (_a) {
-    var _b;
-    return core_1.jsx(react_1.default.Fragment, null,
-        core_1.jsx("img", { src: "/w3images/img_app.jpg", width: "335", height: "471", style: img, css: (_b = {},
-                _b[mq[0]] = {
-                    margin: "auto",
-                },
-                _b) }));
-};
+const ZigZagRowImage = ({}) => core_1.jsx(react_1.default.Fragment, null,
+    core_1.jsx("img", { src: "/w3images/img_app.jpg", width: "335", height: "471", style: img, css: {
+            [mq[0]]: {
+                margin: "auto",
+            },
+        } }));
 exports.default = ZigZagRowImage;

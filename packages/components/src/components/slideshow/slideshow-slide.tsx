@@ -92,10 +92,10 @@ const slideCaption = {
 // `
 
   
-const SlideShowSlide: FunctionComponent<{ caption: any }> = ({ caption }) =>
+const SlideShowSlide: FunctionComponent<{}> = () =>
     <div className="mySlides fade" style={slides}>
-        <img src="img_snow_wide.jpg" style={slidesImage} />
-        <div className="text" style={slideCaption} >{caption}</div>
+        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style={slidesImage} />
+        <div className="text" style={slideCaption} ></div>
     </div>
 
 

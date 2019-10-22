@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
-var react_1 = __importDefault(require("react"));
+const core_1 = require("@emotion/core");
+const react_1 = __importDefault(require("react"));
 /* Style the container/contact section */
-var container = {
+const container = {
     "border-radius": "5px",
     "background-color": "#f2f2f2",
     "padding": "10px"
 };
-var Container = function () { return core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("section", { style: container, className: "container" })); };
+const Container = () => core_1.jsx(react_1.default.Fragment, null,
+    core_1.jsx("section", { style: container, className: "container" }));
 exports.default = Container;

@@ -2,6 +2,10 @@
   "name": "root",
   "private": true,
   "typings": "lib/index.d.ts",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@types/jest": "^24.0.18",
@@ -19,10 +23,6 @@
     "pretest": "yarn build",
     "test": "jest --config=jest.json",
     "start": "lerna run start --stream --parallel"
-  },
-  "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
   },
   "peerDependencies": {
     "react": "^16.9.0",

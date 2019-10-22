@@ -4,16 +4,7 @@ const scrollmenu = {
     backgroundColor: "#333",
     overflow: "auto",
     whiteSpace: "nowrap",
-    "& a": {
-        display: "inline-block",
-        color: "white",
-        textAlign: "center",
-        padding: "14px",
-        textDecoration: "none",
-        "&:hover": {
-            backgroundColor: "#777"
-        }
-    }
+    textAlign: "center",
 } as React.CSSProperties;
 
 export const MenuBar: FunctionComponent<{}> = ({ children }) => <section style={scrollmenu} className="scrollmenu"> {children} </section>

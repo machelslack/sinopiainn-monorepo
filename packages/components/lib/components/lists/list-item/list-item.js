@@ -7,9 +7,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __importStar(require("react"));
-var medium = {};
-var mdlListItem = {
+const React = __importStar(require("react"));
+const medium = {};
+const mdlListItem = {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: "16px",
     fontWeight: 400,
@@ -47,14 +47,14 @@ var mdlListItem = {
     "-ms-flex-align": "center",
     "align-items": "center"
 };
-var shared = {
+const shared = {
     "boxSizing": "border-box",
     display: "-webkit-flex -ms-flexbox flex",
     "-webkit-align-items": "center",
     "-ms-flex-align": "center",
     "alignItems": "center"
 };
-var materialIcons = {
+const materialIcons = {
     float: "left",
     "fontFamily": 'Material Icons',
     "fontWeight": 400,
@@ -70,7 +70,7 @@ var materialIcons = {
     "-webkit-font-feature-settings": 'liga',
     "-webkit-font-smoothing": "antialiased"
 };
-var listBody = {
+const listBody = {
     "fontSize": "14px",
     "fontWeight": 400,
     "letterSpacing": 0,
@@ -80,13 +80,10 @@ var listBody = {
     display: "block",
     padding: 0
 };
-var UnorderedListItem = function (_a) {
-    var children = _a.children;
-    return React.createElement("li", { className: "mdl-list__item mdl-list__item--three-line", style: mdlListItem },
-        React.createElement("span", { className: "mdl-list__item-primary-content", style: shared },
-            React.createElement("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar", style: materialIcons }, "done"),
-            React.createElement("medium", null, "Outdoor Deck And Jerk Pit"),
-            React.createElement("span", { className: "mdl-list__item-text-body", style: listBody },
-                React.createElement("small", null, "Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay "))));
-};
+const UnorderedListItem = ({ children }) => React.createElement("li", { className: "mdl-list__item mdl-list__item--three-line", style: mdlListItem },
+    React.createElement("span", { className: "mdl-list__item-primary-content", style: shared },
+        React.createElement("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar", style: materialIcons }, "done"),
+        React.createElement("medium", null, "Outdoor Deck And Jerk Pit"),
+        React.createElement("span", { className: "mdl-list__item-text-body", style: listBody },
+            React.createElement("small", null, "Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay "))));
 exports.default = UnorderedListItem;

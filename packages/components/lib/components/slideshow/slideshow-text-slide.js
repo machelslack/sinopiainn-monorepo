@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
+const core_1 = require("@emotion/core");
 /* Slideshow container */
-var slideshowContainer = {
+const slideshowContainer = {
     maxWidth: "1000px",
     position: "relative",
     margin: "auto"
 };
 /* Next & previous buttons */
-var buttons = {
+const buttons = {
     cursor: "pointer",
     position: "absolute",
     top: "50%",
@@ -25,15 +25,15 @@ var buttons = {
     "&:hover": " background - color: rgba(0, 0, 0, 0.8)"
 };
 /* Position the "next button" to the right */
-var slides = {
+const slides = {
     display: "none"
 };
-var slidesImage = {
+const slidesImage = {
     width: "100%",
     verticalAlign: "middle"
 };
 /* Caption text */
-var slideCaption = {
+const slideCaption = {
     color: "#f2f2f2",
     fontSize: "15px",
     padding: "8px 12px",
@@ -74,23 +74,20 @@ var slideCaption = {
 //     transform: translate3d(0,-4px,0);
 //   }
 // `
-var large = {};
-var medium = {};
-var SlideShowTextSlide = function (_a) {
-    var quote = _a.quote, quoteLink = _a.quoteLink, quoteSource = _a.quoteSource;
-    return core_1.jsx("div", { className: "mySlides fade", style: slides },
-        core_1.jsx("span", { style: large },
-            core_1.jsx("i", null,
-                core_1.jsx("q", null,
-                    quote,
-                    " "))),
+const large = {};
+const medium = {};
+const SlideShowTextSlide = ({ quote, quoteLink, quoteSource }) => core_1.jsx("div", { className: "mySlides fade", style: slides },
+    core_1.jsx("span", { style: large },
+        core_1.jsx("i", null,
+            core_1.jsx("q", null,
+                quote,
+                " "))),
+    core_1.jsx("br", null),
+    core_1.jsx("span", { style: medium },
         core_1.jsx("br", null),
-        core_1.jsx("span", { style: medium },
-            core_1.jsx("br", null),
-            core_1.jsx("a", { href: quoteLink },
-                core_1.jsx("b", null,
-                    "via ",
-                    quoteSource,
-                    " "))));
-};
+        core_1.jsx("a", { href: quoteLink },
+            core_1.jsx("b", null,
+                "via ",
+                quoteSource,
+                " "))));
 exports.default = SlideShowTextSlide;

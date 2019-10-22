@@ -1,23 +1,27 @@
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core'
+import styled from '@emotion/styled'
 import React, { FunctionComponent } from 'react';
 
 
 /* Create two columns that float next to eachother */
 const column = {
+  display: "table-cell",
     "float": "left",
     "width": "50%",
-    "marginTop": "6px",
-    "padding": "20px"
+    "padding": "10px"
 } as React.CSSProperties;
 
 /* Clear floats after the columns */
 const row = {
-    "&:after": {
-        "content": "",
-        "display": "table",
-        "clear": "both"
-    }
+
+  display: "table",
+  width: "100%",
+    // "& :after": {
+    //     "content": "",
+    //     "display": "table",
+    //     "clear": "both"
+    // }
 } as React.CSSProperties;
 
 const breakpoints = [600]
@@ -29,19 +33,17 @@ const mq = breakpoints.map(
 
 const TwoColumnRow: FunctionComponent<{ leftcolumn: any, rightcolumn: any }> = ({ leftcolumn, rightcolumn }) => <React.Fragment>
 
-<Global
-        styles={css`
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-          }
-          
-          * {
-            box-sizing: border-box;
-          }
-          `}
-    />
+<div className="row" style={row}>
+  <div className="column" style={column} >
+  {leftcolumn}
+  </div>
+  <div className="column" style={column} >
+   <p>{rightcolumn}</p>
+  </div>
+</div>
 
-    <section style={row} className="row">
+
+    {/* <section style={row} className="row">
         <div style={column} className="leftcolummn" css={css`
       [mq[0]]: {
         width: 100%;
@@ -58,7 +60,7 @@ const TwoColumnRow: FunctionComponent<{ leftcolumn: any, rightcolumn: any }> = (
     `}>
             {rightcolumn}
         </div>
-    </section>
+    </section> */}
 </React.Fragment>
 
 

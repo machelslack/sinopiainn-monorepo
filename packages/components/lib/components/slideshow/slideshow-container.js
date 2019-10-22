@@ -1,15 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
+const core_1 = require("@emotion/core");
 /* Slideshow container */
-var slideshowContainer = {
-    maxWidth: "1000px",
+const slideshowContainer = {
     position: "relative",
     margin: "auto"
 };
 /* Next & previous buttons */
-var buttons = {
+const buttons = {
     cursor: "pointer",
     position: "absolute",
     top: "50%",
@@ -29,18 +28,15 @@ var buttons = {
     }
 };
 /* Position the "next button" to the right */
-var next = {
+const next = {
     right: "0",
     borderRadius: "3px 0 0 3px"
 };
-var SlideShowContainer = function (_a) {
-    var children = _a.children;
-    return core_1.jsx("section", { className: "slideshow-container", style: slideshowContainer },
-        children,
-        core_1.jsx("a", { className: "prev", style: buttons }, "\u276E"),
-        core_1.jsx("a", { className: "next", style: buttons, css: {
-                right: "0",
-                borderRadius: "3px 0 0 3px"
-            } }, "\u276F"));
-};
+const SlideShowContainer = ({ children }) => core_1.jsx("section", { className: "slideshow-container", style: slideshowContainer },
+    children,
+    core_1.jsx("a", { className: "prev", style: buttons }, "\u276E"),
+    core_1.jsx("a", { className: "next", style: buttons, css: {
+            right: "0",
+            borderRadius: "3px 0 0 3px"
+        } }, "\u276F"));
 exports.default = SlideShowContainer;

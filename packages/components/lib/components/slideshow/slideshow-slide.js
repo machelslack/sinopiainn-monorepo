@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-var core_1 = require("@emotion/core");
+const core_1 = require("@emotion/core");
 /* Slideshow container */
-var slideshowContainer = {
+const slideshowContainer = {
     maxWidth: "1000px",
     position: "relative",
     margin: "auto"
 };
 /* Next & previous buttons */
-var buttons = {
+const buttons = {
     cursor: "pointer",
     position: "absolute",
     top: "50%",
@@ -25,15 +25,15 @@ var buttons = {
     "&:hover": " background - color: rgba(0, 0, 0, 0.8)"
 };
 /* Position the "next button" to the right */
-var slides = {
+const slides = {
     display: "none"
 };
-var slidesImage = {
+const slidesImage = {
     width: "100%",
     verticalAlign: "middle"
 };
 /* Caption text */
-var slideCaption = {
+const slideCaption = {
     color: "#f2f2f2",
     fontSize: "15px",
     padding: "8px 12px",
@@ -74,10 +74,7 @@ var slideCaption = {
 //     transform: translate3d(0,-4px,0);
 //   }
 // `
-var SlideShowSlide = function (_a) {
-    var caption = _a.caption;
-    return core_1.jsx("div", { className: "mySlides fade", style: slides },
-        core_1.jsx("img", { src: "img_snow_wide.jpg", style: slidesImage }),
-        core_1.jsx("div", { className: "text", style: slideCaption }, caption));
-};
+const SlideShowSlide = () => core_1.jsx("div", { className: "mySlides fade", style: slides },
+    core_1.jsx("img", { src: "https://www.w3schools.com/howto/img_nature_wide.jpg", style: slidesImage }),
+    core_1.jsx("div", { className: "text", style: slideCaption }));
 exports.default = SlideShowSlide;

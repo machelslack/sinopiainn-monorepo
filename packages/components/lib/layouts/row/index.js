@@ -6,3 +6,7 @@ var image_1 = require("./Zig-Zag-Row/image");
 exports.ZigZagRowImage = image_1.default;
 var two_column_row_1 = require("./Two-Column-Row/two-column-row");
 exports.TwoColumnRow = two_column_row_1.default;
+var SingleRow_1 = require("./SingleRow");
+exports.Row = SingleRow_1.default;
+var Column_1 = require("./Column");
+exports.Column = Column_1.default;

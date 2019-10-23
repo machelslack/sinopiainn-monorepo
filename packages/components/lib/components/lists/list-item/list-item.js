@@ -75,15 +75,15 @@ const listBody = {
     "fontWeight": 400,
     "letterSpacing": 0,
     "lineHeight": "18px",
-    height: "52px",
     color: "rgba(0, 0, 0, .54)",
     display: "block",
     padding: 0
 };
-const UnorderedListItem = ({ children }) => React.createElement("li", { className: "mdl-list__item mdl-list__item--three-line", style: mdlListItem },
+const UnorderedListItem = ({ title, subtitle }) => React.createElement("li", { className: "mdl-list__item mdl-list__item--three-line", style: mdlListItem },
+    React.createElement("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle" }),
     React.createElement("span", { className: "mdl-list__item-primary-content", style: shared },
-        React.createElement("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar", style: materialIcons }, "done"),
-        React.createElement("medium", null, "Outdoor Deck And Jerk Pit"),
+        React.createElement("medium", null, title),
+        React.createElement("br", null),
         React.createElement("span", { className: "mdl-list__item-text-body", style: listBody },
-            React.createElement("small", null, "Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay "))));
+            React.createElement("small", null, subtitle))));
 exports.default = UnorderedListItem;

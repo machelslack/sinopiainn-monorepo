@@ -6,7 +6,7 @@ import React, { FunctionComponent } from 'react';
 
 /* Create two columns that float next to eachother */
 const column = {
-  display: "table-cell",
+    display: "table-cell",
     "float": "left",
     "width": "50%",
     "padding": "10px"
@@ -15,8 +15,8 @@ const column = {
 /* Clear floats after the columns */
 const row = {
 
-  display: "table",
-  width: "100%",
+    display: "table",
+    width: "100%",
     // "& :after": {
     //     "content": "",
     //     "display": "table",
@@ -31,20 +31,12 @@ const mq = breakpoints.map(
 )
 
 
-const TwoColumnRow: FunctionComponent<{ leftcolumn: any, rightcolumn: any }> = ({ leftcolumn, rightcolumn }) => <React.Fragment>
-
-<div className="row" style={row}>
-  <div className="column" style={column} >
-  {leftcolumn}
-  </div>
-  <div className="column" style={column} >
-   <p>{rightcolumn}</p>
-  </div>
-</div>
-</React.Fragment>
+const SingleRow: FunctionComponent<{}> = ({ children }) =>
+    <div className="row" style={row}>
+        {children}
+    </div>
 
 
-
-export default TwoColumnRow;
+export default SingleRow;
 
 

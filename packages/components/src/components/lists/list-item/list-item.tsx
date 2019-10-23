@@ -80,21 +80,20 @@ const listBody = {
     "fontWeight": 400,
     "letterSpacing": 0,
     "lineHeight": "18px",
-    height: "52px",
     color: "rgba(0, 0, 0, .54)",
     display: "block",
     padding: 0
 } as React.CSSProperties;
 
 
-const UnorderedListItem: FunctionComponent<{}> = ({ children }) =>
+const UnorderedListItem: FunctionComponent<{title:any,subtitle:any}> = ({ title,subtitle }) =>
     <li className="mdl-list__item mdl-list__item--three-line" style={mdlListItem}>
+         <i className="material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle" ></i>
         <span className="mdl-list__item-primary-content" style={shared}>
-            <i className="material-icons  mdl-list__item-avatar amenitiesAvatar" style={materialIcons}>done</i>
-            <medium>Outdoor Deck And Jerk Pit</medium>
+           
+            <medium>{title}</medium><br></br>
             <span className="mdl-list__item-text-body" style={listBody}>
-                <small>Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for
-      entertaining family and friends during your stay </small>
+                <small>{subtitle}</small>
             </span>
         </span>
     </li>

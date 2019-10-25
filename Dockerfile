@@ -1,13 +1,15 @@
-FROM node:8
+FROM node:10
 
-WORKDIR /
+WORKDIR /app
 
-COPY ./packages/server app
+COPY ./ /app
 
-COPY ./packages/server/package.json package.json
+COPY ./package.json package.json
 
 RUN npm i --ignore-scripts
 
 RUN npm run build
 
-RUN npm run dev
+WORKDIR /app/packages/server
+
+EXPOSE 3000

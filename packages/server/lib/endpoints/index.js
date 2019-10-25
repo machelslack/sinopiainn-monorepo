@@ -7,12 +7,13 @@ const wrapper = (handler) => function handlerWrapper(req, res, next) {
         .catch(next);
 };
 module.exports = (app) => {
-    [
-        ['/', wrapper(handlers_1.pageHandler)],
-        ['/blog', wrapper(handlers_1.pageHandler)],
-        ['/contact', wrapper(handlers_1.pageHandler)],
-        ['/shop', wrapper(handlers_1.pageHandler)],
-    ].forEach(([route, handler]) => {
-        app.get(route, handler);
-    });
+    // [
+    //   ['/', wrapper(pageHandler)],
+    //   ['/blog', wrapper(pageHandler)],
+    //   ['/contact', wrapper(pageHandler)],
+    //   ['/shop', wrapper(pageHandler)],
+    // ].forEach(([route, handler]) => {
+    //   app.get(route,handler);
+    // });
+    app.get("*", wrapper(handlers_1.pageHandler));
 };

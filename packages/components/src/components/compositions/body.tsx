@@ -4,7 +4,8 @@ import { PageLayout } from '../../layouts';
 
 const BodyLayout = (props:any) => <React.Fragment>
     <body>
-        <PageLayout />
+        <PageLayout pageData={props}/>
+        <script src="/public/app.js" defer></script>
     </body>
 </React.Fragment>
 

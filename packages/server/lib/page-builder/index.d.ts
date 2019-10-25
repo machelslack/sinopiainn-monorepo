@@ -1,2 +1,2 @@
-declare const pageBuilder: (req: any) => string;
+declare const pageBuilder: (req: any) => Promise<unknown>;
 export default pageBuilder;

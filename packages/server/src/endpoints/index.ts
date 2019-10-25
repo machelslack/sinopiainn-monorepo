@@ -8,13 +8,16 @@ const wrapper = (handler:any) =>
   };
 
 module.exports = (app:any) => {
-  [
-    ['/', wrapper(pageHandler)],
-    ['/blog', wrapper(pageHandler)],
-    ['/contact', wrapper(pageHandler)],
-    ['/shop', wrapper(pageHandler)],
-  ].forEach(([route, handler]) => {
-    app.get(route,handler);
-  });
+  // [
+  //   ['/', wrapper(pageHandler)],
+  //   ['/blog', wrapper(pageHandler)],
+  //   ['/contact', wrapper(pageHandler)],
+  //   ['/shop', wrapper(pageHandler)],
+  // ].forEach(([route, handler]) => {
+  //   app.get(route,handler);
+  // });
 
+  app.get("*", wrapper(pageHandler));
+  
+ 
 }

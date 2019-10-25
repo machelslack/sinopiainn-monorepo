@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
+import cors from "cors";
 const express = require("express");
 const app = express();
-// Constants
+
+app.use(cors())
+
 const port = 3000;
 const host = '0.0.0.0';
 
 // register routed endpoints
 require('./endpoints/')(app);
+
+app.use(express.static("public"))
 
 app.listen(port, host);
 

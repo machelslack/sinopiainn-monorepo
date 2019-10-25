@@ -33,7 +33,7 @@ const inmageBlockProps = {
     vibes to just chill.`,
 }
 
-const PageLayout: FunctionComponent<{}> = ({ children }) => <React.Fragment>
+const PageLayout: FunctionComponent<{ pageData: any }> = ({ pageData }) => <React.Fragment>
 
     <Global
         styles={css`
@@ -72,7 +72,8 @@ const PageLayout: FunctionComponent<{}> = ({ children }) => <React.Fragment>
         <DatePicker />
     </section>
     <section className="mainCotent">
-        {mainContent['home']()}
+        {console.log(pageData)}
+        {mainContent[pageData]()}
     </section>
     <section className="footer" css={css`{
             background-color: black;

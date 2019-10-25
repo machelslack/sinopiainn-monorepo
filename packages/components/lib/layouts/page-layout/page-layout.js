@@ -33,7 +33,7 @@ const inmageBlockProps = {
     not to mention amazing sunsets that will have you feeling the
     vibes to just chill.`,
 };
-const PageLayout = ({ children }) => core_1.jsx(react_1.default.Fragment, null,
+const PageLayout = ({ pageData }) => core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(core_1.Global, { styles: core_1.css `
           * {
             box-sizing: border-box;
@@ -56,7 +56,9 @@ const PageLayout = ({ children }) => core_1.jsx(react_1.default.Fragment, null,
         core_1.jsx(image_text_block_1.ImageTextBlock, Object.assign({}, inmageBlockProps))),
     core_1.jsx("section", { className: "datePicker" },
         core_1.jsx(datepicker_1.DatePicker, null)),
-    core_1.jsx("section", { className: "mainCotent" }, compositions_1.mainContent['home']()),
+    core_1.jsx("section", { className: "mainCotent" },
+        console.log(pageData),
+        compositions_1.mainContent[pageData]()),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
             background-color: black;
             padding:30px;

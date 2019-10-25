@@ -15,7 +15,7 @@ const textArea = {
   } as React.CSSProperties;
   
 
-const TextArea: FunctionComponent<{inputName:any}> = () => <React.Fragment>
+const TextArea: FunctionComponent<{}> = () => <React.Fragment>
     <input type="text" style={textArea}/>
 </React.Fragment>
 

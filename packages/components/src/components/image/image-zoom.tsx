@@ -1,22 +1,24 @@
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import React, { FunctionComponent } from 'react';
 
-import React, { FunctionComponent, Children } from 'react';
-
-const zoom = {
-  padding: "50px",
-  backgroundColor: "green",
-  transition: "transform .2s",
-  width: "200px",
-  height: "200px",
-  margin: "0 auto",
-  "&:hover": {
-    "-msTransform": "scale(1.5)",
-    "-webkitTransform": "scale(1.5)",
-    "transform": "scale(1.5)"
+const zoom = css`
+  padding: 50px;
+  background-color: green;
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  ":hover": {
+    background-color: blue;
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
   }
-} as React.CSSProperties;
+`
 
 
-const ImageZoom: FunctionComponent<{}> = ({ children }) => <div className="zoom" style={zoom}></div>
+const ImageZoom: FunctionComponent<{}> = () => <div className="zoom" css={zoom}></div>
 export default ImageZoom;
 
 

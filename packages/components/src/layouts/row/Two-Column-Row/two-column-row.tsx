@@ -1,28 +1,40 @@
 /** @jsx jsx */
-import { Global, jsx, css } from '@emotion/core'
-import styled from '@emotion/styled'
+import { jsx, css } from '@emotion/core'
 import React, { FunctionComponent } from 'react';
 
 
 /* Create two columns that float next to eachother */
-const column = {
-  display: "table-cell",
-    "float": "left",
-    "width": "50%",
-    "padding": "10px"
-} as React.CSSProperties;
+
+const column = css`
+display: table-cell;
+float: left;
+width: 50%;
+padding: 10px;
+
+h1 {
+  border-bottom: thin dashed #CB410B;
+  color:#CB410B;
+  font-size:xx-large;
+  font-weight:200;
+}
+
+p{
+  font-weight:100;
+
+}
+`
 
 /* Clear floats after the columns */
-const row = {
+const row = css`
 
-  display: "table",
-  width: "100%",
-    // "& :after": {
-    //     "content": "",
-    //     "display": "table",
-    //     "clear": "both"
-    // }
-} as React.CSSProperties;
+  display: table;
+  width: 100%;
+  &:after: {
+        content: ;
+         display: table;
+         clear: both;
+     }
+`
 
 const breakpoints = [600]
 
@@ -33,11 +45,11 @@ const mq = breakpoints.map(
 
 const TwoColumnRow: FunctionComponent<{ leftcolumn: any, rightcolumn: any }> = ({ leftcolumn, rightcolumn }) => <React.Fragment>
 
-<div className="row" style={row}>
-  <div className="column" style={column} >
+<div className="row" css={row}>
+  <div className="column" css={column} >
   {leftcolumn}
   </div>
-  <div className="column" style={column} >
+  <div className="column" css={column} >
    <p>{rightcolumn}</p>
   </div>
 </div>

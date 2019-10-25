@@ -1,24 +1,30 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import React, { FunctionComponent } from 'react';
-const iconBarItem = {
-    float: "right",
-    width: "20%",
-    textAlign: "center",
-    padding: "5px 0",
-    transition: "all 0.3s ease",
-    color: "white",
-    fontSize: "20px",
-    '&:hover': {
-        'background-color': "#ddd",
-        color: "black"
-    },
-    fontFamily: "Arial"
-} as React.CSSProperties;
+
+const iconBarItem = css`
+float: right;
+textAlign: center;
+transition: all 0.3s ease;
+color: #CB410B;
+fontSize: 20px;
+fontFamily: Arial;
+  i {
+    display: table;
+    padding:0px!important;
+    span {
+        color:black;
+        cursor: pointer;
+        display: table-cell;
+        vertical-align:middle;
+        font-weight:200;
+      }
+  }
+`
 
 const IconBarItem: FunctionComponent<{ iconType: any }> = ({ iconType }) =>
-    <a style={iconBarItem} className="iconBarItem"><i className={`fa ${!!iconType.class && iconType.class}`}>
-        &nbsp; {iconType.text}
+    <a css={iconBarItem} className="iconBarItem"><i className={`fa ${!!iconType.class && iconType.class}`}>
+        &nbsp; <span> {iconType.text} </span>
     </i></a>
 
 export default IconBarItem;

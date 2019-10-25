@@ -1,12 +1,19 @@
+/** @jsx jsx */
+import { Global, jsx, css } from '@emotion/core'
 import React, { FunctionComponent } from 'react';
 
 /* Create two columns that float next to eachother */
-const column = {
-    display: "table-cell",
-    "float": "left",
-    "width": "25%",
-    "padding": "10px"
-} as React.CSSProperties;
+const column = css`
+    padding:10px;
+    display: table-cell;
+    width: 25%;
+    border-right:thin dashed white;
+    h3 {
+        color:#ffffff;
+        font-weight:100;
+        fontSize:20px;
+    }
+`
 
 const breakpoints = [600]
 
@@ -15,7 +22,7 @@ const mq = breakpoints.map(
 )
 
 const Column: FunctionComponent<{}> = ({ children }) =>
-    <div className="column" style={column} >
+    <div className="column" css={column} >
         <p>{children}</p>
     </div>
 

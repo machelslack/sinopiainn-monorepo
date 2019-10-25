@@ -1,16 +1,27 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react")); // importing FunctionComponent
-const scrollmenu = {
-    backgroundColor: "#333",
-    overflow: "auto",
-    whiteSpace: "nowrap",
-    textAlign: "center",
-};
-exports.MenuBar = ({ children }) => react_1.default.createElement("section", { style: scrollmenu, className: "scrollmenu" },
+/** @jsx jsx */
+const core_1 = require("@emotion/core");
+const scrollmenu = core_1.css `
+backgroundColor: #333;
+overflow: auto;
+white-space: nowrap;
+text-align: center;
+  span {
+    color:#CB410B;
+  }
+  a {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 17;
+    padding: 14px 16px;
+    margin: 10;
+    text-align: center;
+  }
+`;
+exports.MenuBar = ({ children }) => core_1.jsx("section", { css: scrollmenu, className: "scrollmenu" },
     " ",
     children,
     " ");

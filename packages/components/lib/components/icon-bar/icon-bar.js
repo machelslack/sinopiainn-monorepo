@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react")); // importing FunctionComponent
 const iconBar = {
     width: "100%",
-    backgroundColor: "#555",
-    overflow: "auto"
+    overflow: "auto",
+    padding: "10px"
 };
 exports.IconBar = ({ children }) => react_1.default.createElement("section", { style: iconBar, className: "iconBar" },
     " ",

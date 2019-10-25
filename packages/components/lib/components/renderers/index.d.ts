@@ -1,1 +1,4 @@
-export declare const renderers: Record<string, any>;
+export declare const renderer: (props: any) => {
+    body: string;
+    head: string;
+};

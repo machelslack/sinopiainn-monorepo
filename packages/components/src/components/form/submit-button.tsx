@@ -13,7 +13,7 @@ const inputSubmit = {
     }
   }
   
-const SubmitButton: FunctionComponent<{inputName:any}> = () => <React.Fragment>
+const SubmitButton: FunctionComponent<{}> = () => <React.Fragment>
     <input type="submit" style={inputSubmit} />
 </React.Fragment>
 

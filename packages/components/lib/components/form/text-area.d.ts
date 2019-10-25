@@ -1,5 +1,3 @@
 import { FunctionComponent } from 'react';
-declare const TextArea: FunctionComponent<{
-    inputName: any;
-}>;
+declare const TextArea: FunctionComponent<{}>;
 export default TextArea;

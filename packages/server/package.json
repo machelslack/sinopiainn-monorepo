@@ -17,13 +17,15 @@
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "tsc",
     "start": "tsc -w",
-    "dev": "node ./lib/index.js"
+    "dev": "node ./lib/index.js",
+    "webpack": "webpack -w & nodemon ./lib/index.js"
   },
   "peerDependencies": {
     "@sinopiainn/components": "1.0.0"
   },
   "devDependencies": {
     "@sinopiainn/components": "*",
+    "nodemon": "^1.19.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"

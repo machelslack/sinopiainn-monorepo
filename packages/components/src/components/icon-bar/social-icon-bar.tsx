@@ -1,27 +1,30 @@
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
 import React, { FunctionComponent } from 'react'; // importing FunctionComponent
 
-const iconBar = {
-    position: "relative",
-    top: "50%",
-    "-webkitTransform": "translateY(-50%)",
-    "-mstransform": "translateY(-50%)",
-    "transform": "translateY(-50%)",
-    "& a":{
-        "display": "inline-block",
-        "textAlign": "center",
-        padding: "16px",
-        transition: "all 0.3s ease",
-        color: "white",
-        fontSize: "20px",
-        "&:hover": {
-            backgroundColor: "#000"
-        }
+const iconBar = css`
+    position: relative;
+    a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+    "& :hover" {
+        background-color: #000
     }
-} as React.CSSProperties;
+    margin:3px;
+    }
+    
+`
 
 const facebook = {
     background: "#3B5998",
     color: "white",
+    "&:hover": {
+        "background-color": "#000"
+      }
 } as React.CSSProperties;
 
 const twitter = {
@@ -44,11 +47,10 @@ const youtube = {
     color: "white"
 } as React.CSSProperties;
 
-export const SocialIconBar: FunctionComponent<{}> = ({ }) => <div style={iconBar}>
+export const SocialIconBar: FunctionComponent<{}> = ({ }) => <div css={iconBar}>
     <a href="#" style={facebook}><i className="fa fa-facebook"></i></a>
     <a href="#" style={twitter}><i className="fa fa-twitter"></i></a>
     <a href="#" style={google}><i className="fa fa-google"></i></a>
-    <a href="#" style={linkedin}><i className="fa fa-linkedin"></i></a>
     <a href="#" style={youtube}><i className="fa fa-youtube"></i></a>
 </div>
 

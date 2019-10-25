@@ -14,14 +14,8 @@ const column = {
 
 /* Clear floats after the columns */
 const row = {
-
     display: "table",
     width: "100%",
-    // "& :after": {
-    //     "content": "",
-    //     "display": "table",
-    //     "clear": "both"
-    // }
 } as React.CSSProperties;
 
 const breakpoints = [600]

@@ -1,5 +1,3 @@
 import { FunctionComponent } from 'react';
-declare const SubmitButton: FunctionComponent<{
-    inputName: any;
-}>;
+declare const SubmitButton: FunctionComponent<{}>;
 export default SubmitButton;

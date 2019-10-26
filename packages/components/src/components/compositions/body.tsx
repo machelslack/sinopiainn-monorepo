@@ -1,11 +1,12 @@
 import React from 'react';
-import { PageLayout } from '../../layouts';
+import serialize from "serialize-javascript"
 
-
-const BodyLayout = (props:any) => <React.Fragment>
-    <body>
-        <PageLayout pageData={props}/>
-        <script src="/public/app.js" defer></script>
+const BodyLayout = (bodyMarkup: any, pageData: any) => <React.Fragment>
+    <body id="clientApp">
+        {bodyMarkup}
+        {`<script>window.__INITIAL_DATA__ =
+            ${serialize(pageData)}</script>`}
+        <script src="/app.js" defer></script>
     </body>
 </React.Fragment>
 

@@ -57,7 +57,7 @@ const PageLayout = ({ pageData }) => core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("section", { className: "datePicker" },
         core_1.jsx(datepicker_1.DatePicker, null)),
     core_1.jsx("section", { className: "mainCotent" },
-        console.log(pageData),
+        console.log(`🍻🍻`, pageData),
         compositions_1.mainContent[pageData]()),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
             background-color: black;

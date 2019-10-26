@@ -72,7 +72,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ pageData }) => <Reac
         <DatePicker />
     </section>
     <section className="mainCotent">
-        {console.log(pageData)}
+        {console.log(`🍻🍻`,pageData)}
         {mainContent[pageData]()}
     </section>
     <section className="footer" css={css`{

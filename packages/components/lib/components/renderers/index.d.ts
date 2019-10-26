@@ -1,4 +1,4 @@
-export declare const renderer: (props: any) => {
+export declare const renderer: (pageData: any) => {
     body: string;
     head: string;
 };

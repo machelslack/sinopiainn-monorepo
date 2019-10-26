@@ -12,7 +12,7 @@ const textBlock = css`
     position: absolute;
     bottom: 20px;
     right: 20px;
-    backgroundColor: black;
+    background-color: black;
     color: white;
     padding-left: 20px;
     padding-right: 20px;
@@ -28,8 +28,8 @@ const image = {
 } as React.CSSProperties;
 
 const textBlockHeading = css`
-    borderBottom: thin dashed #AA9D2E;
-    textAlign:center;
+    border-bottom: thin dashed #AA9D2E;
+    text-align:center;
     color:#AA9D2E;
     font-weight:200;
     font-size:20px;

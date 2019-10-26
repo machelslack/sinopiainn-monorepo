@@ -1,13 +1,13 @@
 export const services: Record<string, any> = {
-    'home': async (req:any) => new Promise(function (resolve, reject) {
+    'home': (req: any) => new Promise((resolve, reject) => {
         console.log(`🍻`);
         resolve('home');
     }),
-    'blog': async (req:any) => new Promise(function (resolve, reject) {
+    'blog': (req: any) => new Promise((resolve, reject) => {
         console.log(`🍻🍻`);
         resolve('blog');
     }),
-    'availability': async (req:any) => new Promise(function (resolve, reject) {
+    'availability': (req: any) => new Promise((resolve, reject) => {
         console.log(`🍻🍻🍻`);
         resolve('availability');
     }),

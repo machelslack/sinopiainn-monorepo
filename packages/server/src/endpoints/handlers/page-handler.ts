@@ -5,14 +5,12 @@ import { apis } from "../apis";
 interface route {
     path?: string;
     exact?: boolean;
-    api?: string;
+    fetchData?: boolean;
 }
 const pageHandler = async (req: any, res: any, next: any) => {
-
     const activeRoute: route = routes.find((route: route) => matchPath(req.url, route)) || {};
-    const promise = activeRoute.api ? apis[req.path] : Promise.resolve();
-    promise(req).then((req: any) => pageBuilder(req).then((page: any) => res.send(page))).catch(next);
-
+    const constructHTML = activeRoute.fetchData ? apis[req.path] : Promise.resolve();
+    constructHTML(req).then((pageData: any) => pageBuilder(pageData).then((html: any) => res.send(html))).catch(next);
 };
 
 export default pageHandler;

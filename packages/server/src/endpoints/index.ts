@@ -1,3 +1,4 @@
+import { routes } from "@sinopiainn/components/lib/configs/routes";
 import {pageHandler} from './handlers';
 
 const wrapper = (handler:any) =>
@@ -8,16 +9,8 @@ const wrapper = (handler:any) =>
   };
 
 module.exports = (app:any) => {
-  // [
-  //   ['/', wrapper(pageHandler)],
-  //   ['/blog', wrapper(pageHandler)],
-  //   ['/contact', wrapper(pageHandler)],
-  //   ['/shop', wrapper(pageHandler)],
-  // ].forEach(([route, handler]) => {
-  //   app.get(route,handler);
-  // });
-
-  app.get("*", wrapper(pageHandler));
-  
- 
+  routes.forEach((route) => {
+    console.log(route);
+    app.get(route.path,wrapper(pageHandler));
+  });
 }

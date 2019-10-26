@@ -9,7 +9,7 @@ const page_builder_1 = __importDefault(require("../../page-builder"));
 const apis_1 = require("../apis");
 const pageHandler = async (req, res, next) => {
     const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};
-    const promise = activeRoute.api ? apis_1.apis[req.path] : Promise.resolve();
-    promise(req).then((req) => page_builder_1.default(req).then((page) => res.send(page))).catch(next);
+    const constructHTML = activeRoute.fetchData ? apis_1.apis[req.path] : Promise.resolve();
+    constructHTML(req).then((pageData) => page_builder_1.default(pageData).then((html) => res.send(html))).catch(next);
 };
 exports.default = pageHandler;

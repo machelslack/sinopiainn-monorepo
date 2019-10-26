@@ -261,7 +261,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction valueOf(obj) {\n  re
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.services = {\n    'home': async (req) => new Promise(function (resolve, reject) {\n        console.log(`🍻`);\n        resolve('home');\n    }),\n    'blog': async (req) => new Promise(function (resolve, reject) {\n        console.log(`🍻🍻`);\n        resolve('blog');\n    }),\n    'availability': async (req) => new Promise(function (resolve, reject) {\n        console.log(`🍻🍻🍻`);\n        resolve('availability');\n    }),\n};\n\n\n//# sourceURL=webpack:///./src/data/services/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.services = {\n    'home': (req) => new Promise((resolve, reject) => {\n        console.log(`🍻`);\n        resolve('home');\n    }),\n    'blog': (req) => new Promise((resolve, reject) => {\n        console.log(`🍻🍻`);\n        resolve('blog');\n    }),\n    'availability': (req) => new Promise((resolve, reject) => {\n        console.log(`🍻🍻🍻`);\n        resolve('availability');\n    }),\n};\n\n\n//# sourceURL=webpack:///./src/data/services/index.ts?");
 
 /***/ }),
 
@@ -297,7 +297,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar pa
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"../../node_modules/react-router-dom/esm/react-router-dom.js\");\nconst routes_1 = __webpack_require__(/*! @sinopiainn/components/lib/configs/routes */ \"@sinopiainn/components/lib/configs/routes\");\nconst page_builder_1 = __importDefault(__webpack_require__(/*! ../../page-builder */ \"./src/page-builder/index.ts\"));\nconst apis_1 = __webpack_require__(/*! ../apis */ \"./src/endpoints/apis/index.ts\");\nconst pageHandler = async (req, res, next) => {\n    const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};\n    const promise = activeRoute.api ? apis_1.apis[req.path] : Promise.resolve();\n    promise(req).then((req) => page_builder_1.default(req).then((page) => res.send(page))).catch(next);\n};\nexports.default = pageHandler;\n\n\n//# sourceURL=webpack:///./src/endpoints/handlers/page-handler.ts?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"../../node_modules/react-router-dom/esm/react-router-dom.js\");\nconst routes_1 = __webpack_require__(/*! @sinopiainn/components/lib/configs/routes */ \"@sinopiainn/components/lib/configs/routes\");\nconst page_builder_1 = __importDefault(__webpack_require__(/*! ../../page-builder */ \"./src/page-builder/index.ts\"));\nconst apis_1 = __webpack_require__(/*! ../apis */ \"./src/endpoints/apis/index.ts\");\nconst pageHandler = async (req, res, next) => {\n    const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};\n    const constructHTML = activeRoute.fetchData ? apis_1.apis[req.path] : Promise.resolve();\n    constructHTML(req).then((pageData) => page_builder_1.default(pageData).then((html) => res.send(html))).catch(next);\n};\nexports.default = pageHandler;\n\n\n//# sourceURL=webpack:///./src/endpoints/handlers/page-handler.ts?");
 
 /***/ }),
 
@@ -309,7 +309,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst handlers_1 = __webpack_require__(/*! ./handlers */ \"./src/endpoints/handlers/index.ts\");\nconst wrapper = (handler) => function handlerWrapper(req, res, next) {\n    Promise.resolve()\n        .then(() => handler(req, res))\n        .catch(next);\n};\nmodule.exports = (app) => {\n    // [\n    //   ['/', wrapper(pageHandler)],\n    //   ['/blog', wrapper(pageHandler)],\n    //   ['/contact', wrapper(pageHandler)],\n    //   ['/shop', wrapper(pageHandler)],\n    // ].forEach(([route, handler]) => {\n    //   app.get(route,handler);\n    // });\n    app.get(\"*\", wrapper(handlers_1.pageHandler));\n};\n\n\n//# sourceURL=webpack:///./src/endpoints/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst routes_1 = __webpack_require__(/*! @sinopiainn/components/lib/configs/routes */ \"@sinopiainn/components/lib/configs/routes\");\nconst handlers_1 = __webpack_require__(/*! ./handlers */ \"./src/endpoints/handlers/index.ts\");\nconst wrapper = (handler) => function handlerWrapper(req, res, next) {\n    Promise.resolve()\n        .then(() => handler(req, res))\n        .catch(next);\n};\nmodule.exports = (app) => {\n    routes_1.routes.forEach((route) => {\n        console.log(route);\n        app.get(route.path, wrapper(handlers_1.pageHandler));\n    });\n};\n\n\n//# sourceURL=webpack:///./src/endpoints/index.ts?");
 
 /***/ }),
 
@@ -321,7 +321,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst cors_1 = __importDefault(__webpack_require__(/*! cors */ \"cors\"));\nconst express = __webpack_require__(/*! express */ \"express\");\nconst app = express();\napp.use(cors_1.default());\nconst port = 3000;\nconst host = '0.0.0.0';\n// register routed endpoints\n__webpack_require__(/*! ./endpoints/ */ \"./src/endpoints/index.ts\")(app);\napp.use(express.static(\"public\"));\napp.listen(port, host);\nconsole.log(`Running on http://${host}:${port}`);\n\n\n//# sourceURL=webpack:///./src/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst cors_1 = __importDefault(__webpack_require__(/*! cors */ \"cors\"));\nconst express = __webpack_require__(/*! express */ \"express\");\nconst app = express();\napp.use(cors_1.default());\nconst port = 3000;\nconst host = '0.0.0.0';\n// register routed endpoints\n__webpack_require__(/*! ./endpoints/ */ \"./src/endpoints/index.ts\")(app);\napp.listen(port, host);\nconsole.log(`Running on http://${host}:${port}`);\n\n\n//# sourceURL=webpack:///./src/index.tsx?");
 
 /***/ }),
 

@@ -4,16 +4,16 @@ exports.routes = [
     {
         path: '/',
         exact: true,
-        api: 'fetchHomeData'
+        fetchData: true
     },
     {
         path: '/blog',
         exact: true,
-        api: 'fetchBlogData'
+        fetchData: true
     },
     {
         path: '/availability',
         exact: true,
-        api: 'fetchAvailabilityData'
+        fetchData: true
     }
 ];

@@ -12,8 +12,6 @@ const host = '0.0.0.0';
 // register routed endpoints
 require('./endpoints/')(app);
 
-app.use(express.static("public"))
-
 app.listen(port, host);
 
 console.log(`Running on http://${host}:${port}`);

@@ -8,12 +8,11 @@ const core_1 = require("@emotion/core");
 const react_1 = __importDefault(require("react"));
 const image_text_block_1 = require("../../components/image-text-block/");
 const icon_bar_1 = require("../../components/icon-bar/");
-const menu_1 = require("../../components/menu/");
 const datepicker_1 = require("../../components/datepicker");
 const row_1 = require("../row");
 const image_1 = require("../../components/image/");
 const logo_1 = require("../../components/logo");
-const compositions_1 = require("../../components/compositions");
+const navigation_1 = require("../../components/navigation");
 const iconBarItems = [
     { class: '', text: '001-876-12345678' },
     { class: 'fa-phone', text: '' },
@@ -33,7 +32,7 @@ const inmageBlockProps = {
     not to mention amazing sunsets that will have you feeling the
     vibes to just chill.`,
 };
-const PageLayout = ({ pageData }) => core_1.jsx(react_1.default.Fragment, null,
+const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(core_1.Global, { styles: core_1.css `
           * {
             box-sizing: border-box;
@@ -49,16 +48,12 @@ const PageLayout = ({ pageData }) => core_1.jsx(react_1.default.Fragment, null,
         }))),
     core_1.jsx(logo_1.Logo, null),
     core_1.jsx("section", { className: "mainNavigation" },
-        core_1.jsx(menu_1.MenuBar, null, menuBarItems.map(item => {
-            return core_1.jsx(menu_1.MenuItem, { label: item });
-        }))),
+        core_1.jsx(navigation_1.NavBar, null)),
     core_1.jsx("section", { className: "heroImage" },
         core_1.jsx(image_text_block_1.ImageTextBlock, Object.assign({}, inmageBlockProps))),
     core_1.jsx("section", { className: "datePicker" },
         core_1.jsx(datepicker_1.DatePicker, null)),
-    core_1.jsx("section", { className: "mainCotent" },
-        console.log(`🍻🍻`, pageData),
-        compositions_1.mainContent[pageData]()),
+    core_1.jsx("section", { className: "mainCotent" }, children),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
             background-color: black;
             padding:30px;

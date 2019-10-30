@@ -10,7 +10,7 @@ interface route {
 const pageHandler = async (req: any, res: any, next: any) => {
     const activeRoute: route = routes.find((route: route) => matchPath(req.url, route)) || {};
     const constructHTML = activeRoute.fetchData ? apis[req.path] : Promise.resolve();
-    constructHTML(req).then((pageData: any) => pageBuilder(pageData).then((html: any) => res.send(html))).catch(next);
+    constructHTML(req).then((pageData: any) => pageBuilder(pageData,req).then((html: any) => res.send(html))).catch(next);
 };
 
 export default pageHandler;

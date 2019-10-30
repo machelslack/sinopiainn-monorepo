@@ -10,6 +10,6 @@ const apis_1 = require("../apis");
 const pageHandler = async (req, res, next) => {
     const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};
     const constructHTML = activeRoute.fetchData ? apis_1.apis[req.path] : Promise.resolve();
-    constructHTML(req).then((pageData) => page_builder_1.default(pageData).then((html) => res.send(html))).catch(next);
+    constructHTML(req).then((pageData) => page_builder_1.default(pageData, req).then((html) => res.send(html))).catch(next);
 };
 exports.default = pageHandler;

@@ -10,7 +10,7 @@ import { SlideShowContainer, SlideShowSlide, SlideShowDots } from '../../compone
 import { UnorderedList, UnorderedListItem } from '../../components/lists';
 import { ImageZoom } from '../../components/image/'
 import { Logo } from '../../components/logo';
-import { mainContent } from '../../components/compositions';
+import { NavBar } from '../../components/navigation';
 const iconBarItems = [
     { class: '', text: '001-876-12345678' },
     { class: 'fa-phone', text: '' },
@@ -33,7 +33,7 @@ const inmageBlockProps = {
     vibes to just chill.`,
 }
 
-const PageLayout: FunctionComponent<{ pageData: any }> = ({ pageData }) => <React.Fragment>
+const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }) => <React.Fragment>
 
     <Global
         styles={css`
@@ -57,13 +57,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ pageData }) => <Reac
     </section>
     <Logo />
     <section className="mainNavigation">
-        <MenuBar>
-            {
-                menuBarItems.map(item => {
-                    return <MenuItem label={item} />
-                })
-            }
-        </MenuBar>
+        <NavBar />
     </section>
     <section className="heroImage">
         <ImageTextBlock {...inmageBlockProps} />
@@ -72,8 +66,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ pageData }) => <Reac
         <DatePicker />
     </section>
     <section className="mainCotent">
-        {console.log(`🍻🍻`,pageData)}
-        {mainContent[pageData]()}
+        {children}
     </section>
     <section className="footer" css={css`{
             background-color: black;

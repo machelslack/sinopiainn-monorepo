@@ -9,3 +9,7 @@ services:
       dockerfile: Dockerfile
     command: npm run dev
     ipc: host
+
+
+## run docker-compose up 
+## then docker-compose ps to see expose to port 0.0.0.0:32769

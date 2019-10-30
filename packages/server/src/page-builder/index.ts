@@ -1,9 +1,8 @@
 import { generateTemplate } from "../templates";
 
-const pageBuilder = (req: any) =>
+const pageBuilder = (pageData:any,req: any) =>
     new Promise(function (resolve, reject) {
-        const pageData = req;
-        const template = generateTemplate(pageData);
+        const template = generateTemplate(pageData,req);
         resolve(template);
     });
 

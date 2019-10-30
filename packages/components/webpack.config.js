@@ -1,18 +1,12 @@
 const path = require('path');
 var webpack = require('webpack')
-var nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
-  entry: './src/index.tsx',
-  target: 'node',
-  // externals: [nodeExternals()],
+  entry: './src/client/index.js',
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: 'index.js',
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    filename: 'app.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -25,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __isBrowser__: "false"
+      __isBrowser__: "true"
     })
   ]
-};
+}

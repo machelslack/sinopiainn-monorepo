@@ -1,10 +1,13 @@
-import React, { Component } from 'react'; // l
+import React, { Component } from 'react';
 import { PageLayout } from '../layouts';
 import { routes } from '../configs/routes';
 import { Route, Switch } from 'react-router';
 
 class App extends Component<{ pageData: any }> {
     render() {
+
+        console.log(`client side app 🕺🕺🕺🕺🕺🕺🕺`);
+
         return (
             <React.Fragment>
                 <PageLayout {...this.props} >

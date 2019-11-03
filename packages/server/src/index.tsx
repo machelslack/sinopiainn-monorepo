@@ -2,8 +2,12 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import cors from "cors";
 const express = require("express");
+import { staticFilesRouter } from './endpoints/static-files';
+
 const app = express();
 
+// static files endpoint addd here for performance to prevent unnecessary firing of all middleware
+app.use(staticFilesRouter);
 app.use(cors())
 
 const port = 3000;

@@ -25,7 +25,7 @@ const listItems = [
         title: 'Local guided tours',
         subtitle: '',
     }, {
-        title: 'Airport shuttle: pick up and drop off can be arranged',
+        title: 'Airport shuttle: pick up and drop off',
         subtitle: '',
     }, {
         title: 'Private car hire available for long and short trips',
@@ -87,7 +87,7 @@ const fourthRowLeftcolumn = <React.Fragment>
     <UnorderedList>
         {
             listItems.map(item => {
-                return <UnorderedListItem title={item.title} subtitle={item.subtitle}></UnorderedListItem>
+                return <UnorderedListItem title={item.title} subtitle={item.subtitle} icon='' image=''></UnorderedListItem>
             })
         }
 

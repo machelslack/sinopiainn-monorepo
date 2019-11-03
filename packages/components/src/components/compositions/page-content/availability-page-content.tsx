@@ -6,10 +6,15 @@ import { TextField, SelectField, TextArea, SubmitButton } from '../../form';
 
 //leftcolumn
 
-
 const ul = css` list-style:none; width:100%; `;
 
-const div = css`display:table`;
+const div = css`display:table
+
+& .innderDiv {
+  display:table-cell; vertical-align:middle;
+}
+
+`;
 
 const innerDiv = css`display:table-cell; vertical-align:middle;`;
 
@@ -19,15 +24,29 @@ const firstLine = css`font-size:16px`;
 
 const secondLine = css`font-size:11px`;
 
+const close = css`position: absolute;
+right: 0;
+top: 0;
+padding: 12px 16px 12px 16px;`;
 
-{/* <ul class="middle">
-  <li>
-    <i class="icon-cog icon-2x"></i> <a href="#">very long multiline item one</a>
-  </li>
-  <li>
-    <i class="icon-pencil icon-2x"></i> <a href="#">very long multiline item two</a>
-  </li>
-</ul> */}
+
+
+const table = css`
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+`
+
+const td = css`  text-align: left;
+padding: 8px;`
+
+const tableDiv = css`overflow-x:auto;`
+
+const th = css`border:red thin solid; color red;text-align: left;
+padding: 8px;`
+
+// tr: nth - child(even){ background - color: #f2f2f2 }
 
 const leftcolumn = <React.Fragment>
   <ul css={ul}>
@@ -45,6 +64,9 @@ const leftcolumn = <React.Fragment>
             Enjoy our traditional Jamaican breakfast included as part of our nightly room rates
           </span>
         </div>
+        <div css={innerDiv}>
+          <span className="close">×</span>
+        </div>
       </div>
     </li>
   </ul>
@@ -53,9 +75,28 @@ const leftcolumn = <React.Fragment>
 //rightcolumn 
 const optionsArray = ['option 1', 'option 2', 'option 3'];
 
-const rightcolumn = <React.Fragment></React.Fragment>
+const rightcolumn = <React.Fragment>
+
+  <div css={tableDiv}>
+    <table css={table}>
+      <tr>
+        <th css={th} colSpan={3} >First Name</th>
+      </tr>
+      <tr>
+        <td css={td}>First Name</td>
+        <td css={td}>Last Name</td>
+        <td css={td}>Points</td>
+      </tr>
+    </table>
+  </div>
+
+
+
+
+</React.Fragment>
 
 const AvailabilityPageContent: FunctionComponent<{}> = () => <React.Fragment>
+  <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
   <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
 </React.Fragment>
 

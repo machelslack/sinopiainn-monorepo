@@ -2,11 +2,14 @@ const path = require('path');
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/client/index.js',
+  entry: './src/client/index.tsx',
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: 'app.js',
     publicPath: '/'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   module: {
     rules: [

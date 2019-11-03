@@ -27,7 +27,7 @@ const listItems = [
         title: 'Local guided tours',
         subtitle: '',
     }, {
-        title: 'Airport shuttle: pick up and drop off can be arranged',
+        title: 'Airport shuttle: pick up and drop off',
         subtitle: '',
     }, {
         title: 'Private car hire available for long and short trips',
@@ -64,7 +64,7 @@ const thirdRowLeftcolumn = react_1.default.createElement(react_1.default.Fragmen
 const fourthRowLeftcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " Why book with us?"),
     react_1.default.createElement(lists_1.UnorderedList, null, listItems.map(item => {
-        return react_1.default.createElement(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle });
+        return react_1.default.createElement(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: '', image: '' });
     })));
 const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
     react_1.default.createElement(slideshow_1.SlideShowSlide, null),

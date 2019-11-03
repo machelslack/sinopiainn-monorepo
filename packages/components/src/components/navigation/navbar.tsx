@@ -6,7 +6,7 @@ export default function Navbar () {
     const menuBarItems = [
         {
             name:'HOME',
-            route:''
+            route:'/'
         },
         {
             name:'BLOG',
@@ -25,10 +25,7 @@ export default function Navbar () {
     <MenuBar>
     {
         menuBarItems.map(item => {
-            return <MenuItem label={item.name}> 
-            <NavLink activeStyle={{fontWeight: 'bold'}} to={`/${item.route}`}>
-            {item.name}
-          </NavLink>
+            return <MenuItem label={item.name} href={item.route}> 
             </MenuItem>
         })
     }

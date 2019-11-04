@@ -8,7 +8,8 @@ margin-left: auto;
 margin-right: auto;
 width:50%;
 `;
-const Logo = () => core_1.jsx("section", null,
+const logoSection = core_1.css `background-color:#f1f1f1;`;
+const Logo = () => core_1.jsx("section", { css: logoSection },
     " ",
-    core_1.jsx("img", { css: logo, className: "logo", src: "", alt: "Sinopoa Inn Logo" }));
+    core_1.jsx("img", { css: logo, className: "logo", src: "assets/images/logo/logo.png", alt: "Sinopoa Inn Logo" }));
 exports.Logo = Logo;

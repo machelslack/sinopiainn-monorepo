@@ -1,9 +1,7 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react")); // importing FunctionComponent
+/** @jsx jsx */
+const core_1 = require("@emotion/core");
 const datepicker = {
     overflow: "hidden",
     backgroundColor: "#333",
@@ -38,10 +36,13 @@ const sticky = {
     top: "0",
     width: "100%"
 };
-exports.Datepicker = ({ children }) => react_1.default.createElement("section", { style: datepicker, className: "datepicker" },
-    react_1.default.createElement("form", { className: "form-inline", action: "/action_page.php", style: formInline },
-        react_1.default.createElement("input", { type: "text", style: inputStyles }),
-        react_1.default.createElement("input", { type: "text", style: inputStyles }),
-        react_1.default.createElement("input", { type: "text", style: inputStyles }),
-        react_1.default.createElement("button", { type: "submit", style: buttonStyles }, "CHECK AVAILABILTY")));
+const button = core_1.css `
+  font-family: 'FontspringRegular';
+  `;
+exports.Datepicker = ({ children }) => core_1.jsx("section", { style: datepicker, className: "datepicker" },
+    core_1.jsx("form", { className: "form-inline", action: "/action_page.php", style: formInline },
+        core_1.jsx("input", { type: "text", style: inputStyles }),
+        core_1.jsx("input", { type: "text", style: inputStyles }),
+        core_1.jsx("input", { type: "text", style: inputStyles }),
+        core_1.jsx("button", { type: "submit", style: buttonStyles, css: button }, "CHECK AVAILABILTY")));
 exports.default = exports.Datepicker;

@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { Global, jsx, css } from '@emotion/core'
 import React, { FunctionComponent } from 'react'; // importing FunctionComponent
 import { TextField } from '../form/';
 
@@ -42,13 +44,17 @@ const sticky = {
     top: "0",
     width: "100%"
   }
+
+  const button = css`
+  font-family: 'FontspringRegular';
+  `
   
 export const Datepicker: FunctionComponent<{}> = ({ children }) => <section style={datepicker} className="datepicker">
     <form className="form-inline" action="/action_page.php" style={formInline}>
         <input type="text" style={inputStyles} />
         <input type="text" style={inputStyles} />
         <input type="text" style={inputStyles} />
-        <button type="submit" style={buttonStyles}>CHECK AVAILABILTY</button>
+        <button type="submit" style={buttonStyles} css={button}>CHECK AVAILABILTY</button>
     </form>
 </section>
 

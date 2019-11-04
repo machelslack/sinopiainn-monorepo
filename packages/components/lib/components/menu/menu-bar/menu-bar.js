@@ -19,6 +19,10 @@ text-align: center;
     padding: 14px 16px;
     margin: 10;
     text-align: center;
+    font-family: 'FontspringLight';
+  }
+  a:hover {
+    color:#CB410B;
   }
 `;
 exports.MenuBar = ({ children }) => core_1.jsx("section", { css: scrollmenu, className: "scrollmenu" },

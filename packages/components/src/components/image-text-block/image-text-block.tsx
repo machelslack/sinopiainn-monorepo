@@ -10,7 +10,7 @@ const container = {
 
 const textBlock = css`
     position: absolute;
-    bottom: 20px;
+    top: 30%;
     right: 20px;
     background-color: black;
     color: white;
@@ -19,7 +19,8 @@ const textBlock = css`
     width: 25%;
     font-weight:200;
     opacity: 0.7;
-    filter: alpha(opacity=70)
+    filter: alpha(opacity=70);
+    font-family: 'FontspringRegular';
 `
 
 /* Position the "next button" to the right */
@@ -30,17 +31,23 @@ const image = {
 const textBlockHeading = css`
     border-bottom: thin dashed #AA9D2E;
     text-align:center;
-    color:#AA9D2E;
-    font-weight:200;
-    font-size:20px;
+  font-size:xxx-large;
+  font-weight:200;
+  font-family: 'FontspringLight';
+  padding-bottom:5px;
 `
+
+const textBlockParagraph = css`
+position:relative;top:-40px;
+`
+
 
 const ImageTextBlock: FunctionComponent<{ imgSrc: any, heading: any, paragragh: any }> = ({ imgSrc, heading, paragragh }) =>
     <section className="container" style={container}>
         <img src={imgSrc} alt={heading} style={image} />
         <div className="text-block" css={textBlock}>
             <h4 css={textBlockHeading}>{heading}</h4>
-            <p>{paragragh}</p>
+            <p css={textBlockParagraph}>{paragragh}</p>
         </div>
     </section>
 

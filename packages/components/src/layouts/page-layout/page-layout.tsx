@@ -24,7 +24,7 @@ const menuBarItems = [
 ]
 
 const inmageBlockProps = {
-    imgSrc: 'https://www.w3schools.com/howto/img_nature_wide.jpg',
+    imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
     heading: 'WELCOME',
     paragragh: `Sinopia Inn would like to welcome you to its rustic hideaway. 
     Here you can experience tropical views with lush
@@ -44,6 +44,27 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             font-family: Arial;
             background: #ffffff;
           }
+          @font-face {
+            font-family: 'Waiting for the Sunrise';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Waiting for the Sunrise'), local('WaitingfortheSunrise'), url(http://fonts.gstatic.com/s/waitingforthesunrise/v7/eNfH7kLpF1PZWpsetF-ha6dq3j6WwEb-fqwg9dMLRYwC1LhKU8qFLLahJuQDJSaO.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+          }
+          @font-face {
+            font-family: Fontspring;
+            src: url(assets/fonts/fontSpring/Fontspring-DEMO-cera-medium.otf);
+            }
+            
+            @font-face {
+            font-family: FontspringLight;
+            src: url(assets/fonts/fontSpring/Fontspring-DEMO-cera-light.otf);
+            }
+            
+            @font-face {
+            font-family: FontspringRegular;
+            src: url(assets/fonts/fontSpring/Fontspring-DEMO-cera-regular.otf);
+            }
           `}
     />
     <section className="topNavigation">

@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const react_1 = __importDefault(require("react"));
 /* Create two columns that float next to eachother */
+//   color:#CB410B;
 const column = core_1.css `
 display: table-cell;
 float: left;
@@ -15,13 +16,15 @@ padding: 10px;
 
 h1 {
   border-bottom: thin dashed #CB410B;
-  color:#CB410B;
-  font-size:xx-large;
+  font-size:xxx-large;
   font-weight:200;
+  font-family: 'FontspringLight';
+  padding-bottom:20px;
 }
 
 p{
   font-weight:100;
+  font-family: 'FontspringRegular';
 
 }
 `;

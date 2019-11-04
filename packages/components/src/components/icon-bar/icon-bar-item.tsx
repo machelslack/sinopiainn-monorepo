@@ -8,7 +8,7 @@ textAlign: center;
 transition: all 0.3s ease;
 color: #CB410B;
 fontSize: 20px;
-fontFamily: Arial;
+fontFamily: FontspringRegular;
   i {
     display: table;
     padding:0px!important;

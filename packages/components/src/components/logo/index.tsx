@@ -9,9 +9,10 @@ margin-left: auto;
 margin-right: auto;
 width:50%;
 `
+const logoSection = css`background-color:#f1f1f1;`
 
 
-const Logo: FunctionComponent<{}> = () => <section> <img css={logo} className="logo" src="" alt="Sinopoa Inn Logo"></img></section>
+const Logo: FunctionComponent<{}> = () => <section css={logoSection}> <img css={logo} className="logo" src="assets/images/logo/logo.png" alt="Sinopoa Inn Logo"></img></section>
 
 export { Logo };
 

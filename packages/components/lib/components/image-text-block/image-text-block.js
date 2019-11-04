@@ -8,7 +8,7 @@ const container = {
 };
 const textBlock = core_1.css `
     position: absolute;
-    bottom: 20px;
+    top: 30%;
     right: 20px;
     background-color: black;
     color: white;
@@ -17,7 +17,8 @@ const textBlock = core_1.css `
     width: 25%;
     font-weight:200;
     opacity: 0.7;
-    filter: alpha(opacity=70)
+    filter: alpha(opacity=70);
+    font-family: 'FontspringRegular';
 `;
 /* Position the "next button" to the right */
 const image = {
@@ -26,13 +27,17 @@ const image = {
 const textBlockHeading = core_1.css `
     border-bottom: thin dashed #AA9D2E;
     text-align:center;
-    color:#AA9D2E;
-    font-weight:200;
-    font-size:20px;
+  font-size:xxx-large;
+  font-weight:200;
+  font-family: 'FontspringLight';
+  padding-bottom:5px;
+`;
+const textBlockParagraph = core_1.css `
+position:relative;top:-40px;
 `;
 const ImageTextBlock = ({ imgSrc, heading, paragragh }) => core_1.jsx("section", { className: "container", style: container },
     core_1.jsx("img", { src: imgSrc, alt: heading, style: image }),
     core_1.jsx("div", { className: "text-block", css: textBlock },
         core_1.jsx("h4", { css: textBlockHeading }, heading),
-        core_1.jsx("p", null, paragragh)));
+        core_1.jsx("p", { css: textBlockParagraph }, paragragh)));
 exports.default = ImageTextBlock;

@@ -8,11 +8,11 @@ const div = css`display:table`;
 
 const innerDiv = css`display:table-cell; vertical-align:middle;`;
 
-const i = css`font-size:40px;padding:5px; line-height:1;`;
+const i = css`font-size:40px;padding:5px; line-height:1;color:#CB410B;`;
 
-const firstLine = css`font-size:16px`;
+const firstLine = css`font-size:16px;  font-family: 'FontspringRegular';`;
 
-const secondLine = css`font-size:12px`;
+const secondLine = css`font-size:12px;  font-family: 'FontspringLight';`;
 
 const UnorderedListItem: FunctionComponent<{ title: any, subtitle: any , icon:any, image:any}> = ({ title, subtitle ,icon, image}) =>
     <li>

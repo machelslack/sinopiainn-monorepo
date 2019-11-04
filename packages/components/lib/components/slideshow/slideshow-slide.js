@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
+const react_1 = require("react");
 /* Slideshow container */
 const slideshowContainer = {
     maxWidth: "1000px",
@@ -26,7 +27,10 @@ const buttons = {
 };
 /* Position the "next button" to the right */
 const slides = {
-    display: "none"
+    display: "none",
+    "backgroundColor": "white",
+    padding: "10px",
+    "boxShadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 };
 const slidesImage = {
     width: "100%",
@@ -74,7 +78,11 @@ const slideCaption = {
 //     transform: translate3d(0,-4px,0);
 //   }
 // `
-const SlideShowSlide = () => core_1.jsx("div", { className: "mySlides fade", style: slides },
-    core_1.jsx("img", { src: "https://www.w3schools.com/howto/img_nature_wide.jpg", style: slidesImage }),
-    core_1.jsx("div", { className: "text", style: slideCaption }));
+class SlideShowSlide extends react_1.Component {
+    render() {
+        return (core_1.jsx("div", { className: `mySlides${this.props.slideNumber} fade`, style: slides },
+            core_1.jsx("img", { src: this.props.imgSrc, style: slidesImage }),
+            core_1.jsx("div", { className: "text", style: slideCaption })));
+    }
+}
 exports.default = SlideShowSlide;

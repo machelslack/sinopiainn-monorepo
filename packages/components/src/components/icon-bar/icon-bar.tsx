@@ -4,6 +4,7 @@ const iconBar = {
     width: "100%",
     overflow: "auto",
     padding:"10px"
+    
 } as React.CSSProperties;
 
 export const IconBar: FunctionComponent<{}> = ({ children }) => <section style={iconBar} className="iconBar"> {children} </section>

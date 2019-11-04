@@ -1,7 +1,7 @@
 
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
-import React, { FunctionComponent } from 'react';
+import React, { Component } from 'react';
 
 
 /* Slideshow container */
@@ -37,15 +37,21 @@ const next = {
     borderRadius: "3px 0 0 3px"
 } as React.CSSProperties;
 
+class SlideShowContainer extends Component<{}> {
 
-const SlideShowContainer: FunctionComponent<{}> = ({ children }) =>
-    <section className="slideshow-container" style={slideshowContainer}>
-        {children}
-        <a className="prev" style={buttons}>&#10094;</a>
-        <a className="next" style={buttons} css={{
-            right: "0",
-            borderRadius: "3px 0 0 3px"
-        }}>&#10095;</a>
-    </section>
+    render() {
+ 
+        return (
+            <section className="slideshow-container" style={slideshowContainer}>
+            {this.props.children}
+            <a className="prev" style={buttons}>&#10094;</a>
+            <a className="next" style={buttons} css={{
+                right: "0",
+                borderRadius: "3px 0 0 3px"
+            }}>&#10095;</a>
+        </section>
+        )
+    }
+}
 
-export default SlideShowContainer;
+export default SlideShowContainer

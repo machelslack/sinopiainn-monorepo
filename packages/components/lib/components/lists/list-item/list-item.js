@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@emotion/core");
 const div = core_1.css `display:table`;
 const innerDiv = core_1.css `display:table-cell; vertical-align:middle;`;
-const i = core_1.css `font-size:40px;padding:5px; line-height:1;color:#CB410B;`;
+const i = core_1.css `font-size:40px;padding:10px; line-height:1;color:#CB410B;`;
 const firstLine = core_1.css `font-size:16px;  font-family: 'FontspringRegular';`;
 const secondLine = core_1.css `font-size:12px;  font-family: 'FontspringLight';`;
 const UnorderedListItem = ({ title, subtitle, icon, image }) => core_1.jsx("li", null,

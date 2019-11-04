@@ -8,7 +8,7 @@ const div = css`display:table`;
 
 const innerDiv = css`display:table-cell; vertical-align:middle;`;
 
-const i = css`font-size:40px;padding:5px; line-height:1;color:#CB410B;`;
+const i = css`font-size:40px;padding:10px; line-height:1;color:#CB410B;`;
 
 const firstLine = css`font-size:16px;  font-family: 'FontspringRegular';`;
 

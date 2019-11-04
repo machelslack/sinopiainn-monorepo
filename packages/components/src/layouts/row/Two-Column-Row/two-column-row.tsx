@@ -9,7 +9,8 @@ const column = css`
 display: table-cell;
 float: left;
 width: 50%;
-padding: 10px;
+padding: 30px;
+vertical-align:middle;
 
 h1 {
   border-bottom: thin dashed #CB410B;
@@ -22,6 +23,7 @@ h1 {
 p{
   font-weight:100;
   font-family: 'FontspringRegular';
+  line-height:2;
 
 }
 `

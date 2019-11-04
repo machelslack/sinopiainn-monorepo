@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
+const row_1 = require("../../layouts/row");
 const container = {
     position: "relative",
     fontFamily: "Arial",
@@ -35,9 +36,18 @@ const textBlockHeading = core_1.css `
 const textBlockParagraph = core_1.css `
 position:relative;top:-40px;
 `;
+const iconTypes = [
+    { class: 'fa-phone', text: '', title: 'Jamaican Breakfast', subtitle: 'included in our room rates' },
+    { class: 'fa-phone', text: '', title: 'On Site Security', subtitle: 'during your stay' },
+    { class: 'fa-phone', text: '', title: 'Free Parking', subtitle: 'for your entire stay' },
+    { class: 'fa-phone', text: '', title: 'Airport Shuttle', subtitle: 'for all guests' },
+    { class: 'fa-phone', text: '', title: 'WIFI 24/7', subtitle: 'connection in all rooms ' },
+    { class: 'fa-phone', text: '', title: 'Caribbean Inspired Baskets', subtitle: 'for 3 nights stay or more' },
+];
 const ImageTextBlock = ({ imgSrc, heading, paragragh }) => core_1.jsx("section", { className: "container", style: container },
     core_1.jsx("img", { src: imgSrc, alt: heading, style: image }),
     core_1.jsx("div", { className: "text-block", css: textBlock },
         core_1.jsx("h4", { css: textBlockHeading }, heading),
-        core_1.jsx("p", { css: textBlockParagraph }, paragragh)));
+        core_1.jsx("p", { css: textBlockParagraph }, paragragh)),
+    core_1.jsx(row_1.SixColumnRow, { iconTypes: iconTypes }));
 exports.default = ImageTextBlock;

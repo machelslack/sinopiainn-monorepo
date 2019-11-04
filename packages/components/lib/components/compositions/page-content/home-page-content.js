@@ -1,9 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
+const react_1 = __importStar(require("react"));
 const row_1 = require("../../../layouts/row");
 const slideshow_1 = require("../../slideshow");
 const lists_1 = require("../../lists");
@@ -21,21 +25,20 @@ const listItems = [
         title: 'Outdoor Deck And Jerk Pit',
         subtitle: 'Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay',
     }, {
-        title: 'Spacious lobby, dining and seating areas',
-        subtitle: '',
-    }, {
         title: 'Local guided tours',
         subtitle: '',
     }, {
         title: 'Airport shuttle: pick up and drop off',
         subtitle: '',
     }, {
-        title: 'Private car hire available for long and short trips',
-        subtitle: '',
-    }, {
         title: 'Free parking',
         subtitle: '',
     }
+];
+const slideshowImages = [
+    'assets/images/slideshow/homepage/photo_1.jpg',
+    'assets/images/slideshow/homepage/photo_2.jpg',
+    'assets/images/slideshow/homepage/photo_3.jpg',
 ];
 const firstRowLeftcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " SINOPIA INN"),
@@ -43,10 +46,10 @@ const firstRowLeftcolumn = react_1.default.createElement(react_1.default.Fragmen
     react_1.default.createElement("p", null, " Set on two acres of lush green gardens, Sinopia Inn is an early twentieth century house refurbished with modern interior decor that still evokes a feeling of going back in time. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. The units are perfect for families, couples or groups to use as a base to explore the natural parish of Portland, Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril. It\u2019s not like you\u2019re turning your back on traditional island vacations that include all-inclusive beaches and drinks, but it is a positive alternative experience of the cool countryside, its beaches and local culture."),
     " ");
 const firstRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    react_1.default.createElement(slideshow_1.SlideShowSlide, null),
+    slideshowImages.map((src) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })),
     react_1.default.createElement(slideshow_1.SlideShowDots, null));
 const secondRowLeftcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    react_1.default.createElement(slideshow_1.SlideShowSlide, null),
+    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 2 })),
     react_1.default.createElement(slideshow_1.SlideShowDots, null));
 const secondRowRightcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " OUR ROOMS"),
@@ -54,7 +57,7 @@ const secondRowRightcolumn = react_1.default.createElement(react_1.default.Fragm
     react_1.default.createElement("p", null, " We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms. Prices include breakfast and range from $115\u2013$125 for a double and $130\u2013$140 for a family sized room, depending on the day and the season. The complete property sleeps 10 quite comfortably at $480 per night Please use the form to search rates and availability. Guests are welcome to check in from 1pm onwards and we need them to check out before 11am. A valid credit or debit card is required to confirm the booking. If the booking is cancelled less than 45 days before arrival, then a charge may apply - depending on the season.  In the event of a \u2018no show\u2019 the full cost of the booking will be charged. During peak season, a minimum three-night stay may be required."),
     " ");
 const thirdRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    react_1.default.createElement(slideshow_1.SlideShowSlide, null),
+    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })),
     react_1.default.createElement(slideshow_1.SlideShowDots, null));
 const thirdRowLeftcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " OUR AMENITIES"),
@@ -67,11 +70,48 @@ const fourthRowLeftcolumn = react_1.default.createElement(react_1.default.Fragme
         return react_1.default.createElement(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: '', image: '' });
     })));
 const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    react_1.default.createElement(slideshow_1.SlideShowSlide, null),
+    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 4 })),
     react_1.default.createElement(slideshow_1.SlideShowDots, null));
-const HomePageContent = (props) => react_1.default.createElement(react_1.default.Fragment, null,
-    react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: firstRowLeftcolumn, rightcolumn: firstRowRightcolumn }),
-    react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: secondRowLeftcolumn, rightcolumn: secondRowRightcolumn }),
-    react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: thirdRowLeftcolumn, rightcolumn: thirdRowRightcolumn }),
-    react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: fourthRowLeftcolumn, rightcolumn: fourthRowRightcolumn }));
+class HomePageContent extends react_1.Component {
+    constructor(props) {
+        super(props);
+        this.slideIndex = [];
+        this.slideId = [];
+        this.plusSlides = (n, no) => {
+            this.showSlides(this.slideIndex[no] += n, no);
+        };
+        this.showSlides = (n, no) => {
+            var i;
+            var x;
+            x = document.getElementsByClassName(this.slideId[no]);
+            console.log(this.slideId[no]);
+            if (n > x.length) {
+                this.slideIndex[no] = 1;
+            }
+            if (n < 1) {
+                this.slideIndex[no] = x.length;
+            }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[this.slideIndex[no] - 1].style.display = "block";
+        };
+        this.showSlides = this.showSlides.bind(this);
+    }
+    componentDidMount() {
+        this.slideIndex = [1, 1, 1, 1];
+        this.slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"];
+        this.showSlides(1, 0);
+        this.showSlides(1, 1);
+        this.showSlides(1, 2);
+        this.showSlides(1, 3);
+    }
+    render() {
+        return (react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: firstRowLeftcolumn, rightcolumn: firstRowRightcolumn }),
+            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: secondRowLeftcolumn, rightcolumn: secondRowRightcolumn }),
+            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: thirdRowLeftcolumn, rightcolumn: thirdRowRightcolumn }),
+            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: fourthRowLeftcolumn, rightcolumn: fourthRowRightcolumn })));
+    }
+}
 exports.default = HomePageContent;

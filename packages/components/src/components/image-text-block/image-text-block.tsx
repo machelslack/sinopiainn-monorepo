@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import React, { FunctionComponent } from 'react';
+import { SixColumnRow } from "../../layouts/row";
 
 const container = {
     position: "relative",
     fontFamily: "Arial",
- 
+
 } as React.CSSProperties;
 
 const textBlock = css`
@@ -41,6 +42,15 @@ const textBlockParagraph = css`
 position:relative;top:-40px;
 `
 
+const iconTypes = [
+    { class: 'fa-phone', text: '', title: 'Jamaican Breakfast', subtitle: 'included in our room rates' },
+    { class: 'fa-phone', text: '', title: 'On Site Security', subtitle: 'during your stay' },
+    { class: 'fa-phone', text: '', title: 'Free Parking', subtitle: 'for your entire stay' },
+    { class: 'fa-phone', text: '', title: 'Airport Shuttle', subtitle: 'for all guests' },
+    { class: 'fa-phone', text: '', title: 'WIFI 24/7', subtitle: 'connection in all rooms ' },
+    { class: 'fa-phone', text: '', title: 'Caribbean Inspired Baskets', subtitle: 'for 3 nights stay or more' },
+]
+
 
 const ImageTextBlock: FunctionComponent<{ imgSrc: any, heading: any, paragragh: any }> = ({ imgSrc, heading, paragragh }) =>
     <section className="container" style={container}>
@@ -49,6 +59,7 @@ const ImageTextBlock: FunctionComponent<{ imgSrc: any, heading: any, paragragh: 
             <h4 css={textBlockHeading}>{heading}</h4>
             <p css={textBlockParagraph}>{paragragh}</p>
         </div>
+        <SixColumnRow iconTypes={iconTypes}/>
     </section>
 
 export default ImageTextBlock;

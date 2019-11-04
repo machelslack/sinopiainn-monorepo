@@ -1,7 +1,7 @@
 
 /** @jsx jsx */
 import { jsx, css, keyframes } from '@emotion/core'
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Component } from 'react';
 
 
 /* Slideshow container */
@@ -30,7 +30,10 @@ const buttons = {
 
 /* Position the "next button" to the right */
 const slides = {
-    display: "none"
+    display: "none",
+    "backgroundColor":"white",
+    padding:"10px",
+    "boxShadow":"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 } as React.CSSProperties;
 
 const slidesImage = {
@@ -91,12 +94,19 @@ const slideCaption = {
 //   }
 // `
 
-  
-const SlideShowSlide: FunctionComponent<{}> = () =>
-    <div className="mySlides fade" style={slides}>
-        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style={slidesImage} />
+class SlideShowSlide extends Component<{slideNumber:any,imgSrc:any}> {
+
+    render() {
+ 
+        return (  <div className={`mySlides${this.props.slideNumber} fade`} style={slides}>
+        <img src={this.props.imgSrc} style={slidesImage} />
         <div className="text" style={slideCaption} ></div>
     </div>
+    )
 
+    }
+  
+
+}
 
 export default SlideShowSlide;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TwoColumnRow } from '../../../layouts/row';
 import { SlideShowContainer, SlideShowSlide, SlideShowDots } from '../../slideshow';
 import { UnorderedList, UnorderedListItem } from '../../lists';
@@ -19,21 +19,22 @@ const listItems = [
         title: 'Outdoor Deck And Jerk Pit',
         subtitle: 'Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay',
     }, {
-        title: 'Spacious lobby, dining and seating areas',
-        subtitle: '',
-    }, {
         title: 'Local guided tours',
         subtitle: '',
     }, {
         title: 'Airport shuttle: pick up and drop off',
         subtitle: '',
     }, {
-        title: 'Private car hire available for long and short trips',
-        subtitle: '',
-    }, {
         title: 'Free parking',
         subtitle: '',
     }
+]
+
+const slideshowImages = [
+
+    'assets/images/slideshow/homepage/photo_1.jpg',
+    'assets/images/slideshow/homepage/photo_2.jpg',
+    'assets/images/slideshow/homepage/photo_3.jpg',
 ]
 
 const firstRowLeftcolumn = <React.Fragment><h1> SINOPIA INN</h1> <p> Set on two acres of lush green gardens, Sinopia Inn is an early twentieth century house refurbished with modern interior
@@ -45,12 +46,16 @@ not like you’re turning your back on traditional island vacations that include
 but it is a positive alternative experience of the cool countryside, its beaches and local culture.</p> </React.Fragment>;
 
 const firstRowRightcolumn = <SlideShowContainer>
-    <SlideShowSlide />
+    {
+        slideshowImages.map((src) => <SlideShowSlide imgSrc={src} slideNumber={1} />)
+    }
     <SlideShowDots />
 </SlideShowContainer>;
 
 const secondRowLeftcolumn = <SlideShowContainer>
-    <SlideShowSlide />
+    {
+        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={2} />)
+    }
     <SlideShowDots />
 </SlideShowContainer>;
 
@@ -65,7 +70,9 @@ the full cost of the booking will be charged. During peak season, a minimum thre
 
 
 const thirdRowRightcolumn = <SlideShowContainer>
-    <SlideShowSlide />
+    {
+        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={3} />)
+    }
     <SlideShowDots />
 </SlideShowContainer>;
 
@@ -96,16 +103,58 @@ const fourthRowLeftcolumn = <React.Fragment>
 
 
 const fourthRowRightcolumn = <SlideShowContainer>
-    <SlideShowSlide />
+    {
+        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={4} />)
+    }
     <SlideShowDots />
 </SlideShowContainer>;
 
 
-const HomePageContent = (props: any) => <React.Fragment>
-    <TwoColumnRow leftcolumn={firstRowLeftcolumn} rightcolumn={firstRowRightcolumn} />
-    <TwoColumnRow leftcolumn={secondRowLeftcolumn} rightcolumn={secondRowRightcolumn} />
-    <TwoColumnRow leftcolumn={thirdRowLeftcolumn} rightcolumn={thirdRowRightcolumn} />
-    <TwoColumnRow leftcolumn={fourthRowLeftcolumn} rightcolumn={fourthRowRightcolumn} />
-</React.Fragment>
+class HomePageContent extends Component<{}> {
+    slideIndex: number[] = [];
+    slideId: string[] = [];
 
-export default HomePageContent;
+    constructor(props: any) {
+        super(props);
+        this.showSlides = this.showSlides.bind(this)
+    }
+
+    componentDidMount() {
+        this.slideIndex = [1, 1, 1, 1];
+        this.slideId = ["mySlides1", "mySlides2", "mySlides3", "mySlides4"]
+        this.showSlides(1, 0);
+        this.showSlides(1, 1);
+        this.showSlides(1, 2);
+        this.showSlides(1, 3);
+    }
+
+    plusSlides = (n: any, no: any) => {
+        this.showSlides(this.slideIndex[no] += n, no);
+    }
+
+    showSlides = (n: any, no: any) => {
+        var i;
+        var x;
+        x = document.getElementsByClassName(this.slideId[no]) as unknown as HTMLElement[];
+        console.log(this.slideId[no]);
+        if (n > x.length) { this.slideIndex[no] = 1 }
+        if (n < 1) { this.slideIndex[no] = x.length }
+        for (i = 0; i < x.length; i++) {    
+           x[i].style.display = "none";
+        }
+        x[this.slideIndex[no] - 1].style.display = "block";
+    }
+    render() {
+
+        return (
+            <React.Fragment>
+                <TwoColumnRow leftcolumn={firstRowLeftcolumn} rightcolumn={firstRowRightcolumn} />
+                <TwoColumnRow leftcolumn={secondRowLeftcolumn} rightcolumn={secondRowRightcolumn} />
+                <TwoColumnRow leftcolumn={thirdRowLeftcolumn} rightcolumn={thirdRowRightcolumn} />
+                <TwoColumnRow leftcolumn={fourthRowLeftcolumn} rightcolumn={fourthRowRightcolumn} />
+            </React.Fragment>
+        )
+    }
+}
+
+export default HomePageContent

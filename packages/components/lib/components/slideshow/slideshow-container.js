@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 const react_1 = require("react");
+const home_page_content_1 = require("../compositions/page-content/home-page-content");
 /* Slideshow container */
 const slideshowContainer = {
     position: "relative",
@@ -35,13 +36,13 @@ const next = {
 };
 class SlideShowContainer extends react_1.Component {
     render() {
-        return (core_1.jsx("section", { className: "slideshow-container", style: slideshowContainer },
+        return (core_1.jsx(home_page_content_1.HomepageContext.Consumer, null, ({ changeSlide }) => (core_1.jsx("section", { className: "slideshow-container", style: slideshowContainer },
             this.props.children,
-            core_1.jsx("a", { className: "prev", style: buttons }, "\u276E"),
-            core_1.jsx("a", { className: "next", style: buttons, css: {
+            core_1.jsx("a", { className: "prev", style: buttons, onClick: () => { changeSlide(-1, this.props.slideNumber); } }, "\u276E"),
+            core_1.jsx("a", { className: "next", style: buttons, onClick: () => { changeSlide(1, this.props.slideNumber); }, css: {
                     right: "0",
                     borderRadius: "3px 0 0 3px"
-                } }, "\u276F")));
+                } }, "\u276F")))));
     }
 }
 exports.default = SlideShowContainer;

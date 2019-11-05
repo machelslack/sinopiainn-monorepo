@@ -95,9 +95,9 @@ const rightcolumn = <React.Fragment>
 
 </React.Fragment>
 
-const AvailabilityPageContent: FunctionComponent<{}> = () => <React.Fragment>
+const ReservePageContent: FunctionComponent<{}> = () => <React.Fragment>
   <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
   <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
 </React.Fragment>
 
-export default AvailabilityPageContent;
+export default ReservePageContent;

@@ -8,10 +8,8 @@ const column = core_1.css `
     display: table-cell;
     width: 25%;
     border-right:thin dashed white;
-    h3 {
-        color:#ffffff;
-        font-weight:100;
-        fontSize:20px;
+    large {
+        color:white;
     }
 `;
 const breakpoints = [600];

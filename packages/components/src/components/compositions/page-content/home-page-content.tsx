@@ -3,6 +3,13 @@ import { TwoColumnRow } from '../../../layouts/row';
 import { SlideShowContainer, SlideShowSlide, SlideShowDots } from '../../slideshow';
 import { UnorderedList, UnorderedListItem } from '../../lists';
 
+export interface HomepageContextInterface {
+    changeSlide:any
+}
+
+export const HomepageContext = React.createContext<HomepageContextInterface>({
+    changeSlide:''
+});
 
 const listItems = [
 
@@ -45,18 +52,18 @@ nights and great accommodation alternatives to the resort locations of Montego B
 not like you’re turning your back on traditional island vacations that include all-inclusive beaches and drinks,
 but it is a positive alternative experience of the cool countryside, its beaches and local culture.</p> </React.Fragment>;
 
-const firstRowRightcolumn = <SlideShowContainer>
+const firstRowRightcolumn = <SlideShowContainer slideNumber={0}>
     {
         slideshowImages.map((src) => <SlideShowSlide imgSrc={src} slideNumber={1} />)
     }
-    <SlideShowDots />
+    {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
-const secondRowLeftcolumn = <SlideShowContainer>
+const secondRowLeftcolumn = <SlideShowContainer slideNumber={1}>
     {
         slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={2} />)
     }
-    <SlideShowDots />
+    {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
 
@@ -69,11 +76,11 @@ than 45 days before arrival, then a charge may apply - depending on the season. 
 the full cost of the booking will be charged. During peak season, a minimum three-night stay may be required.</p> </React.Fragment>;
 
 
-const thirdRowRightcolumn = <SlideShowContainer>
+const thirdRowRightcolumn = <SlideShowContainer slideNumber={2}>
     {
         slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={3} />)
     }
-    <SlideShowDots />
+    {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
 
@@ -102,11 +109,11 @@ const fourthRowLeftcolumn = <React.Fragment>
 </React.Fragment>
 
 
-const fourthRowRightcolumn = <SlideShowContainer>
+const fourthRowRightcolumn = <SlideShowContainer slideNumber={3}>
     {
         slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={4} />)
     }
-    <SlideShowDots />
+    {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
 
@@ -116,7 +123,8 @@ class HomePageContent extends Component<{}> {
 
     constructor(props: any) {
         super(props);
-        this.showSlides = this.showSlides.bind(this)
+        this.showSlides = this.showSlides.bind(this);
+        this.plusSlides = this.plusSlides.bind(this)
     }
 
     componentDidMount() {
@@ -129,6 +137,7 @@ class HomePageContent extends Component<{}> {
     }
 
     plusSlides = (n: any, no: any) => {
+        console.log(no);
         this.showSlides(this.slideIndex[no] += n, no);
     }
 
@@ -136,23 +145,28 @@ class HomePageContent extends Component<{}> {
         var i;
         var x;
         x = document.getElementsByClassName(this.slideId[no]) as unknown as HTMLElement[];
-        console.log(this.slideId[no]);
         if (n > x.length) { this.slideIndex[no] = 1 }
         if (n < 1) { this.slideIndex[no] = x.length }
-        for (i = 0; i < x.length; i++) {    
-           x[i].style.display = "none";
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
         }
         x[this.slideIndex[no] - 1].style.display = "block";
     }
     render() {
 
         return (
-            <React.Fragment>
-                <TwoColumnRow leftcolumn={firstRowLeftcolumn} rightcolumn={firstRowRightcolumn} />
-                <TwoColumnRow leftcolumn={secondRowLeftcolumn} rightcolumn={secondRowRightcolumn} />
-                <TwoColumnRow leftcolumn={thirdRowLeftcolumn} rightcolumn={thirdRowRightcolumn} />
-                <TwoColumnRow leftcolumn={fourthRowLeftcolumn} rightcolumn={fourthRowRightcolumn} />
-            </React.Fragment>
+            <HomepageContext.Provider value={
+                {
+                    changeSlide: this.plusSlides
+                }
+            } >
+                <React.Fragment>
+                    <TwoColumnRow leftcolumn={firstRowLeftcolumn} rightcolumn={firstRowRightcolumn} />
+                    <TwoColumnRow leftcolumn={secondRowLeftcolumn} rightcolumn={secondRowRightcolumn} />
+                    <TwoColumnRow leftcolumn={thirdRowLeftcolumn} rightcolumn={thirdRowRightcolumn} />
+                    <TwoColumnRow leftcolumn={fourthRowLeftcolumn} rightcolumn={fourthRowRightcolumn} />
+                </React.Fragment>
+            </HomepageContext.Provider>
         )
     }
 }

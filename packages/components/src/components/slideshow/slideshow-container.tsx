@@ -2,6 +2,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import React, { Component } from 'react';
+import { HomepageContext } from '../compositions/page-content/home-page-content';
 
 
 /* Slideshow container */
@@ -37,19 +38,24 @@ const next = {
     borderRadius: "3px 0 0 3px"
 } as React.CSSProperties;
 
-class SlideShowContainer extends Component<{}> {
+class SlideShowContainer extends Component<{ slideNumber: number }> {
 
     render() {
- 
         return (
-            <section className="slideshow-container" style={slideshowContainer}>
-            {this.props.children}
-            <a className="prev" style={buttons}>&#10094;</a>
-            <a className="next" style={buttons} css={{
-                right: "0",
-                borderRadius: "3px 0 0 3px"
-            }}>&#10095;</a>
-        </section>
+            <HomepageContext.Consumer>
+                {
+                    ({ changeSlide }) => (
+                        <section className="slideshow-container" style={slideshowContainer}>
+                            {this.props.children}
+                            <a className="prev" style={buttons} onClick={() => { changeSlide(-1, this.props.slideNumber) }}>&#10094;</a>
+                            <a className="next" style={buttons} onClick={() => { changeSlide(1, this.props.slideNumber) }} css={{
+                                right: "0",
+                                borderRadius: "3px 0 0 3px"
+                            }}>&#10095;</a>
+                        </section>
+                    )
+                }
+            </HomepageContext.Consumer>
         )
     }
 }

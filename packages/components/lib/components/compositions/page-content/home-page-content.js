@@ -11,6 +11,9 @@ const react_1 = __importStar(require("react"));
 const row_1 = require("../../../layouts/row");
 const slideshow_1 = require("../../slideshow");
 const lists_1 = require("../../lists");
+exports.HomepageContext = react_1.default.createContext({
+    changeSlide: ''
+});
 const listItems = [
     {
         title: 'Complimentary Breakfast',
@@ -45,20 +48,14 @@ const firstRowLeftcolumn = react_1.default.createElement(react_1.default.Fragmen
     " ",
     react_1.default.createElement("p", null, " Set on two acres of lush green gardens, Sinopia Inn is an early twentieth century house refurbished with modern interior decor that still evokes a feeling of going back in time. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. The units are perfect for families, couples or groups to use as a base to explore the natural parish of Portland, Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril. It\u2019s not like you\u2019re turning your back on traditional island vacations that include all-inclusive beaches and drinks, but it is a positive alternative experience of the cool countryside, its beaches and local culture."),
     " ");
-const firstRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    slideshowImages.map((src) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })),
-    react_1.default.createElement(slideshow_1.SlideShowDots, null));
-const secondRowLeftcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 2 })),
-    react_1.default.createElement(slideshow_1.SlideShowDots, null));
+const firstRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 0 }, slideshowImages.map((src) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })));
+const secondRowLeftcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 1 }, slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 2 })));
 const secondRowRightcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " OUR ROOMS"),
     " ",
     react_1.default.createElement("p", null, " We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms. Prices include breakfast and range from $115\u2013$125 for a double and $130\u2013$140 for a family sized room, depending on the day and the season. The complete property sleeps 10 quite comfortably at $480 per night Please use the form to search rates and availability. Guests are welcome to check in from 1pm onwards and we need them to check out before 11am. A valid credit or debit card is required to confirm the booking. If the booking is cancelled less than 45 days before arrival, then a charge may apply - depending on the season.  In the event of a \u2018no show\u2019 the full cost of the booking will be charged. During peak season, a minimum three-night stay may be required."),
     " ");
-const thirdRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })),
-    react_1.default.createElement(slideshow_1.SlideShowDots, null));
+const thirdRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 2 }, slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })));
 const thirdRowLeftcolumn = react_1.default.createElement(react_1.default.Fragment, null,
     react_1.default.createElement("h1", null, " OUR AMENITIES"),
     " ",
@@ -69,22 +66,20 @@ const fourthRowLeftcolumn = react_1.default.createElement(react_1.default.Fragme
     react_1.default.createElement(lists_1.UnorderedList, null, listItems.map(item => {
         return react_1.default.createElement(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: '', image: '' });
     })));
-const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, null,
-    slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 4 })),
-    react_1.default.createElement(slideshow_1.SlideShowDots, null));
+const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 3 }, slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 4 })));
 class HomePageContent extends react_1.Component {
     constructor(props) {
         super(props);
         this.slideIndex = [];
         this.slideId = [];
         this.plusSlides = (n, no) => {
+            console.log(no);
             this.showSlides(this.slideIndex[no] += n, no);
         };
         this.showSlides = (n, no) => {
             var i;
             var x;
             x = document.getElementsByClassName(this.slideId[no]);
-            console.log(this.slideId[no]);
             if (n > x.length) {
                 this.slideIndex[no] = 1;
             }
@@ -97,6 +92,7 @@ class HomePageContent extends react_1.Component {
             x[this.slideIndex[no] - 1].style.display = "block";
         };
         this.showSlides = this.showSlides.bind(this);
+        this.plusSlides = this.plusSlides.bind(this);
     }
     componentDidMount() {
         this.slideIndex = [1, 1, 1, 1];
@@ -107,11 +103,14 @@ class HomePageContent extends react_1.Component {
         this.showSlides(1, 3);
     }
     render() {
-        return (react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: firstRowLeftcolumn, rightcolumn: firstRowRightcolumn }),
-            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: secondRowLeftcolumn, rightcolumn: secondRowRightcolumn }),
-            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: thirdRowLeftcolumn, rightcolumn: thirdRowRightcolumn }),
-            react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: fourthRowLeftcolumn, rightcolumn: fourthRowRightcolumn })));
+        return (react_1.default.createElement(exports.HomepageContext.Provider, { value: {
+                changeSlide: this.plusSlides
+            } },
+            react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: firstRowLeftcolumn, rightcolumn: firstRowRightcolumn }),
+                react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: secondRowLeftcolumn, rightcolumn: secondRowRightcolumn }),
+                react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: thirdRowLeftcolumn, rightcolumn: thirdRowRightcolumn }),
+                react_1.default.createElement(row_1.TwoColumnRow, { leftcolumn: fourthRowLeftcolumn, rightcolumn: fourthRowRightcolumn }))));
     }
 }
 exports.default = HomePageContent;

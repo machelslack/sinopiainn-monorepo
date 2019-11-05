@@ -4,7 +4,8 @@ declare global {
     namespace JSX {
         interface IntrinsicElements {
             'medium': any,
-            'i ':any
+            'i ':any,
+            'large':any
         }
     }
 }

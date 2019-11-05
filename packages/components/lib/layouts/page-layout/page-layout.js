@@ -76,18 +76,33 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
         core_1.jsx(datepicker_1.DatePicker, null)),
     core_1.jsx("section", { className: "mainCotent" }, children),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
-            background-color: black;
+            background-color:black;
             padding:30px;
+            font-family: FontspringLight;
+            color:white;
     }` },
         core_1.jsx(row_1.Row, null,
             core_1.jsx(row_1.Column, null,
-                core_1.jsx("h3", null, "We are here"),
-                core_1.jsx(image_1.ImageZoom, null)),
+                core_1.jsx("large", null, "We are here"),
+                core_1.jsx("br", null),
+                core_1.jsx("p", null,
+                    core_1.jsx("small", null, " Zion Hill"),
+                    core_1.jsx("br", null),
+                    core_1.jsx("small", null, " Fairy Hill PO"),
+                    core_1.jsx("br", null),
+                    core_1.jsx("small", null, " Port Antonio, Jamaica"),
+                    core_1.jsx("br", null)),
+                core_1.jsx(image_1.ImageZoom, null),
+                core_1.jsx("br", null),
+                core_1.jsx("small", null, "contact us at 001-876-12345678")),
             core_1.jsx(row_1.Column, null,
-                core_1.jsx("h3", null, "Conntect with us"),
-                core_1.jsx(icon_bar_1.SocialIconBar, null)),
+                core_1.jsx("large", null, "Conntect with us"),
+                core_1.jsx("p", null,
+                    core_1.jsx(icon_bar_1.SocialIconBar, null))),
             core_1.jsx(row_1.Column, null,
-                core_1.jsx("h3", null, "Recent posts")),
+                core_1.jsx("large", null, "Recent posts"),
+                core_1.jsx("p", null)),
             core_1.jsx(row_1.Column, null,
-                core_1.jsx("h3", null, "Find us at")))));
+                core_1.jsx("large", null),
+                core_1.jsx("p", null)))));
 exports.default = PageLayout;

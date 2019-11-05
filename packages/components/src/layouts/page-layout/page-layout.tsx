@@ -90,23 +90,32 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
         {children}
     </section>
     <section className="footer" css={css`{
-            background-color: black;
+            background-color:black;
             padding:30px;
+            font-family: FontspringLight;
+            color:white;
     }`}>
         <Row>
             <Column>
-                <h3>We are here</h3>
+                <large>We are here</large><br></br>
+                <p><small> Zion Hill</small><br></br>
+                <small> Fairy Hill PO</small><br></br>
+                <small> Port Antonio, Jamaica</small><br></br></p>
                 <ImageZoom />
+                <br></br>
+                <small>contact us at 001-876-12345678</small>
             </Column>
             <Column>
-                <h3>Conntect with us</h3>
-                <SocialIconBar />
+                <large>Conntect with us</large>
+                <p><SocialIconBar /></p>
             </Column>
             <Column>
-                <h3>Recent posts</h3>
+                <large>Recent posts</large>
+                <p></p>
             </Column>
             <Column>
-                <h3>Find us at</h3>
+                <large></large>
+                <p></p>
             </Column>
         </Row>
     </section>

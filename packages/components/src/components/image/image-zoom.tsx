@@ -2,23 +2,23 @@
 import { jsx, css } from "@emotion/core";
 import React, { FunctionComponent } from 'react';
 
-const zoom = css`
+const zoomContainer = css`
+
+.zoom {
   padding: 50px;
-  background-color: green;
+  background-color: blue;
   transition: transform .2s;
   width: 200px;
   height: 200px;
   margin: 0 auto;
-  ":hover": {
-    background-color: blue;
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+}
+  .zoom:hover: {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
   }
 `
-
-
-const ImageZoom: FunctionComponent<{}> = () => <div className="zoom" css={zoom}></div>
+const ImageZoom: FunctionComponent<{}> = () => <section css={zoomContainer}> <div className="zoom" ></div>  </section>
 export default ImageZoom;
 
 

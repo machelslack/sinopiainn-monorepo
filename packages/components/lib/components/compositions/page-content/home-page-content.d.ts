@@ -1,4 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+export interface HomepageContextInterface {
+    changeSlide: any;
+}
+export declare const HomepageContext: React.Context<HomepageContextInterface>;
 declare class HomePageContent extends Component<{}> {
     slideIndex: number[];
     slideId: string[];

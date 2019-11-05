@@ -5,12 +5,12 @@ import React, { FunctionComponent } from 'react'; // importing FunctionComponent
 const iconBar = css`
     position: relative;
     a {
-    display: inline-block;
-    text-align: center;
-    padding: 10px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 20px;
+        display: inline-block;
+        text-align: center;
+        padding: 16px;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 20px;
     "& :hover" {
         background-color: #000
     }

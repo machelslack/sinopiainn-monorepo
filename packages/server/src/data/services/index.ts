@@ -7,8 +7,8 @@ export const services: Record<string, any> = {
         console.log(`🍻🍻`);
         resolve('blog');
     }),
-    'availability': (req: any) => new Promise((resolve, reject) => {
+    'reserve': (req: any) => new Promise((resolve, reject) => {
         console.log(`🍻🍻🍻`);
-        resolve('availability');
+        resolve('reserve');
     }),
 };

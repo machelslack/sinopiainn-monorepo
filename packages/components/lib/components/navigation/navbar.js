@@ -20,8 +20,8 @@ function Navbar() {
             route: 'shop'
         },
         {
-            name: 'AVAILABILITY',
-            route: 'availabilty'
+            name: 'RESERVE',
+            route: 'reserve'
         }
     ];
     return (react_1.default.createElement(menu_1.MenuBar, null, menuBarItems.map(item => {

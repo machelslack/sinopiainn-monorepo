@@ -17,8 +17,8 @@ export default function Navbar () {
             route:'shop'
         },
         {
-            name:'AVAILABILITY',
-            route:'availabilty'
+            name:'RESERVE',
+            route:'reserve'
         }
     ]
   return (

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const home_page_content_1 = __importDefault(require("../../components/compositions/page-content/home-page-content"));
 const blog_page_content_1 = __importDefault(require("../../components/compositions/page-content/blog-page-content"));
 const contact_page_content_1 = __importDefault(require("../../components/compositions/page-content/contact-page-content"));
-const availability_page_content_1 = __importDefault(require("../../components/compositions/page-content/availability-page-content"));
+const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
 exports.routes = [
     {
         path: '/',
@@ -21,10 +21,10 @@ exports.routes = [
         component: blog_page_content_1.default
     },
     {
-        path: '/availability',
+        path: '/reserve',
         exact: true,
         fetchData: true,
-        component: availability_page_content_1.default
+        component: reserve_page_content_1.default
     },
     {
         path: '/contacts',

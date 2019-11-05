@@ -9,8 +9,8 @@ exports.services = {
         console.log(`🍻🍻`);
         resolve('blog');
     }),
-    'availability': (req) => new Promise((resolve, reject) => {
+    'reserve': (req) => new Promise((resolve, reject) => {
         console.log(`🍻🍻🍻`);
-        resolve('availability');
+        resolve('reserve');
     }),
 };

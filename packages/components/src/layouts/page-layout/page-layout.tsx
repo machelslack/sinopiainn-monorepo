@@ -12,14 +12,13 @@ import { ImageZoom } from '../../components/image/'
 import { Logo } from '../../components/logo';
 import { NavBar } from '../../components/navigation';
 const iconBarItems = [
-    { class: '', text: '001-876-12345678' },
-    { class: 'fa-phone', text: '' },
+    { class: 'fa-phone', text: '',href:'/contacts' },
 ]
 
 const menuBarItems = [
     'HOME',
-    'BLOG',
     'SHOP',
+    'BLOG',
     'RESERVE',
 ]
 
@@ -37,14 +36,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
 
     <Global
         styles={css`
-          * {
-            box-sizing: border-box;
-          }
-          body {
-            font-family: Arial;
-            background: #ffffff;
-          }
-          @font-face {
+        @font-face {
             font-family: 'Waiting for the Sunrise';
             font-style: normal;
             font-weight: 400;
@@ -65,6 +57,14 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             font-family: FontspringRegular;
             src: url(assets/fonts/fontSpring/Fontspring-DEMO-cera-regular.otf);
             }
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            font-family: FontspringRegular;
+            background: #ffffff;
+          }
+          
           `}
     />
     <section className="topNavigation">
@@ -96,7 +96,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             color:white;
     }`}>
         <Row>
-            <Column>
+            <Column >
                 <large>We are here</large><br></br>
                 <p><small> Zion Hill</small><br></br>
                 <small> Fairy Hill PO</small><br></br>
@@ -108,13 +108,10 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             <Column>
                 <large>Conntect with us</large>
                 <p><SocialIconBar /></p>
-            </Column>
-            <Column>
                 <large>Recent posts</large>
-                <p></p>
             </Column>
             <Column>
-                <large></large>
+               
                 <p></p>
             </Column>
         </Row>

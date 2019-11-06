@@ -7,7 +7,6 @@ import React, { FunctionComponent } from 'react';
 //   color:#CB410B;
 const column = css`
 display: table-cell;
-float: left;
 width: 50%;
 padding: 30px;
 vertical-align:middle;

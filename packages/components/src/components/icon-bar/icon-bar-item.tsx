@@ -9,6 +9,7 @@ transition: all 0.3s ease;
 color: #CB410B;
 fontSize: 20px;
 fontFamily: FontspringRegular;
+text-decoration: none;
   i {
     display: table;
     padding:0px!important;
@@ -23,9 +24,9 @@ fontFamily: FontspringRegular;
 `
 
 const IconBarItem: FunctionComponent<{ iconType: any }> = ({ iconType }) =>
-    <a css={iconBarItem} className="iconBarItem"><i className={`fa ${!!iconType.class && iconType.class}`}>
-        &nbsp; <span> {iconType.text} </span>
-    </i></a>
+  <a css={iconBarItem} className="iconBarItem" href={iconType.href}><i className={`fa ${!!iconType.class && iconType.class}`}>
+    &nbsp; <span> {iconType.text} </span>
+  </i></a>
 
 export default IconBarItem;
 

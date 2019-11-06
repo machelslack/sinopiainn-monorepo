@@ -10,7 +10,6 @@ const react_1 = __importDefault(require("react"));
 //   color:#CB410B;
 const column = core_1.css `
 display: table-cell;
-float: left;
 width: 50%;
 padding: 30px;
 vertical-align:middle;

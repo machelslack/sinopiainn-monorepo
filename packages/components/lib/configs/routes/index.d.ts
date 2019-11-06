@@ -1,10 +1,10 @@
 /// <reference types="@emotion/core" />
-import HomePageContent from "../../components/compositions/page-content/home-page-content";
+import BlogPageContent from "../../components/compositions/page-content/blog-page-content";
 export declare const routes: ({
     path: string;
     exact: boolean;
     fetchData: boolean;
-    component: typeof HomePageContent;
+    component: typeof BlogPageContent;
 } | {
     path: string;
     exact: boolean;

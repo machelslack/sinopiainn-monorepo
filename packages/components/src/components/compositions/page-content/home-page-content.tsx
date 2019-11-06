@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TwoColumnRow } from '../../../layouts/row';
 import { SlideShowContainer, SlideShowSlide, SlideShowDots } from '../../slideshow';
 import { UnorderedList, UnorderedListItem } from '../../lists';
+import SlideShowTextSlide from '../../slideshow/slideshow-text-slide';
 
 export interface HomepageContextInterface {
     changeSlide:any
@@ -109,9 +110,32 @@ const fourthRowLeftcolumn = <React.Fragment>
 </React.Fragment>
 
 
+const slideshowTestimonials = [
+
+   {
+    quote: `Portland is one my favourite destinations in Jamaica. I absolutely loved that this villa kept true to
+    the vibe and spirit of Portland. It was close to a great beach (Frenchmans Cove) and the amazing jerk
+    spot in Boston. I can't wait to return! Loved it!!!`,
+    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+    quoteSource: `via Trip advisor`
+   },{
+    quote: `Jamaica, as we all know, is a bright jewel in the Caribbean clutch of precious islands. Portland, in
+    the much-undiscovered east of the isle, is the island's diamond for which you rightly have to dig deep
+    for. Having overdone the victuals over Xmas I needed somewhere to detox quietly and within my own space.`,
+    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+    quoteSource: `via Trip advisor`
+   },{
+    quote: `Beautiful location - near to the Long Bay beach with its bright blue sea and EMPTY beach. Sinopia offers
+    a glimpse of rural Jamaica but with all the modern conveniences.`,
+    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12371237-The_Pimento_Room_in_Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+    quoteSource: `via Trip advisor`
+   }
+
+]
+
 const fourthRowRightcolumn = <SlideShowContainer slideNumber={3}>
     {
-        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={4} />)
+        slideshowTestimonials.map((testimonial) => <SlideShowTextSlide {...testimonial} slideNumber={4} />)
     }
     {/* <SlideShowDots /> */}
 </SlideShowContainer>;

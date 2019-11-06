@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Global, jsx, css } from '@emotion/core'
-import React, { FunctionComponent, Children } from 'react';
+import React, { FunctionComponent, Children, Component } from 'react';
 import { BlogCard } from '../../blog-card';
 import { BlogImagePlaceholder } from '../../blog-image-placeholder';
 
@@ -50,11 +50,11 @@ const footerStyles = {
 
 //header 
 
-const header = () => React.createElement('h1', {}, 'Blog Name');
+const header = () => React.createElement('large', {}, 'Blog Name');
 
 //leftcolumn
 
-const leftcolumn = 
+const leftcolumn =
   <React.Fragment>
     <BlogCard>
       <h2>TITLE HEADING</h2>
@@ -76,7 +76,7 @@ const leftcolumn =
 
 //rightcolumn 
 
-const rightcolumn = 
+const rightcolumn =
   <React.Fragment>
     <BlogCard>
       <h2>About Me</h2>
@@ -98,48 +98,42 @@ const rightcolumn =
     </BlogCard>
   </React.Fragment>
 
+class BlogPageContent extends Component<{}> {
+  constructor(props: any) {
+    super(props);
+  }
 
-const BlogPageContent: FunctionComponent<{}> = () => <React.Fragment>
+  render() {
 
+    return (
 
-  <Global
-    styles={css`
-          * {
-            box-sizing: border-box;
-          }
-          body {
-            font-family: Arial;
-            padding: 20px;
-            background: #f1f1f1;
-          }
-          `}
-  />
+      <React.Fragment>
+        <section style={headerStyles} className="header">
+          {header()}
+        </section>
 
-  <section style={headerStyles} className="header">
-    {header()}
-  </section>
-
-  <section style={rowStyles} className="row">
-    <section style={leftcolumnStyles} className="leftcolumn" css={css`
+        <section style={rowStyles} className="row">
+          <section style={leftcolumnStyles} className="leftcolumn" css={css`
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
     `}>
-      {leftcolumn}
-    </section>
-    <section style={rightcolumnStyles} className="rightcolumn" css={css`
+            {leftcolumn}
+          </section>
+          <section style={rightcolumnStyles} className="rightcolumn" css={css`
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
     `}>
-      {rightcolumn}
-    </section>
-  </section>
+            {rightcolumn}
+          </section>
+        </section>
 
-</React.Fragment>
+      </React.Fragment>
+    )
+  }
+}
 
-
-
-export default BlogPageContent;
+export default BlogPageContent

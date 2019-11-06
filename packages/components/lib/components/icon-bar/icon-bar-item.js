@@ -9,6 +9,7 @@ transition: all 0.3s ease;
 color: #CB410B;
 fontSize: 20px;
 fontFamily: FontspringRegular;
+text-decoration: none;
   i {
     display: table;
     padding:0px!important;
@@ -21,7 +22,7 @@ fontFamily: FontspringRegular;
       }
   }
 `;
-const IconBarItem = ({ iconType }) => core_1.jsx("a", { css: iconBarItem, className: "iconBarItem" },
+const IconBarItem = ({ iconType }) => core_1.jsx("a", { css: iconBarItem, className: "iconBarItem", href: iconType.href },
     core_1.jsx("i", { className: `fa ${!!iconType.class && iconType.class}` },
         "\u00A0 ",
         core_1.jsx("span", null,

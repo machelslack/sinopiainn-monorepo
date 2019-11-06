@@ -1,11 +1,15 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
-const react_1 = __importDefault(require("react"));
+const react_1 = __importStar(require("react"));
 const blog_card_1 = require("../../blog-card");
 const blog_image_placeholder_1 = require("../../blog-image-placeholder");
 /* Header/Blog Title */
@@ -43,7 +47,7 @@ const footerStyles = {
     "marginTop": "20px",
 };
 //header 
-const header = () => react_1.default.createElement('h1', {}, 'Blog Name');
+const header = () => react_1.default.createElement('large', {}, 'Blog Name');
 //leftcolumn
 const leftcolumn = core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(blog_card_1.BlogCard, null,
@@ -74,29 +78,26 @@ const rightcolumn = core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(blog_card_1.BlogCard, null,
         core_1.jsx("h3", null, "Follow Me"),
         core_1.jsx("p", null, "Some text..")));
-const BlogPageContent = () => core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx(core_1.Global, { styles: core_1.css `
-          * {
-            box-sizing: border-box;
-          }
-          body {
-            font-family: Arial;
-            padding: 20px;
-            background: #f1f1f1;
-          }
-          ` }),
-    core_1.jsx("section", { style: headerStyles, className: "header" }, header()),
-    core_1.jsx("section", { style: rowStyles, className: "row" },
-        core_1.jsx("section", { style: leftcolumnStyles, className: "leftcolumn", css: core_1.css `
+class BlogPageContent extends react_1.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (core_1.jsx(react_1.default.Fragment, null,
+            core_1.jsx("section", { style: headerStyles, className: "header" }, header()),
+            core_1.jsx("section", { style: rowStyles, className: "row" },
+                core_1.jsx("section", { style: leftcolumnStyles, className: "leftcolumn", css: core_1.css `
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
     ` }, leftcolumn),
-        core_1.jsx("section", { style: rightcolumnStyles, className: "rightcolumn", css: core_1.css `
+                core_1.jsx("section", { style: rightcolumnStyles, className: "rightcolumn", css: core_1.css `
       @media screen and (max-width: 800px) {
         width: 100%;
     padding: 0;
       }
-    ` }, rightcolumn)));
+    ` }, rightcolumn))));
+    }
+}
 exports.default = BlogPageContent;

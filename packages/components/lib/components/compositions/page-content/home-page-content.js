@@ -6,11 +6,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const row_1 = require("../../../layouts/row");
 const slideshow_1 = require("../../slideshow");
 const lists_1 = require("../../lists");
+const slideshow_text_slide_1 = __importDefault(require("../../slideshow/slideshow-text-slide"));
 exports.HomepageContext = react_1.default.createContext({
     changeSlide: ''
 });
@@ -66,7 +70,27 @@ const fourthRowLeftcolumn = react_1.default.createElement(react_1.default.Fragme
     react_1.default.createElement(lists_1.UnorderedList, null, listItems.map(item => {
         return react_1.default.createElement(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: '', image: '' });
     })));
-const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 3 }, slideshowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 4 })));
+const slideshowTestimonials = [
+    {
+        quote: `Portland is one my favourite destinations in Jamaica. I absolutely loved that this villa kept true to
+    the vibe and spirit of Portland. It was close to a great beach (Frenchmans Cove) and the amazing jerk
+    spot in Boston. I can't wait to return! Loved it!!!`,
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }, {
+        quote: `Jamaica, as we all know, is a bright jewel in the Caribbean clutch of precious islands. Portland, in
+    the much-undiscovered east of the isle, is the island's diamond for which you rightly have to dig deep
+    for. Having overdone the victuals over Xmas I needed somewhere to detox quietly and within my own space.`,
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }, {
+        quote: `Beautiful location - near to the Long Bay beach with its bright blue sea and EMPTY beach. Sinopia offers
+    a glimpse of rural Jamaica but with all the modern conveniences.`,
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12371237-The_Pimento_Room_in_Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }
+];
+const fourthRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 3 }, slideshowTestimonials.map((testimonial) => react_1.default.createElement(slideshow_text_slide_1.default, Object.assign({}, testimonial, { slideNumber: 4 }))));
 class HomePageContent extends react_1.Component {
     constructor(props) {
         super(props);

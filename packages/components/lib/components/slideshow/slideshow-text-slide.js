@@ -26,7 +26,9 @@ const buttons = {
 };
 /* Position the "next button" to the right */
 const slides = {
-    display: "none"
+    display: "none",
+    verticalAlign: "middle",
+    textAlign: "center"
 };
 const slidesImage = {
     width: "100%",
@@ -76,7 +78,7 @@ const slideCaption = {
 // `
 const large = {};
 const medium = {};
-const SlideShowTextSlide = ({ quote, quoteLink, quoteSource }) => core_1.jsx("div", { className: "mySlides fade", style: slides },
+const SlideShowTextSlide = ({ quote, quoteLink, quoteSource, slideNumber }) => core_1.jsx("div", { className: `mySlides${slideNumber} fade`, style: slides },
     core_1.jsx("span", { style: large },
         core_1.jsx("i", null,
             core_1.jsx("q", null,
@@ -87,7 +89,6 @@ const SlideShowTextSlide = ({ quote, quoteLink, quoteSource }) => core_1.jsx("di
         core_1.jsx("br", null),
         core_1.jsx("a", { href: quoteLink },
             core_1.jsx("b", null,
-                "via ",
                 quoteSource,
                 " "))));
 exports.default = SlideShowTextSlide;

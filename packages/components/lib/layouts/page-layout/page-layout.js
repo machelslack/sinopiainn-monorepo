@@ -14,13 +14,12 @@ const image_1 = require("../../components/image/");
 const logo_1 = require("../../components/logo");
 const navigation_1 = require("../../components/navigation");
 const iconBarItems = [
-    { class: '', text: '001-876-12345678' },
-    { class: 'fa-phone', text: '' },
+    { class: 'fa-phone', text: '', href: '/contacts' },
 ];
 const menuBarItems = [
     'HOME',
-    'BLOG',
     'SHOP',
+    'BLOG',
     'RESERVE',
 ];
 const inmageBlockProps = {
@@ -34,14 +33,7 @@ const inmageBlockProps = {
 };
 const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(core_1.Global, { styles: core_1.css `
-          * {
-            box-sizing: border-box;
-          }
-          body {
-            font-family: Arial;
-            background: #ffffff;
-          }
-          @font-face {
+        @font-face {
             font-family: 'Waiting for the Sunrise';
             font-style: normal;
             font-weight: 400;
@@ -62,6 +54,14 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
             font-family: FontspringRegular;
             src: url(assets/fonts/fontSpring/Fontspring-DEMO-cera-regular.otf);
             }
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            font-family: FontspringRegular;
+            background: #ffffff;
+          }
+          
           ` }),
     core_1.jsx("section", { className: "topNavigation" },
         core_1.jsx(icon_bar_1.IconBar, null, iconBarItems.map(item => {
@@ -98,11 +98,8 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
             core_1.jsx(row_1.Column, null,
                 core_1.jsx("large", null, "Conntect with us"),
                 core_1.jsx("p", null,
-                    core_1.jsx(icon_bar_1.SocialIconBar, null))),
+                    core_1.jsx(icon_bar_1.SocialIconBar, null)),
+                core_1.jsx("large", null, "Recent posts")),
             core_1.jsx(row_1.Column, null,
-                core_1.jsx("large", null, "Recent posts"),
-                core_1.jsx("p", null)),
-            core_1.jsx(row_1.Column, null,
-                core_1.jsx("large", null),
                 core_1.jsx("p", null)))));
 exports.default = PageLayout;

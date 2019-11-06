@@ -30,7 +30,9 @@ const buttons = {
 
 /* Position the "next button" to the right */
 const slides = {
-    display: "none"
+    display: "none",
+    verticalAlign:"middle",
+    textAlign:"center"
 } as React.CSSProperties;
 
 const slidesImage = {
@@ -95,8 +97,8 @@ const large = {};
 
 const medium = {};
 
-const SlideShowTextSlide: FunctionComponent<{ quote: any, quoteLink: any, quoteSource:any }> = ({ quote, quoteLink, quoteSource }) =>
-    <div className="mySlides fade" style={slides}>
+const SlideShowTextSlide: FunctionComponent<{ quote: any, quoteLink: any, quoteSource: any, slideNumber: any }> = ({ quote, quoteLink, quoteSource, slideNumber }) =>
+    <div className={`mySlides${slideNumber} fade`} style={slides}>
         <span style={large}>
             <i>
                 <q>{quote} </q>
@@ -107,7 +109,7 @@ const SlideShowTextSlide: FunctionComponent<{ quote: any, quoteLink: any, quoteS
 
             <br></br>
             <a href={quoteLink}>
-                <b>via {quoteSource} </b>
+                <b>{quoteSource} </b>
             </a>
         </span>
     </div>

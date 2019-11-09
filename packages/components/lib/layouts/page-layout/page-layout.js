@@ -25,12 +25,36 @@ const menuBarItems = [
 const inmageBlockProps = {
     imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
     heading: 'WELCOME',
-    paragragh: `Sinopia Inn would like to welcome you to its rustic hideaway. 
+    paragragh: `To our rustic hideaway. 
     Here you can experience tropical views with lush
     green hills and skies streaked with colour, 
     not to mention amazing sunsets that will have you feeling the
     vibes to just chill.`,
 };
+const recentBlogPost = [
+    {
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    },
+    {
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    },
+    {
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    }
+];
+const recentPostTitle = core_1.css `text-decoration:none;color:white;`;
 const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(core_1.Global, { styles: core_1.css `
         @font-face {
@@ -61,7 +85,30 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
             font-family: FontspringRegular;
             background: #ffffff;
           }
-          
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
           ` }),
     core_1.jsx("section", { className: "topNavigation" },
         core_1.jsx(icon_bar_1.IconBar, null, iconBarItems.map(item => {
@@ -74,7 +121,9 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
         core_1.jsx(image_text_block_1.ImageTextBlock, Object.assign({}, inmageBlockProps))),
     core_1.jsx("section", { className: "datePicker" },
         core_1.jsx(datepicker_1.DatePicker, null)),
-    core_1.jsx("section", { className: "mainCotent" }, children),
+    core_1.jsx("section", { className: "mainCotent", css: core_1.css `{
+            background-color:#fbfbfb;
+    }` }, children),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
             background-color:black;
             padding:30px;
@@ -99,7 +148,17 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
                 core_1.jsx("large", null, "Conntect with us"),
                 core_1.jsx("p", null,
                     core_1.jsx(icon_bar_1.SocialIconBar, null)),
-                core_1.jsx("large", null, "Recent posts")),
+                core_1.jsx("large", null, "Recent posts"),
+                core_1.jsx("br", null),
+                core_1.jsx("ul", null, recentBlogPost.map((post) => core_1.jsx("li", null,
+                    core_1.jsx("a", { href: "", css: recentPostTitle },
+                        " ",
+                        core_1.jsx("medium", { className: "recentPostTitle" }, post.title)),
+                    core_1.jsx("br", null),
+                    core_1.jsx("small", null,
+                        post.description,
+                        ",",
+                        post.postDate))))),
             core_1.jsx(row_1.Column, null,
                 core_1.jsx("p", null)))));
 exports.default = PageLayout;

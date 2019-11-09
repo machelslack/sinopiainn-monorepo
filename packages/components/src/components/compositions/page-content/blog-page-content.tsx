@@ -17,13 +17,13 @@ const headerStyles = {
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 const leftcolumnStyles = {
-  float: "left",
+  display: "table-cell",
   width: "75%",
 } as React.CSSProperties;
 
 /* Right column */
 const rightcolumnStyles = {
-  float: "left",
+  display: "table-cell",
   width: "25%",
   "paddingLeft": "20px",
 } as React.CSSProperties;
@@ -31,6 +31,7 @@ const rightcolumnStyles = {
 
 /* Clear floats after the columns */
 const rowStyles = {
+  display: "table",
   "&:after": {
     content: "",
     display: "table",
@@ -52,44 +53,55 @@ const footerStyles = {
 
 const header = () => React.createElement('large', {}, 'Blog Name');
 
+
+const blogPost = [
+
+  {
+
+    title: "TITLE HEADING",
+    description: "Title description",
+    postDate: " Dec 7, 2017",
+    imageSrc: "",
+    opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  }
+
+]
+
+
+const popularBlogPost = [
+
+  {
+
+    title: "TITLE HEADING",
+    description: "Title description",
+    postDate: " Dec 7, 2017",
+    imageSrc: "",
+    opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+  }
+
+]
 //leftcolumn
 
 const leftcolumn =
   <React.Fragment>
-    <BlogCard>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <BlogImagePlaceholder />
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </BlogCard>
-
-    <BlogCard>
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <BlogImagePlaceholder />
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </BlogCard>
-  </React.Fragment>;
-
-
+    {
+      blogPost.map((post) => <BlogCard>
+        <h2>{post.title}</h2>
+        <h5>{post.description},{post.postDate}</h5>
+        <BlogImagePlaceholder imageSrc={post.imageSrc} />
+        <p>{post.opening}</p>
+      </BlogCard>)
+    }
+  </React.Fragment>
 //rightcolumn 
 
 const rightcolumn =
   <React.Fragment>
     <BlogCard>
-      <h2>About Me</h2>
-      <BlogImagePlaceholder />
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </BlogCard>
-
-    <BlogCard>
-
       <h3>Popular Post</h3>
-      <BlogImagePlaceholder /><br></br>
-      <BlogImagePlaceholder /><br></br>
-      <BlogImagePlaceholder />
+      {
+        popularBlogPost.map((post) => <BlogImagePlaceholder imageSrc={post.imageSrc} />)
+      }
     </BlogCard>
 
     <BlogCard>
@@ -108,10 +120,6 @@ class BlogPageContent extends Component<{}> {
     return (
 
       <React.Fragment>
-        <section style={headerStyles} className="header">
-          {header()}
-        </section>
-
         <section style={rowStyles} className="row">
           <section style={leftcolumnStyles} className="leftcolumn" css={css`
       @media screen and (max-width: 800px) {
@@ -130,7 +138,6 @@ class BlogPageContent extends Component<{}> {
             {rightcolumn}
           </section>
         </section>
-
       </React.Fragment>
     )
   }

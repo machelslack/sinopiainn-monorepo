@@ -12,7 +12,7 @@ import { ImageZoom } from '../../components/image/'
 import { Logo } from '../../components/logo';
 import { NavBar } from '../../components/navigation';
 const iconBarItems = [
-    { class: 'fa-phone', text: '',href:'/contacts' },
+    { class: 'fa-phone', text: '', href: '/contacts' },
 ]
 
 const menuBarItems = [
@@ -25,12 +25,43 @@ const menuBarItems = [
 const inmageBlockProps = {
     imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
     heading: 'WELCOME',
-    paragragh: `Sinopia Inn would like to welcome you to its rustic hideaway. 
+    paragragh: `To our rustic hideaway. 
     Here you can experience tropical views with lush
     green hills and skies streaked with colour, 
     not to mention amazing sunsets that will have you feeling the
     vibes to just chill.`,
 }
+
+const recentBlogPost = [
+
+    {
+
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    },
+    {
+
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    },
+    {
+
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    }
+
+]
+
+const recentPostTitle = css`text-decoration:none;color:white;`;
 
 const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }) => <React.Fragment>
 
@@ -64,7 +95,30 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             font-family: FontspringRegular;
             background: #ffffff;
           }
-          
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
           `}
     />
     <section className="topNavigation">
@@ -86,7 +140,9 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
     <section className="datePicker">
         <DatePicker />
     </section>
-    <section className="mainCotent">
+    <section className="mainCotent" css={css`{
+            background-color:#fbfbfb;
+    }`}>
         {children}
     </section>
     <section className="footer" css={css`{
@@ -99,8 +155,8 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
             <Column >
                 <large>We are here</large><br></br>
                 <p><small> Zion Hill</small><br></br>
-                <small> Fairy Hill PO</small><br></br>
-                <small> Port Antonio, Jamaica</small><br></br></p>
+                    <small> Fairy Hill PO</small><br></br>
+                    <small> Port Antonio, Jamaica</small><br></br></p>
                 <ImageZoom />
                 <br></br>
                 <small>contact us at 001-876-12345678</small>
@@ -109,9 +165,19 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
                 <large>Conntect with us</large>
                 <p><SocialIconBar /></p>
                 <large>Recent posts</large>
+                <br></br>
+                <ul>
+                    {
+                        recentBlogPost.map((post) => <li>
+                            <a href="" css={recentPostTitle}> <medium className="recentPostTitle" >{post.title}</medium></a>
+                            <br></br>
+                            <small>{post.description},{post.postDate}</small>
+                        </li>)
+                    }
+                </ul>
             </Column>
             <Column>
-               
+
                 <p></p>
             </Column>
         </Row>

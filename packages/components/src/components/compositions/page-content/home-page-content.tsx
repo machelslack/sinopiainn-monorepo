@@ -5,11 +5,11 @@ import { UnorderedList, UnorderedListItem } from '../../lists';
 import SlideShowTextSlide from '../../slideshow/slideshow-text-slide';
 
 export interface HomepageContextInterface {
-    changeSlide:any
+    changeSlide: any
 }
 
 export const HomepageContext = React.createContext<HomepageContextInterface>({
-    changeSlide:''
+    changeSlide: ''
 });
 
 const listItems = [
@@ -43,15 +43,14 @@ const slideshowImages = [
     'assets/images/slideshow/homepage/photo_1.jpg',
     'assets/images/slideshow/homepage/photo_2.jpg',
     'assets/images/slideshow/homepage/photo_3.jpg',
+    'assets/images/slideshow/homepage/photo_4.jpg',
+    'assets/images/slideshow/homepage/photo_5.jpg',
+    'assets/images/slideshow/homepage/photo_6.jpg',
+    'assets/images/slideshow/homepage/photo_7.jpg',
 ]
 
-const firstRowLeftcolumn = <React.Fragment><h1> SINOPIA INN</h1> <p> Set on two acres of lush green gardens, Sinopia Inn is an early twentieth century house refurbished with modern interior
-decor that still evokes a feeling of going back in time. The abundance of palm trees and other Jamaican flora
-make it a stunning hideaway in Portland, Jamaica. The units are perfect for families, couples or groups to
-use as a base to explore the natural parish of Portland, Jamaica. Here you are able to experience tranquil
-nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril. It’s
-not like you’re turning your back on traditional island vacations that include all-inclusive beaches and drinks,
-but it is a positive alternative experience of the cool countryside, its beaches and local culture.</p> </React.Fragment>;
+const firstRowLeftcolumn = <React.Fragment><h1> SINOPIA INN</h1> <p> Set on two acres of lush green gardens, less than a stone’s throw away from Dragon Bay, location of Tom Cruise’s iconic Cocktail movie, you'll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families.
+There is air-conditioning in all  suites of Sinopia Inn, and  the coolness of the entire home will present a welcome respite to the heat.</p> </React.Fragment>;
 
 const firstRowRightcolumn = <SlideShowContainer slideNumber={0}>
     {
@@ -60,41 +59,61 @@ const firstRowRightcolumn = <SlideShowContainer slideNumber={0}>
     {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
+
+const roomsSlideShowImages = [
+
+    'assets/images/slideshow/rooms/photo_1.jpg',
+    'assets/images/slideshow/rooms/photo_2.jpg',
+    'assets/images/slideshow/rooms/photo_3.jpg',
+    'assets/images/slideshow/rooms/photo_4.jpg',
+    'assets/images/slideshow/rooms/photo_5.jpg',
+    'assets/images/slideshow/rooms/photo_6.jpg',
+]
+
 const secondRowLeftcolumn = <SlideShowContainer slideNumber={1}>
     {
-        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={2} />)
+        roomsSlideShowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={2} />)
     }
     {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
 
-const secondRowRightcolumn = <React.Fragment><h1> OUR ROOMS</h1> <p> We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms. Prices include
-breakfast and range from $115–$125 for a double and $130–$140 for a family sized room, depending on the day
-and the season. The complete property sleeps 10 quite comfortably at $480 per night Please use the form to
-search rates and availability. Guests are welcome to check in from 1pm onwards and we need them to check out
-before 11am. A valid credit or debit card is required to confirm the booking. If the booking is cancelled less
-than 45 days before arrival, then a charge may apply - depending on the season.  In the event of a ‘no show’
-the full cost of the booking will be charged. During peak season, a minimum three-night stay may be required.</p> </React.Fragment>;
+const secondRowRightcolumn = <React.Fragment><h1> OUR ROOMS</h1> <p> 
+
+We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica’s mid-19th century heyday.
+
+The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica.
+
+These units are perfect for all types - families, couples, individuals or groups – all to use as a base to explore what many call the natural parish of Jamaica.
+Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril
+
+We like to think of our home as Jamaica East’s best-kept secret. And home to some of Jamaica's best positive alternative experiences - its cool countryside, hidden beaches, falls and its vibrant local culture.
+
+</p> </React.Fragment>;
+
+
+const amenitiesSlideShowImages = [
+
+    'assets/images/slideshow/amenities/photo_1.jpg',
+    'assets/images/slideshow/amenities/photo_2.jpg',
+    'assets/images/slideshow/amenities/photo_4.jpg',
+    'assets/images/slideshow/amenities/photo_5.jpg',
+]
 
 
 const thirdRowRightcolumn = <SlideShowContainer slideNumber={2}>
     {
-        slideshowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={3} />)
+        amenitiesSlideShowImages.map((imgsrc) => <SlideShowSlide imgSrc={imgsrc} slideNumber={3} />)
     }
     {/* <SlideShowDots /> */}
 </SlideShowContainer>;
 
 
-const thirdRowLeftcolumn = <React.Fragment><h1> OUR AMENITIES</h1> <p>  Apart from its panoramic views, SINOPIA INN has an outdoor patio, a man-made jerk pit and an indoor lounge that doubles as
-a meeting place to wile away an afternoon. These features make it ideal for hip travellers, family and friends.
-Guests are encouraged to invite friends and family, making this a winning experience. It is a great holiday
-location only 7 miles from the parish capital of Port Antonio, with the Blue Lagoon (Blue Hole) and Winnifred
-Beach (Jamaica’s best) within walking distance either way. Close also are the internationally loved beaches
-of Frenchman’s Cove and San San. We offer 2 double and 2 family sized rooms that can be booked collectively
-for entertaining a great family / group vacation. Or the booking can be individual but with full access to
-the property, but no matter whats in store for your vacation we are committed to making your stay memorable.
-The whole property sleeps 10 quite comfortably. A few of our amenties and services are onsite security, complimentary
-breakfast and wifi access for connection with work and home.</p> </React.Fragment>;
+const thirdRowLeftcolumn = <React.Fragment><h1> OUR AMENITIES</h1> <p>  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman’s Cove sea views.
+
+Sitting at the foot of the UNESCO Blue Mountains, a leisurely – or, for the more experienced – hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world’s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site.
+
+And finally, let’s not forget the Blue Lagoon. This adds the indescribable wow-factor to any visit. With its magical blue waters that change colour during the day through to every shade of blue, jade and emerald, going in for a dip is a must-do activity before you leave the area.</p> </React.Fragment>;
 
 
 const fourthRowLeftcolumn = <React.Fragment>
@@ -112,33 +131,39 @@ const fourthRowLeftcolumn = <React.Fragment>
 
 const slideshowTestimonials = [
 
-   {
-    quote: `Portland is one my favourite destinations in Jamaica. I absolutely loved that this villa kept true to
+    {
+        quote: `Portland is one my favourite destinations in Jamaica. I absolutely loved that this villa kept true to
     the vibe and spirit of Portland. It was close to a great beach (Frenchmans Cove) and the amazing jerk
     spot in Boston. I can't wait to return! Loved it!!!`,
-    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
-    quoteSource: `via Trip advisor`
-   },{
-    quote: `Jamaica, as we all know, is a bright jewel in the Caribbean clutch of precious islands. Portland, in
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }, {
+        quote: `Jamaica, as we all know, is a bright jewel in the Caribbean clutch of precious islands. Portland, in
     the much-undiscovered east of the isle, is the island's diamond for which you rightly have to dig deep
     for. Having overdone the victuals over Xmas I needed somewhere to detox quietly and within my own space.`,
-    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
-    quoteSource: `via Trip advisor`
-   },{
-    quote: `Beautiful location - near to the Long Bay beach with its bright blue sea and EMPTY beach. Sinopia offers
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }, {
+        quote: `Beautiful location - near to the Long Bay beach with its bright blue sea and EMPTY beach. Sinopia offers
     a glimpse of rural Jamaica but with all the modern conveniences.`,
-    quoteLink:`https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12371237-The_Pimento_Room_in_Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
-    quoteSource: `via Trip advisor`
-   }
+        quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12371237-The_Pimento_Room_in_Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
+        quoteSource: `via Trip advisor`
+    }
 
 ]
 
-const fourthRowRightcolumn = <SlideShowContainer slideNumber={3}>
+const fourthRowRightcolumn = 
+<React.Fragment>
+  
+
+<SlideShowContainer slideNumber={3}>
     {
         slideshowTestimonials.map((testimonial) => <SlideShowTextSlide {...testimonial} slideNumber={4} />)
     }
     {/* <SlideShowDots /> */}
-</SlideShowContainer>;
+</SlideShowContainer>
+</React.Fragment>
+;
 
 
 class HomePageContent extends Component<{}> {
@@ -157,15 +182,14 @@ class HomePageContent extends Component<{}> {
         this.showSlides(1, 0);
         this.showSlides(1, 1);
         this.showSlides(1, 2);
-        this.showSlides(1, 3);
+        this.showSlides(1, 3, true);
     }
 
     plusSlides = (n: any, no: any) => {
-        console.log(no);
         this.showSlides(this.slideIndex[no] += n, no);
     }
 
-    showSlides = (n: any, no: any) => {
+    showSlides = (n: any, no: any, auto: boolean = false) => {
         var i;
         var x;
         x = document.getElementsByClassName(this.slideId[no]) as unknown as HTMLElement[];
@@ -174,7 +198,13 @@ class HomePageContent extends Component<{}> {
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
+
         x[this.slideIndex[no] - 1].style.display = "block";
+
+        auto && setTimeout(() => {
+            return this.showSlides(this.slideIndex[no] += 1, no, auto)
+        }, 3000);
+
     }
     render() {
 

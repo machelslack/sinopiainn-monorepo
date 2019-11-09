@@ -11,6 +11,7 @@ const fakeimg = {
     padding: "20px",
     height: "200px"
 };
-const BlogImagePlaceholder = () => react_1.default.createElement(react_1.default.Fragment, null,
-    react_1.default.createElement("div", { style: fakeimg, className: "fakeimg" }));
+const BlogImagePlaceholder = ({ imageSrc }) => react_1.default.createElement(react_1.default.Fragment, null,
+    react_1.default.createElement("div", { style: fakeimg, className: "fakeimg" },
+        react_1.default.createElement("img", { src: imageSrc })));
 exports.default = BlogImagePlaceholder;

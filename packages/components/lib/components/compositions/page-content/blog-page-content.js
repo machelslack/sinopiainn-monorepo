@@ -22,17 +22,18 @@ const headerStyles = {
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 const leftcolumnStyles = {
-    float: "left",
+    display: "table-cell",
     width: "75%",
 };
 /* Right column */
 const rightcolumnStyles = {
-    float: "left",
+    display: "table-cell",
     width: "25%",
     "paddingLeft": "20px",
 };
 /* Clear floats after the columns */
 const rowStyles = {
+    display: "table",
     "&:after": {
         content: "",
         display: "table",
@@ -48,33 +49,38 @@ const footerStyles = {
 };
 //header 
 const header = () => react_1.default.createElement('large', {}, 'Blog Name');
+const blogPost = [
+    {
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    }
+];
+const popularBlogPost = [
+    {
+        title: "TITLE HEADING",
+        description: "Title description",
+        postDate: " Dec 7, 2017",
+        imageSrc: "",
+        opening: "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
+    }
+];
 //leftcolumn
-const leftcolumn = core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx(blog_card_1.BlogCard, null,
-        core_1.jsx("h2", null, "TITLE HEADING"),
-        core_1.jsx("h5", null, "Title description, Dec 7, 2017"),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null),
-        core_1.jsx("p", null, "Some text.."),
-        core_1.jsx("p", null, "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.")),
-    core_1.jsx(blog_card_1.BlogCard, null,
-        core_1.jsx("h2", null, "TITLE HEADING"),
-        core_1.jsx("h5", null, "Title description, Sep 2, 2017"),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null),
-        core_1.jsx("p", null, "Some text.."),
-        core_1.jsx("p", null, "Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.")));
+const leftcolumn = core_1.jsx(react_1.default.Fragment, null, blogPost.map((post) => core_1.jsx(blog_card_1.BlogCard, null,
+    core_1.jsx("h2", null, post.title),
+    core_1.jsx("h5", null,
+        post.description,
+        ",",
+        post.postDate),
+    core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, { imageSrc: post.imageSrc }),
+    core_1.jsx("p", null, post.opening))));
 //rightcolumn 
 const rightcolumn = core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx(blog_card_1.BlogCard, null,
-        core_1.jsx("h2", null, "About Me"),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null),
-        core_1.jsx("p", null, "Some text about me in culpa qui officia deserunt mollit anim..")),
-    core_1.jsx(blog_card_1.BlogCard, null,
         core_1.jsx("h3", null, "Popular Post"),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null),
-        core_1.jsx("br", null),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null),
-        core_1.jsx("br", null),
-        core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, null)),
+        popularBlogPost.map((post) => core_1.jsx(blog_image_placeholder_1.BlogImagePlaceholder, { imageSrc: post.imageSrc }))),
     core_1.jsx(blog_card_1.BlogCard, null,
         core_1.jsx("h3", null, "Follow Me"),
         core_1.jsx("p", null, "Some text..")));
@@ -84,7 +90,6 @@ class BlogPageContent extends react_1.Component {
     }
     render() {
         return (core_1.jsx(react_1.default.Fragment, null,
-            core_1.jsx("section", { style: headerStyles, className: "header" }, header()),
             core_1.jsx("section", { style: rowStyles, className: "row" },
                 core_1.jsx("section", { style: leftcolumnStyles, className: "leftcolumn", css: core_1.css `
       @media screen and (max-width: 800px) {

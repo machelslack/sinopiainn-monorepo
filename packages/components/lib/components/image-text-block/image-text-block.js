@@ -37,12 +37,12 @@ const textBlockParagraph = core_1.css `
 position:relative;top:-40px;
 `;
 const iconTypes = [
-    { class: 'fa-phone', text: '', title: 'Jamaican Breakfast', subtitle: 'included in our room rates' },
-    { class: 'fa-phone', text: '', title: 'On Site Security', subtitle: 'during your stay' },
-    { class: 'fa-phone', text: '', title: 'Free Parking', subtitle: 'for your entire stay' },
-    { class: 'fa-phone', text: '', title: 'Airport Shuttle', subtitle: 'for all guests' },
-    { class: 'fa-phone', text: '', title: 'WIFI 24/7', subtitle: 'connection in all rooms ' },
-    { class: 'fa-phone', text: '', title: 'Caribbean Inspired Baskets', subtitle: 'for 3 nights stay or more' },
+    { class: 'fa fa-coffee', text: '', title: 'Jamaican Breakfast', subtitle: 'included in our room rates' },
+    { class: 'fa fa-shield', text: '', title: 'On Site Security', subtitle: 'during your stay' },
+    { class: 'fa fa-car', text: '', title: 'Free Parking', subtitle: 'for your entire stay' },
+    { class: 'fa fa-bus', text: '', title: 'Airport Shuttle', subtitle: 'for all guests' },
+    { class: 'fa fa-wifi', text: '', title: 'WIFI 24/7', subtitle: 'connection in all rooms ' },
+    { class: 'fa fa-shopping-basket', text: '', title: 'Caribbean Inspired Baskets', subtitle: 'for 3 nights stay or more' },
 ];
 const ImageTextBlock = ({ imgSrc, heading, paragragh }) => core_1.jsx("section", { className: "container", style: container },
     core_1.jsx("img", { src: imgSrc, alt: heading, style: image }),

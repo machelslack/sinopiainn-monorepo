@@ -9,7 +9,7 @@ declare class HomePageContent extends Component<{}> {
     constructor(props: any);
     componentDidMount(): void;
     plusSlides: (n: any, no: any) => void;
-    showSlides: (n: any, no: any) => void;
+    showSlides: (n: any, no: any, auto?: boolean) => void;
     render(): JSX.Element;
 }
 export default HomePageContent;

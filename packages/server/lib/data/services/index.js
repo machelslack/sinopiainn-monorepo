@@ -13,4 +13,8 @@ exports.services = {
         console.log(`🍻🍻🍻`);
         resolve('reserve');
     }),
+    'shop': (req) => new Promise((resolve, reject) => {
+        console.log(`🍻🍻🍻`);
+        resolve('shop');
+    }),
 };

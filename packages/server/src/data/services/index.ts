@@ -11,4 +11,8 @@ export const services: Record<string, any> = {
         console.log(`🍻🍻🍻`);
         resolve('reserve');
     }),
+    'shop': (req: any) => new Promise((resolve, reject) => {
+        console.log(`🍻🍻🍻`);
+        resolve('shop');
+    }),
 };

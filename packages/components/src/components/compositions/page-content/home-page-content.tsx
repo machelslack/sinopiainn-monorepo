@@ -109,7 +109,7 @@ const thirdRowRightcolumn = <SlideShowContainer slideNumber={2}>
 </SlideShowContainer>;
 
 
-const thirdRowLeftcolumn = <React.Fragment><h1> OUR AMENITIES</h1> <p>  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman’s Cove sea views.
+const thirdRowLeftcolumn = <React.Fragment><h1> THINGS TO DO </h1> <p>  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman’s Cove sea views.
 
 Sitting at the foot of the UNESCO Blue Mountains, a leisurely – or, for the more experienced – hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world’s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site.
 

@@ -9,10 +9,45 @@ const emotion_server_1 = require("emotion-server");
 const react_router_dom_1 = require("react-router-dom");
 const renderers_1 = require("@sinopiainn/components/lib/components/renderers/");
 const App_1 = __importDefault(require("@sinopiainn/components/lib/client/App"));
+const imageBlockProps = {
+    'home': {
+        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
+        heading: 'WELCOME',
+        paragragh: `To our rustic hideaway. 
+        Here you can experience tropical views with lush
+        green hills and skies streaked with colour, 
+        not to mention amazing sunsets that will have you feeling the
+        vibes to just chill.`,
+    },
+    '/contacts': {
+        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
+        heading: 'YOUR HOME AWAY FROM HOME WHILE HERE IN JAMAICA',
+        paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
+    },
+    'blog': {
+        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
+        heading: 'BLOG',
+        paragragh: `will all you need to know for your next trip to Jamaica just one click away, so feel free to leave us a note. `,
+    },
+    'reserve': {
+        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
+        heading: 'AMAZING VALUE',
+        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `,
+    },
+    '/shop': {
+        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
+        heading: 'SHOP',
+        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `,
+    }
+};
 exports.generateTemplate = (pageData = {}, req) => {
+    console.log(`😎😎😎😎😎😎😎`, pageData);
+    const pageSrc = {
+        imageBlock: imageBlockProps[pageData]
+    };
     const head = server_1.renderToStaticMarkup(renderers_1.renderer.head(pageData));
     const body = emotion_server_1.renderStylesToString(server_1.renderToString(renderers_1.renderer.body(react_1.default.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: {} },
-        react_1.default.createElement(App_1.default, { pageData: pageData })), req)));
+        react_1.default.createElement(App_1.default, { pageData: pageSrc })), req)));
     const template = `<!DOCTYPE html><html>${head}${body}</html>`;
     return template;
 };

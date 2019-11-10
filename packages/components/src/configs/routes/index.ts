@@ -2,6 +2,7 @@ import HomePageContent from "../../components/compositions/page-content/home-pag
 import BlogPageContent from "../../components/compositions/page-content/blog-page-content";
 import ContactPageContent from "../../components/compositions/page-content/contact-page-content";
 import ReservePageContent from "../../components/compositions/page-content/reserve-page-content";
+import ShopPageContent from "../../components/compositions/page-content/shop-page-content";
 
 export const routes = [
     {
@@ -27,5 +28,11 @@ export const routes = [
         exact: true,
         fetchData: false,
         component: ContactPageContent
+    },
+    {
+        path: '/shop',
+        exact: true,
+        fetchData: false,
+        component: ShopPageContent
     }
 ]

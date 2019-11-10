@@ -22,15 +22,6 @@ const menuBarItems = [
     'BLOG',
     'RESERVE',
 ];
-const inmageBlockProps = {
-    imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-    heading: 'WELCOME',
-    paragragh: `To our rustic hideaway. 
-    Here you can experience tropical views with lush
-    green hills and skies streaked with colour, 
-    not to mention amazing sunsets that will have you feeling the
-    vibes to just chill.`,
-};
 const recentBlogPost = [
     {
         title: "TITLE HEADING",
@@ -118,7 +109,8 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
     core_1.jsx("section", { className: "mainNavigation" },
         core_1.jsx(navigation_1.NavBar, null)),
     core_1.jsx("section", { className: "heroImage" },
-        core_1.jsx(image_text_block_1.ImageTextBlock, Object.assign({}, inmageBlockProps))),
+        console.log(`🔑`, pageData.imageBlock),
+        core_1.jsx(image_text_block_1.ImageTextBlock, Object.assign({ imgSrc: pageData }, pageData.imageBlock))),
     core_1.jsx("section", { className: "datePicker" },
         core_1.jsx(datepicker_1.DatePicker, null)),
     core_1.jsx("section", { className: "mainCotent", css: core_1.css `{

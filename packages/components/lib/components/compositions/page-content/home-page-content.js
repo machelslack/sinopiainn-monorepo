@@ -79,7 +79,7 @@ const amenitiesSlideShowImages = [
 ];
 const thirdRowRightcolumn = react_1.default.createElement(slideshow_1.SlideShowContainer, { slideNumber: 2 }, amenitiesSlideShowImages.map((imgsrc) => react_1.default.createElement(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })));
 const thirdRowLeftcolumn = react_1.default.createElement(react_1.default.Fragment, null,
-    react_1.default.createElement("h1", null, " OUR AMENITIES"),
+    react_1.default.createElement("h1", null, " THINGS TO DO "),
     " ",
     react_1.default.createElement("p", null, "  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman\u2019s Cove sea views. Sitting at the foot of the UNESCO Blue Mountains, a leisurely \u2013 or, for the more experienced \u2013 hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world\u2019s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site. And finally, let\u2019s not forget the Blue Lagoon. This adds the indescribable wow-factor to any visit. With its magical blue waters that change colour during the day through to every shade of blue, jade and emerald, going in for a dip is a must-do activity before you leave the area."),
     " ");

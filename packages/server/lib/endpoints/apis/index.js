@@ -4,5 +4,6 @@ const services_1 = require("../../data/services");
 exports.apis = {
     '/': services_1.services['home'],
     '/blog': services_1.services['blog'],
-    '/availability': services_1.services['availability']
+    '/reserve': services_1.services['reserve'],
+    '/shop': services_1.services['shop']
 };

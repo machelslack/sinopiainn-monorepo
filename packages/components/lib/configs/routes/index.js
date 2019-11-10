@@ -7,6 +7,7 @@ const home_page_content_1 = __importDefault(require("../../components/compositio
 const blog_page_content_1 = __importDefault(require("../../components/compositions/page-content/blog-page-content"));
 const contact_page_content_1 = __importDefault(require("../../components/compositions/page-content/contact-page-content"));
 const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
+const shop_page_content_1 = __importDefault(require("../../components/compositions/page-content/shop-page-content"));
 exports.routes = [
     {
         path: '/',
@@ -31,5 +32,11 @@ exports.routes = [
         exact: true,
         fetchData: false,
         component: contact_page_content_1.default
+    },
+    {
+        path: '/shop',
+        exact: true,
+        fetchData: false,
+        component: shop_page_content_1.default
     }
 ];

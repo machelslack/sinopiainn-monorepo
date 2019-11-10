@@ -3,11 +3,13 @@ import { PageLayout } from '../layouts';
 import { routes } from '../configs/routes';
 import { Route, Switch } from 'react-router';
 
-class App extends Component<{ pageData: any }> {
+
+interface appData {
+    imageBlock:object
+}
+class App extends Component<{ pageData: appData }> {
+  
     render() {
-
-        console.log(`client side app 🕺🕺🕺🕺🕺🕺🕺`);
-
         return (
             <React.Fragment>
                 <PageLayout {...this.props} >

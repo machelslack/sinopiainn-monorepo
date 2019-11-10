@@ -1,8 +1,15 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
-import React, { FunctionComponent } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { TwoColumnRow } from '../../../layouts/row';
-import { TextField, SelectField, TextArea, SubmitButton } from '../../form';
+
+export interface ReservePageContextInterface {
+}
+
+export const ReservepageContext = React.createContext<ReservePageContextInterface>({
+});
+
 
 //leftcolumn
 
@@ -48,7 +55,7 @@ padding: 8px;`
 
 // tr: nth - child(even){ background - color: #f2f2f2 }
 
-const leftcolumn = <React.Fragment>
+const leftcolumn = <React.Fragment><h1> ROOMS</h1> 
   <ul css={ul}>
     <li>
       <div css={div}>
@@ -70,12 +77,13 @@ const leftcolumn = <React.Fragment>
       </div>
     </li>
   </ul>
+
 </React.Fragment>;
 
 //rightcolumn 
 const optionsArray = ['option 1', 'option 2', 'option 3'];
 
-const rightcolumn = <React.Fragment>
+const rightcolumn = <React.Fragment><h1> AMENITIES</h1> <p>
 
   <div css={tableDiv}>
     <table css={table}>
@@ -89,15 +97,77 @@ const rightcolumn = <React.Fragment>
       </tr>
     </table>
   </div>
-
-
-
-
+</p>
 </React.Fragment>
 
-const ReservePageContent: FunctionComponent<{}> = () => <React.Fragment>
-  <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
-  <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
-</React.Fragment>
+const renderItem = (items: any) => {
+
+  return <React.Fragment>
+
+    {
+      items.map((items: any) => <ul css={ul}>
+        <li>
+          <div css={div}>
+            <div css={innerDiv}>
+              <img className="material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle" css={i} ></img>
+            </div>
+            <div css={innerDiv}>
+              <span css={firstLine}>
+                {items.name}
+              </span>
+              <br></br>
+              <span css={secondLine}>
+                {items.description}
+              </span>
+            </div>
+            <div css={innerDiv}>
+              <span className="close"> {`Add for $${items.rate}`}</span>
+            </div>
+          </div>
+        </li>
+      </ul>)
+    }
+
+  </React.Fragment>
+
+}
+
+
+class ReservePageContent extends Component<{ rooms: any, amenities: any }> {
+
+  constructor(props: any) {
+    super(props);
+  }
+  render() {
+
+    return (<React.Fragment>
+      {/* <TwoColumnRow leftcolumn={renderItem(this.props.rooms)} rightcolumn={renderItem(this.props.amenities)} /> */}
+      <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
+    </React.Fragment>
+    )
+
+  }
+
+
+}
+
+
+const mapStateToProps = (state: any, ownProps: any) => {
+  return {
+  }
+}
+
+const mapDispatchToProps = (dispatch: any, ownProps: any) => {
+  return {
+    onClick: () => {
+    }
+  }
+}
 
 export default ReservePageContent;
+
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(ReservePageContent);

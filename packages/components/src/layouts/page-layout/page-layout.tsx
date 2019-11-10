@@ -21,17 +21,6 @@ const menuBarItems = [
     'BLOG',
     'RESERVE',
 ]
-
-const inmageBlockProps = {
-    imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-    heading: 'WELCOME',
-    paragragh: `To our rustic hideaway. 
-    Here you can experience tropical views with lush
-    green hills and skies streaked with colour, 
-    not to mention amazing sunsets that will have you feeling the
-    vibes to just chill.`,
-}
-
 const recentBlogPost = [
 
     {
@@ -135,7 +124,8 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
         <NavBar />
     </section>
     <section className="heroImage">
-        <ImageTextBlock {...inmageBlockProps} />
+        {console.log(`🔑`, pageData.imageBlock)}
+        <ImageTextBlock imgSrc={pageData} {...pageData.imageBlock} />
     </section>
     <section className="datePicker">
         <DatePicker />

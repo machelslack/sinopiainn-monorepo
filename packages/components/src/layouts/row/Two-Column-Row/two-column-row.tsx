@@ -10,20 +10,12 @@ display: table-cell;
 width: 50%;
 padding: 30px;
 vertical-align:middle;
-
 h1 {
   border-bottom: thin dashed #CB410B;
   font-size:xxx-large;
   font-weight:200;
   font-family: 'FontspringLight';
   padding-bottom:20px;
-}
-
-p{
-  font-weight:100;
-  font-family: 'FontspringRegular';
-  line-height:2;
-
 }
 `
 

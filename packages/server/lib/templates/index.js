@@ -21,7 +21,7 @@ const imageBlockProps = {
     },
     '/contacts': {
         imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'YOUR HOME AWAY FROM HOME WHILE HERE IN JAMAICA',
+        heading: 'DIRECTIONS & CONTACTS',
         paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
     },
     'blog': {
@@ -41,7 +41,6 @@ const imageBlockProps = {
     }
 };
 exports.generateTemplate = (pageData = {}, req) => {
-    console.log(`😎😎😎😎😎😎😎`, pageData);
     const pageSrc = {
         imageBlock: imageBlockProps[pageData]
     };

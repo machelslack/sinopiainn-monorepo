@@ -1,8 +1,8 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { rootReducer } from '../store/reducers'
 import App from './App'
 
@@ -26,7 +26,7 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
   },
   '/contacts': {
       imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-      heading: 'YOUR HOME AWAY FROM HOME WHILE HERE IN JAMAICA',
+      heading: 'DIRECTIONS & CONTACTS',
       paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
   },
   '/blog': {
@@ -46,16 +46,25 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
 }
 }
 
-
-const store = createStore(rootReducer,{})
-
-declare global {
-  interface Window { __INITIAL_DATA__: any; }
-}
-
 const pageSrc = {
   imageBlock: imageBlockProps[location.pathname]
 };
+
+const middleware:any = [];
+
+const initialState = {
+  rooms:{}
+};
+
+const store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f:any) => f
+  )
+);
+
 
 hydrate(
   <Provider store={store}>

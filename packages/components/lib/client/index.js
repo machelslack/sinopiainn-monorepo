@@ -22,7 +22,7 @@ const imageBlockProps = {
     },
     '/contacts': {
         imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'YOUR HOME AWAY FROM HOME WHILE HERE IN JAMAICA',
+        heading: 'DIRECTIONS & CONTACTS',
         paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
     },
     '/blog': {
@@ -41,10 +41,14 @@ const imageBlockProps = {
         paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `,
     }
 };
-const store = redux_1.createStore(reducers_1.rootReducer, {});
 const pageSrc = {
     imageBlock: imageBlockProps[location.pathname]
 };
+const middleware = [];
+const initialState = {
+    rooms: {}
+};
+const store = redux_1.createStore(reducers_1.rootReducer, initialState, redux_1.compose(redux_1.applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f));
 react_dom_1.hydrate(react_1.default.createElement(react_redux_1.Provider, { store: store },
     react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(App_1.default, { pageData: window.__INITIAL_DATA__ || pageSrc }))), document.getElementById('clientApp'));

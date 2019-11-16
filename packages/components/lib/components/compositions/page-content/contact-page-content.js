@@ -14,7 +14,7 @@ const iframeStyles = core_1.css `margin:0px; flex-grow : 1;`;
 const mapOuterDiv = core_1.css `height:auto;display: flex;`;
 //leftcolumn
 const leftcolumn = core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("iframe", { width: '100%', height: '100%', id: 'mapcanvas', src: "https://maps.google.com/maps?q=Zion%20Hill,%20Fairy%20Hill%20PO,%20Port%20Antonio,%20Jamaica&t=&z=10&ie=UTF8&iwloc=&output=embed", 
+    core_1.jsx("iframe", { width: '100%', height: '100%', id: 'mapcanvas', src: "https://maps.google.com/maps?q=Sinopia%20Inn,%20Zion%20Hill,%20Fairy%20Hill%20PO,%20Port%20Antonio,%20Jamaica&t=&z=10&ie=UTF8&iwloc=&output=embed", 
         // frameborder='0' 
         scrolling: 'no', 
         // marginheight='0' 

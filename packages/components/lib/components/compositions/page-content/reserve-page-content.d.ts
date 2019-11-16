@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 export interface ReservePageContextInterface {
 }
 export declare const ReservepageContext: React.Context<ReservePageContextInterface>;
-declare class ReservePageContent extends Component<{
-    rooms: any;
-    amenities: any;
-}> {
+export declare class ReservePageContent extends Component<{}> {
     constructor(props: any);
+    addItem: () => void;
     render(): JSX.Element;
 }
-export default ReservePageContent;
+declare const _default: import("react-redux").ConnectedComponent<typeof ReservePageContent, any>;
+export default _default;

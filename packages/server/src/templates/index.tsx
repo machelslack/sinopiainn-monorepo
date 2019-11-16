@@ -25,7 +25,7 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
     },
     '/contacts': {
         imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'YOUR HOME AWAY FROM HOME WHILE HERE IN JAMAICA',
+        heading: 'DIRECTIONS & CONTACTS',
         paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
     },
     'blog': {
@@ -47,8 +47,6 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
 
 
 export const generateTemplate = (pageData: any = {}, req: any) => {
-
-    console.log(`😎😎😎😎😎😎😎`,pageData);
     const pageSrc = {
         imageBlock: imageBlockProps[pageData]
     };

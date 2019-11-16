@@ -3,6 +3,8 @@ import { jsx, css } from "@emotion/core";
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { TwoColumnRow } from '../../../layouts/row';
+import { addItem } from "../../../store/actions";
+import { getRooms, getAmenities, itinerary } from "../../../store/selectors";
 
 export interface ReservePageContextInterface {
 }
@@ -13,23 +15,17 @@ export const ReservepageContext = React.createContext<ReservePageContextInterfac
 
 //leftcolumn
 
-const ul = css` list-style:none; width:100%; `;
+const ul = css` list-style:none; width:100%;padding:0px;`;
 
-const div = css`display:table
-
-& .innderDiv {
-  display:table-cell; vertical-align:middle;
-}
-
-`;
+const div = css`display:table`;
 
 const innerDiv = css`display:table-cell; vertical-align:middle;`;
 
-const i = css`font-size:50px;padding:5px; line-height:1;`;
+const i = css`font-size:40px;padding:10px; line-height:1;color:#CB410B;`;
 
-const firstLine = css`font-size:16px`;
+const firstLine = css`font-size:16px;  font-family: 'FontspringRegular';`;
 
-const secondLine = css`font-size:11px`;
+const secondLine = css`font-size:12px;  font-family: 'FontspringLight';`;
 
 const close = css`position: absolute;
 right: 0;
@@ -56,7 +52,35 @@ padding: 8px;`
 // tr: nth - child(even){ background - color: #f2f2f2 }
 
 const leftcolumn = <React.Fragment><h1> ROOMS</h1> 
-  <ul css={ul}>
+ <ul css={ul}>
+    <li>
+      <div css={div}>
+        <div css={innerDiv}>
+          <i className="material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle" css={i} ></i>
+        </div>
+        <div css={innerDiv}>
+          <span css={firstLine}>
+            Complimentary Breakfast
+          </span>
+          <br></br>
+          <span css={secondLine}>
+            Enjoy our traditional Jamaican breakfast included as part of our nightly room rates
+          </span>
+        </div>
+        <div css={innerDiv}>
+          <span className="close">×</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</React.Fragment>;
+
+//rightcolumn 
+const optionsArray = ['option 1', 'option 2', 'option 3'];
+
+const rightcolumn = <React.Fragment><h1> AMENITIES</h1> 
+
+ <ul css={ul}>
     <li>
       <div css={div}>
         <div css={innerDiv}>
@@ -78,12 +102,11 @@ const leftcolumn = <React.Fragment><h1> ROOMS</h1>
     </li>
   </ul>
 
-</React.Fragment>;
+</React.Fragment>
 
-//rightcolumn 
-const optionsArray = ['option 1', 'option 2', 'option 3'];
+const secondRowLeftColumn = <React.Fragment></React.Fragment>
 
-const rightcolumn = <React.Fragment><h1> AMENITIES</h1> <p>
+const secondRowRightColumn = <React.Fragment><h1> ITINERARY</h1> <p>
 
   <div css={tableDiv}>
     <table css={table}>
@@ -99,6 +122,7 @@ const rightcolumn = <React.Fragment><h1> AMENITIES</h1> <p>
   </div>
 </p>
 </React.Fragment>
+
 
 const renderItem = (items: any) => {
 
@@ -133,41 +157,45 @@ const renderItem = (items: any) => {
 }
 
 
-class ReservePageContent extends Component<{ rooms: any, amenities: any }> {
+export class ReservePageContent extends Component<{}> {
 
   constructor(props: any) {
     super(props);
+    this.addItem = this.addItem.bind(this)
   }
-  render() {
 
+  addItem = () => {
+    
+  }
+
+  render() {
     return (<React.Fragment>
       {/* <TwoColumnRow leftcolumn={renderItem(this.props.rooms)} rightcolumn={renderItem(this.props.amenities)} /> */}
       <TwoColumnRow leftcolumn={leftcolumn} rightcolumn={rightcolumn} />
+      <TwoColumnRow leftcolumn={secondRowLeftColumn} rightcolumn={secondRowRightColumn} />
     </React.Fragment>
     )
-
   }
-
-
 }
 
 
 const mapStateToProps = (state: any, ownProps: any) => {
   return {
+    rooms:getRooms(state),
+    amenities:getAmenities(state),
+    itinerary:itinerary(state)
   }
 }
 
 const mapDispatchToProps = (dispatch: any, ownProps: any) => {
   return {
-    onClick: () => {
-    }
+    addItem:(item:any,type:any) => dispatch(addItem(item,type))
   }
 }
 
-export default ReservePageContent;
+// export default ReservePageContent;
 
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(ReservePageContent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReservePageContent);

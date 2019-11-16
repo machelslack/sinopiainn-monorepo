@@ -124,7 +124,6 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
         <NavBar />
     </section>
     <section className="heroImage">
-        {console.log(`🔑`, pageData.imageBlock)}
         <ImageTextBlock imgSrc={pageData} {...pageData.imageBlock} />
     </section>
     <section className="datePicker">

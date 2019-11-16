@@ -5,12 +5,12 @@ const defaultHotelAvailability = {
     amenities: [],
     initinary: {}
 };
-exports.default = (state = defaultHotelAvailability, { payload, type } = {}) => {
+exports.default = (state = {}, { payload, type } = {}) => {
     switch (type) {
         case 'ADD_ROOMS':
-            return Object.assign({}, state, {
-                visibilityFilter: payload
-            });
+            return {
+                ...state,
+            };
         default:
             return state;
     }

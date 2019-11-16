@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import React, { Component } from 'react';
 import { TwoColumnRow } from '../../../layouts/row';
 import { SlideShowContainer, SlideShowSlide, SlideShowDots } from '../../slideshow';
@@ -11,6 +13,12 @@ export interface HomepageContextInterface {
 export const HomepageContext = React.createContext<HomepageContextInterface>({
     changeSlide: ''
 });
+
+const paragraph = css`
+  font-weight:100;
+  font-family: 'FontspringRegular';
+  line-height:2;
+`
 
 const listItems = [
 
@@ -49,7 +57,7 @@ const slideshowImages = [
     'assets/images/slideshow/homepage/photo_7.jpg',
 ]
 
-const firstRowLeftcolumn = <React.Fragment><h1> SINOPIA INN</h1> <p> Set on two acres of lush green gardens, less than a stone’s throw away from Dragon Bay, location of Tom Cruise’s iconic Cocktail movie, you'll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families.
+const firstRowLeftcolumn = <React.Fragment><h1> SINOPIA INN</h1> <p css={paragraph}> Set on two acres of lush green gardens, less than a stone’s throw away from Dragon Bay, location of Tom Cruise’s iconic Cocktail movie, you'll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families.
 There is air-conditioning in all  suites of Sinopia Inn, and  the coolness of the entire home will present a welcome respite to the heat.</p> </React.Fragment>;
 
 const firstRowRightcolumn = <SlideShowContainer slideNumber={0}>
@@ -78,7 +86,7 @@ const secondRowLeftcolumn = <SlideShowContainer slideNumber={1}>
 </SlideShowContainer>;
 
 
-const secondRowRightcolumn = <React.Fragment><h1> OUR ROOMS</h1> <p> 
+const secondRowRightcolumn = <React.Fragment><h1> OUR ROOMS</h1> <p css={paragraph}> 
 
 We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica’s mid-19th century heyday.
 
@@ -109,7 +117,7 @@ const thirdRowRightcolumn = <SlideShowContainer slideNumber={2}>
 </SlideShowContainer>;
 
 
-const thirdRowLeftcolumn = <React.Fragment><h1> THINGS TO DO </h1> <p>  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman’s Cove sea views.
+const thirdRowLeftcolumn = <React.Fragment><h1> THINGS TO DO </h1> <p css={paragraph}>  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman’s Cove sea views.
 
 Sitting at the foot of the UNESCO Blue Mountains, a leisurely – or, for the more experienced – hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world’s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site.
 

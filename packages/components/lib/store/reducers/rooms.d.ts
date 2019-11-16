@@ -1,10 +1,2 @@
-declare const _default: (state?: {
-    rooms: never[];
-    amenities: never[];
-    initinary: {};
-}, { payload, type }?: any) => {
-    rooms: never[];
-    amenities: never[];
-    initinary: {};
-};
+declare const _default: (state?: {}, { payload, type }?: any) => {};
 export default _default;

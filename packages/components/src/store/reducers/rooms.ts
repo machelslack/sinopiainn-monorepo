@@ -13,12 +13,18 @@ const defaultHotelAvailability = {
 
 
 
-export default (state = defaultHotelAvailability, { payload, type } = {} as any) => {
+export default (state = {}, { payload, type } = {} as any) => {
     switch (type) {
         case 'ADD_ROOMS':
-            return Object.assign({}, state, {
-                visibilityFilter: payload
-            })
+            return {
+                ...state,
+                // initinary:{
+                //     ...state.initinary,
+                //     rooms:{
+                //         ...state.rooms,
+                //     }
+                // }
+            }
         default:
             return state
     }

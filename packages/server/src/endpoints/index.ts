@@ -10,7 +10,6 @@ const wrapper = (handler:any) =>
 
 module.exports = (app:any) => {
   routes.forEach((route) => {
-    console.log(route);
     app.get(route.path,wrapper(pageHandler));
   });
 }

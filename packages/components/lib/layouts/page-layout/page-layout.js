@@ -13,6 +13,7 @@ const row_1 = require("../row");
 const image_1 = require("../../components/image/");
 const logo_1 = require("../../components/logo");
 const navigation_1 = require("../../components/navigation");
+const reserve_page_content_1 = require("../../components/compositions/page-content/reserve-page-content");
 const iconBarItems = [
     { class: 'fa-phone', text: '', href: '/contacts' },
 ];
@@ -114,7 +115,8 @@ const PageLayout = ({ children, pageData }) => core_1.jsx(react_1.default.Fragme
         core_1.jsx(datepicker_1.DatePicker, null)),
     core_1.jsx("section", { className: "mainCotent", css: core_1.css `{
             background-color:#fbfbfb;
-    }` }, children),
+    }` },
+        core_1.jsx(reserve_page_content_1.ReservePageContent, null)),
     core_1.jsx("section", { className: "footer", css: core_1.css `{
             background-color:black;
             padding:30px;

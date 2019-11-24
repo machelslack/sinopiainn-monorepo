@@ -1,8 +1,6 @@
 import React from "react";
-import { hydrate } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import createHistory from 'history/createBrowserHistory';
 import initialState from "./initial-state";
 import localStorageMiddleware from './middleware/local-storage/local-storage-middleware';
 import hotelReducer from "./reducers/hotel";
@@ -11,6 +9,9 @@ import roomsReducer from "./reducers/rooms";
 import offersReducer from "./reducers/offers";
 import itineraryReducer from "./reducers/itinerary";
 import reservationReducer from "./reducers/reservation";
+import { routerMiddleware } from "react-router-redux";
+
+export const history = createHistory();
 
 export const reducers = Object.freeze({
   hotel: hotelReducer,
@@ -24,6 +25,7 @@ export const reducers = Object.freeze({
 const rootReducer = combineReducers(reducers);
 
 const middleware: any = [
+    routerMiddleware(history),
     localStorageMiddleware
 ];
 

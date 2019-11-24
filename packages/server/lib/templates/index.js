@@ -10,34 +10,34 @@ const react_router_dom_1 = require("react-router-dom");
 const renderers_1 = require("@sinopiainn/components/lib/components/renderers/");
 const App_1 = __importDefault(require("@sinopiainn/components/lib/client/App"));
 const imageBlockProps = {
-    'home': {
-        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'WELCOME',
+    home: {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "WELCOME",
         paragragh: `To our rustic hideaway. 
         Here you can experience tropical views with lush
         green hills and skies streaked with colour, 
         not to mention amazing sunsets that will have you feeling the
-        vibes to just chill.`,
+        vibes to just chill.`
     },
-    '/contacts': {
-        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'DIRECTIONS & CONTACTS',
-        paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `,
+    "/contacts": {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "DIRECTIONS & CONTACTS",
+        paragragh: `All you need to know for your next trip to us is just one click away so feel free to leave us a note. `
     },
-    'blog': {
-        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'BLOG',
-        paragragh: `will all you need to know for your next trip to Jamaica just one click away, so feel free to leave us a note. `,
+    blog: {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "BLOG",
+        paragragh: `will all you need to know for your next trip to Jamaica just one click away, so feel free to leave us a note. `
     },
-    'reserve': {
-        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'AMAZING VALUE',
-        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `,
+    reserve: {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "AMAZING VALUE",
+        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
     },
-    '/shop': {
-        imgSrc: 'assets/images/hero-images/hero-images-1.jpg',
-        heading: 'SHOP',
-        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `,
+    "/shop": {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "SHOP",
+        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
     }
 };
 exports.generateTemplate = (pageData = {}, req) => {

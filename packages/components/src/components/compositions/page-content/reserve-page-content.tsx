@@ -2,6 +2,7 @@
 import { jsx, css } from "@emotion/core";
 import React, { Component } from "react";
 import { connect, ReactReduxContext } from "react-redux";
+import PropTypes from 'prop-types';
 import { TwoColumnRow } from "../../../layouts/row";
 import { toogleItem } from "../../../store/actions";
 import { AsyncResource } from "async_hooks";
@@ -167,13 +168,13 @@ interface ReservePageContentState {
   numberOfGuest: any;
 }
 
-type ReservePageContentProps = typeof ReservePageContent.defaultProps & {
-  rooms: any;
-  itinerary: any;
-  reservationId: any;
-  amenities: any;
-  updateRooms: any;
-  updateAmenities: any;
+type ReservePageContentProps = {
+  rooms?: any;
+  itinerary?: any;
+  reservationId?: any;
+  amenities?: any;
+  updateRooms?: any;
+  updateAmenities?: any;
 };
 
 
@@ -182,9 +183,20 @@ export class ReservePageContent extends Component<
   ReservePageContentState
 > {
 
-  static defaultProps = {
-    name: "world"
-  };
+  // static defaultProps = {
+  //   rooms: [],
+  //   offers: [],
+  //   amenities: [],
+  //   itinerary: {},
+  //   reservationId: 1
+  // };
+  // static propTypes = {
+  //   rooms: PropTypes.array,
+  //   offers: PropTypes.array,
+  //   amenities: PropTypes.array,
+  //   itinerary: PropTypes.object,
+  //   reservationId: PropTypes.number
+  // };
 
   constructor(props: any) {
     super(props);
@@ -376,5 +388,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => {
       dispatch(toogleItem(payload, type))
   };
 };
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReservePageContent);

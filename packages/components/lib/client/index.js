@@ -5,10 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_dom_1 = require("react-dom");
-const react_router_dom_1 = require("react-router-dom");
 const react_redux_1 = require("react-redux");
 const config_store_1 = __importDefault(require("../store/config-store"));
-const App_1 = __importDefault(require("./App"));
+const reserve_page_content_1 = require("../components/compositions/page-content/reserve-page-content");
 const imageBlockProps = {
     "/": {
         imgSrc: "assets/images/hero-images/hero-images-1.jpg",
@@ -43,8 +42,8 @@ const imageBlockProps = {
 const pageSrc = {
     imageBlock: imageBlockProps[location.pathname]
 };
-const middleware = [];
 const store = config_store_1.default();
+const initialContextValue = { storeState: null, store };
+exports.StoreContext = react_1.default.createContext(initialContextValue);
 react_dom_1.hydrate(react_1.default.createElement(react_redux_1.Provider, { store: store },
-    react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-        react_1.default.createElement(App_1.default, { pageData: window.__INITIAL_DATA__ || pageSrc }))), document.getElementById("clientApp"));
+    react_1.default.createElement(reserve_page_content_1.ReservePageContent, null)), document.getElementById("clientApp"));

@@ -10,6 +10,9 @@
     "lib": ["dom", "esnext"],
     "jsx": "react",
     "target": "ESNEXT",
-    "module": "commonjs",
+    "module": "commonjs"
   },
+  "rules": {
+    "typedef": false
+  }
 }

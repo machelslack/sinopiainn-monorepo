@@ -1,12 +1,11 @@
 import React from "react";
 import { hydrate } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { applyMiddleware, compose, createStore } from "redux";
-import configureStore from '../store/config-store';
-import { rootReducer } from "../store/reducers";
-import initialState from "../store/initial-state";
+import { Provider, ReactReduxContextValue } from "react-redux";
+import configureStore, { history }  from '../store/config-store';
 import App from "./App";
+import { ConnectedRouter } from "react-router-redux";
+import { ReservePageContent } from "../components/compositions/page-content/reserve-page-content";
 
 interface inmageBlockPropsInterface {
   imgSrc: string;
@@ -50,16 +49,16 @@ const pageSrc = {
   imageBlock: imageBlockProps[location.pathname]
 };
 
-const middleware: any = [];
-
-
 const store = configureStore();
+
+const initialContextValue: ReactReduxContextValue = { storeState: null, store };
+export const StoreContext = React.createContext(initialContextValue);
 
 hydrate(
   <Provider store={store}>
-    <BrowserRouter>
-      <App pageData={window.__INITIAL_DATA__ || pageSrc} />
-    </BrowserRouter>
+     {/* <ConnectedRouter history={history}></ConnectedRouter> */}
+      {/* <App pageData={window.__INITIAL_DATA__ || pageSrc} /> */}
+      <ReservePageContent />
   </Provider>,
   document.getElementById("clientApp")
 );

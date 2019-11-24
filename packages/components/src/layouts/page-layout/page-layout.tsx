@@ -11,6 +11,7 @@ import { UnorderedList, UnorderedListItem } from '../../components/lists';
 import { ImageZoom } from '../../components/image/'
 import { Logo } from '../../components/logo';
 import { NavBar } from '../../components/navigation';
+import { ReservePageContent } from '../../components/compositions/page-content/reserve-page-content';
 const iconBarItems = [
     { class: 'fa-phone', text: '', href: '/contacts' },
 ]
@@ -132,7 +133,8 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
     <section className="mainCotent" css={css`{
             background-color:#fbfbfb;
     }`}>
-        {children}
+        {/* {children} */}
+        <ReservePageContent />
     </section>
     <section className="footer" css={css`{
             background-color:black;

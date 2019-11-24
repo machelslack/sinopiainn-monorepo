@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const home_page_content_1 = __importDefault(require("../../components/compositions/page-content/home-page-content"));
 const blog_page_content_1 = __importDefault(require("../../components/compositions/page-content/blog-page-content"));
 const contact_page_content_1 = __importDefault(require("../../components/compositions/page-content/contact-page-content"));
-const reserve_page_content_1 = require("../../components/compositions/page-content/reserve-page-content");
+const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
 const shop_page_content_1 = __importDefault(require("../../components/compositions/page-content/shop-page-content"));
 exports.routes = [
     {
@@ -25,7 +25,7 @@ exports.routes = [
         path: '/reserve',
         exact: true,
         fetchData: true,
-        component: reserve_page_content_1.ReservePageContent
+        component: reserve_page_content_1.default
     },
     {
         path: '/contacts',

@@ -110,6 +110,20 @@ const renderItem = (items) => {
                         `Add for $${items.rate}`)))))))));
 };
 class ReservePageContent extends react_1.Component {
+    // static defaultProps = {
+    //   rooms: [],
+    //   offers: [],
+    //   amenities: [],
+    //   itinerary: {},
+    //   reservationId: 1
+    // };
+    // static propTypes = {
+    //   rooms: PropTypes.array,
+    //   offers: PropTypes.array,
+    //   amenities: PropTypes.array,
+    //   itinerary: PropTypes.object,
+    //   reservationId: PropTypes.number
+    // };
     constructor(props) {
         super(props);
         this.toogleRoom = (roomId) => {
@@ -233,9 +247,6 @@ class ReservePageContent extends react_1.Component {
     }
 }
 exports.ReservePageContent = ReservePageContent;
-ReservePageContent.defaultProps = {
-    name: "world"
-};
 const mapStateToProps = (state, ownProps) => {
     return {
         rooms: state.rooms,

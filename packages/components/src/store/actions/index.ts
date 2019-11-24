@@ -13,7 +13,7 @@ export function addRoom(room:any) {
 }
 
 
-export const addItem = (item:any,type:string) => ({
+export const toogleItem = (item:any,type:string) => ({
   type: type,
   item
 })

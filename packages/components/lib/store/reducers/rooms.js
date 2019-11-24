@@ -1,17 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const defaultHotelAvailability = {
-    rooms: [],
-    amenities: [],
-    initinary: {}
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.default = (state = {}, { payload, type } = {}) => {
-    switch (type) {
-        case 'ADD_ROOMS':
-            return {
-                ...state,
-            };
-        default:
-            return state;
-    }
+Object.defineProperty(exports, "__esModule", { value: true });
+const initial_state_1 = __importDefault(require("../initial-state"));
+exports.default = (state = initial_state_1.default().rooms, { payload, type } = {}) => {
+    return state;
 };

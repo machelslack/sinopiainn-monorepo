@@ -11,7 +11,7 @@ function addRoom(room) {
     return { type: exports.ADD_ROOM, room };
 }
 exports.addRoom = addRoom;
-exports.addItem = (item, type) => ({
+exports.toogleItem = (item, type) => ({
     type: type,
     item
 });

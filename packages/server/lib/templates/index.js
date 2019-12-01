@@ -37,11 +37,17 @@ const imageBlockProps = {
         imgSrc: "assets/images/hero-images/hero-images-1.jpg",
         heading: "SHOP",
         paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
-    }
+    },
+    "/things-to-do": {
+        imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+        heading: "AMAZING VALUE",
+        paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
+    },
 };
 exports.generateTemplate = (pageData = {}, req) => {
     const pageSrc = {
-        imageBlock: imageBlockProps[pageData]
+        imageBlock: imageBlockProps[pageData],
+        route: pageData
     };
     const head = server_1.renderToStaticMarkup(renderers_1.renderer.head(pageData));
     const body = emotion_server_1.renderStylesToString(server_1.renderToString(renderers_1.renderer.body(

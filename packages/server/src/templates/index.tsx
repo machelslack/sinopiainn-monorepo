@@ -45,12 +45,18 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
     imgSrc: "assets/images/hero-images/hero-images-1.jpg",
     heading: "SHOP",
     paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
-  }
+  },
+  "/things-to-do": {
+    imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+    heading: "AMAZING VALUE",
+    paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
+  },
 };
 
 export const generateTemplate = (pageData: any = {}, req: any) => {
   const pageSrc = {
-    imageBlock: imageBlockProps[pageData]
+    imageBlock: imageBlockProps[pageData],
+    route: pageData
   };
   const head = renderToStaticMarkup(renderer.head(pageData));
   const body = renderStylesToString(

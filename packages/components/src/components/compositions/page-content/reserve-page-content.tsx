@@ -85,19 +85,19 @@ const table = css`
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 1px solid #ddd;
 `;
 
 const td = css`
   text-align: left;
   padding: 8px;
+  bordeR:none;
 `;
 
 const tableDiv = css`
   overflow-x: auto;
 `;
 
-const th = css`border:red thin solid; color red;text-align: left;
+const th = css`border:#cb410b thin dashed; color black;text-align: left;
 padding: 8px;`;
 
 // tr: nth - child(even){ background - color: #f2f2f2 }
@@ -192,6 +192,8 @@ interface ReservePageContentState {
   toDate: any;
   fromDate: any;
   numberOfGuest: any;
+  numOfNights: any;
+  itinerary: any;
 }
 
 type ReservePageContentProps = {
@@ -213,7 +215,8 @@ export class ReservePageContent extends Component<
     offers: [],
     amenities: [],
     itinerary: {},
-    reservationId: 1
+    reservationId: 1,
+    numOfNights: 1
   };
   static propTypes = {
     rooms: PropTypes.array,
@@ -229,7 +232,12 @@ export class ReservePageContent extends Component<
       rooms: [],
       toDate: "",
       fromDate: "",
-      numberOfGuest: 0
+      numberOfGuest: 0,
+      numOfNights: 1,
+      itinerary: {
+        rooms: [],
+        amenities: []
+      }
     };
     this.toogleRoom = this.toogleRoom.bind(this);
     this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -250,7 +258,7 @@ export class ReservePageContent extends Component<
   toogleRoom = (roomId: any) => {
     let { rooms } = this.props;
     const { itinerary, reservationId, updateRooms } = this.props;
-    const { toDate, fromDate, numberOfGuest } = this.state;
+    const { toDate, fromDate, numberOfGuest, numOfNights } = this.state;
 
     const room = rooms.find((room: any) => room._id === roomId);
 
@@ -261,7 +269,7 @@ export class ReservePageContent extends Component<
 
     room.bookings =
       bookingIndex >= 0
-        ? room.bookings.splice(bookingIndex, 1)
+        ? (room.bookings.splice(bookingIndex, 1), room.bookings)
         : [
             ...room.bookings,
             {
@@ -302,13 +310,13 @@ export class ReservePageContent extends Component<
           ];
 
     const roomsTotal = itinerary.rooms.reduce((total: any, room: any) => {
-      return total + room.price * room.occupancy;
+      return total + room.price * numOfNights;
     }, 0);
 
     const amenitiesTotal = !!itinerary.amenities
       ? itinerary.amenities.reduce((total: any, amenity: any) => {
           if (amenity.frequency === "person") {
-            return total + amenity.price * numberOfGuest;
+            return total + amenity.price * 1;
           } else if (amenity.frequency === "room") {
             return total + amenity.price * itinerary.rooms.length;
           }
@@ -317,7 +325,6 @@ export class ReservePageContent extends Component<
 
     itinerary.total = amenitiesTotal + roomsTotal;
 
-    console.log(`🚨🚨🚨🚨🚨🚨 itinerary- `, itinerary);
     return updateRooms({
       payload: {
         rooms: [...rooms, room],
@@ -329,7 +336,7 @@ export class ReservePageContent extends Component<
 
   toogleAmenity = (amenityName: any) => {
     const { amenities, itinerary, updateAmenities } = this.props;
-    const { numberOfGuest } = this.state;
+    const { numberOfGuest, numOfNights } = this.state;
 
     const amenity = amenities.find(
       (amenity: any) => amenity.name === amenityName
@@ -369,7 +376,7 @@ export class ReservePageContent extends Component<
     const amenitiesTotal = itinerary.amenities.reduce(
       (total: any, amenity: any) => {
         if (amenity.frequency === "person") {
-          return total + amenity.price * numberOfGuest;
+          return total + amenity.price * 1;
         } else if (amenity.frequency === "room") {
           return total + amenity.price * itinerary.rooms.length;
         }
@@ -459,10 +466,66 @@ export class ReservePageContent extends Component<
             </React.Fragment>
           </div>
         </div>
-        <TwoColumnRow
-          leftcolumn={secondRowLeftColumn}
-          rightcolumn={secondRowRightColumn}
-        />
+        <div className="row" css={row}>
+          <div className="column" css={column}></div>
+          <div className="column" css={column}>
+            <React.Fragment>
+              <h1> ITINERARY</h1>{" "}
+              <p>
+                <div css={tableDiv}>
+                  <table css={table}>
+                    <tr>
+                      <th css={th} colSpan={3}>
+                        ROOMS
+                      </th>
+                    </tr>
+                    {!!this.props.itinerary.rooms &&
+                      this.props.itinerary.rooms.map((room: any) => (
+                        <tr>
+                          <td css={td}> {room.name}</td>
+                          <td css={td}>{room.price}</td>
+                          <td css={td}>
+                            {room.price * this.state.numOfNights}
+                          </td>
+                        </tr>
+                      ))}
+                    <tr>
+                      <th css={th} colSpan={3}>
+                        AMENITIES
+                      </th>
+                    </tr>
+                    {!!this.props.itinerary.amenities &&
+                      this.props.itinerary.amenities.map((amenity: any) => (
+                        <tr>
+                          <td css={td}> {amenity.name}</td>
+                          <td css={td}>{amenity.price}</td>
+                          <td css={td}>
+                            {amenity.price *
+                              ((amenity.frequency === "person" &&
+                                this.state.numberOfGuest *
+                                  this.state.numOfNights) ||
+                                (amenity.frequency === "room" &&
+                                  this.props.itinerary.rooms.length))}
+                          </td>
+                        </tr>
+                      ))}
+                    <tr>
+                      <th css={th} colSpan={3}>
+                        TOTAL
+                      </th>
+                    </tr>
+                    <tr>
+                      <td css={td} colSpan={2}>
+                        {}
+                      </td>
+                      <td css={td}>{!!this.props.itinerary.total && this.props.itinerary.total}</td>
+                    </tr>
+                  </table>
+                </div>
+              </p>
+            </React.Fragment>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

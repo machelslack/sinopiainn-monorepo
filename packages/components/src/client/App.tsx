@@ -5,8 +5,10 @@ import { Route, Switch } from 'react-router';
 import  ReservePageContent from '../components/compositions/page-content/reserve-page-content';
 import configureStore from "../store/config-store";
 import { Provider } from 'react-redux';
+import { mainContent } from '../components/compositions';
 interface appData {
-    imageBlock:object
+    imageBlock:object,
+    route: string
 }
 
 
@@ -15,6 +17,12 @@ const store = configureStore();
 class App extends Component<{ pageData: appData }> {
   
     render() {
+        console.log(`🚨🚨🚨🚨🚨`,this.props );
+
+        const Route = routes.find(route => route.path === this.props.pageData.route );
+
+       const Component = Route!.component;
+
         return (
             <Provider store={store}>
             <React.Fragment>
@@ -31,7 +39,8 @@ class App extends Component<{ pageData: appData }> {
                         />
                     ))}
                     </Switch>*/}
-                    <ReservePageContent />
+                    <Component {...this.props}/>
+                    {/* <ReservePageContent /> */}
                 </PageLayout> 
             </React.Fragment>
             </Provider>

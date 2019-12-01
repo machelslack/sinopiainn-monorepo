@@ -9,6 +9,10 @@ export default function Navbar () {
             route:'/'
         },
         {
+            name:'THINGS TO DO',
+            route:'things-to-do'
+        },
+        {
             name:'BLOG',
             route:'blog'
         },

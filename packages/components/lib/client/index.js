@@ -38,7 +38,8 @@ const imageBlockProps = {
     }
 };
 const pageSrc = {
-    imageBlock: imageBlockProps[location.pathname]
+    imageBlock: imageBlockProps[location.pathname],
+    route: location.pathname
 };
 // const initialContextValue: ReactReduxContextValue = { storeState: null, store };
 // export const StoreContext = React.createContext(initialContextValue);

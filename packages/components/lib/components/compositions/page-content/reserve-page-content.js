@@ -15,7 +15,6 @@ const core_1 = require("@emotion/core");
 const react_1 = __importStar(require("react"));
 const react_redux_1 = require("react-redux");
 const prop_types_1 = __importDefault(require("prop-types"));
-const row_1 = require("../../../layouts/row");
 const actions_1 = require("../../../store/actions");
 // export interface ReservePageContextInterface {}
 // export const ReservepageContext = React.createContext<
@@ -82,16 +81,16 @@ const table = core_1.css `
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 1px solid #ddd;
 `;
 const td = core_1.css `
   text-align: left;
   padding: 8px;
+  bordeR:none;
 `;
 const tableDiv = core_1.css `
   overflow-x: auto;
 `;
-const th = core_1.css `border:red thin solid; color red;text-align: left;
+const th = core_1.css `border:#cb410b thin dashed; color black;text-align: left;
 padding: 8px;`;
 // tr: nth - child(even){ background - color: #f2f2f2 }
 //rightcolumn
@@ -143,14 +142,13 @@ class ReservePageContent extends react_1.Component {
         this.toogleRoom = (roomId) => {
             let { rooms } = this.props;
             const { itinerary, reservationId, updateRooms } = this.props;
-            const { toDate, fromDate, numberOfGuest } = this.state;
+            const { toDate, fromDate, numberOfGuest, numOfNights } = this.state;
             const room = rooms.find((room) => room._id === roomId);
             const roomIndex = rooms.findIndex((room) => room._id === roomId);
             const bookingIndex = room.bookings.findIndex((booking) => booking.RID === reservationId);
-            console.log(`🚨🚨🚨🚨🚨🚨 bookingIndex- `, bookingIndex);
             room.bookings =
                 bookingIndex >= 0
-                    ? room.bookings.splice(bookingIndex, 1)
+                    ? (room.bookings.splice(bookingIndex, 1), room.bookings)
                     : [
                         ...room.bookings,
                         {
@@ -159,41 +157,40 @@ class ReservePageContent extends react_1.Component {
                             enddate: toDate
                         }
                     ];
-            console.log(`🚨🚨🚨🚨🚨🚨 room- `, room);
             // rooms = !!bookingIndex
             //   ? (rooms.splice(roomIndex, 1), [...rooms, room])
             //   : [...rooms];
             const itineraryIndex = !!itinerary.rooms
                 ? itinerary.rooms.findIndex((room) => room.id === roomId)
                 : null;
-            console.log(`🚨🚨🚨🚨🚨🚨 inItineraryIndex- `, itineraryIndex != null && itineraryIndex >= 0, itineraryIndex);
-            itinerary.rooms = itineraryIndex != null && itineraryIndex >= 0
-                ? (console.log('emoving'), itinerary.rooms.splice(itineraryIndex, 1), itinerary.rooms)
-                : !!itinerary.rooms
-                    ? [
-                        ...itinerary.rooms,
-                        {
-                            id: room._id,
-                            name: room.name,
-                            price: room.price,
-                            occupancy: room.occupancy
-                        }
-                    ]
-                    : [
-                        {
-                            id: room._id,
-                            name: room.name,
-                            price: room.price,
-                            occupancy: room.occupancy
-                        }
-                    ];
+            itinerary.rooms =
+                itineraryIndex != null && itineraryIndex >= 0
+                    ? (itinerary.rooms.splice(itineraryIndex, 1), itinerary.rooms)
+                    : !!itinerary.rooms
+                        ? [
+                            ...itinerary.rooms,
+                            {
+                                id: room._id,
+                                name: room.name,
+                                price: room.price,
+                                occupancy: room.occupancy
+                            }
+                        ]
+                        : [
+                            {
+                                id: room._id,
+                                name: room.name,
+                                price: room.price,
+                                occupancy: room.occupancy
+                            }
+                        ];
             const roomsTotal = itinerary.rooms.reduce((total, room) => {
-                return total + room.price * room.occupancy;
+                return total + room.price * numOfNights;
             }, 0);
             const amenitiesTotal = !!itinerary.amenities
                 ? itinerary.amenities.reduce((total, amenity) => {
                     if (amenity.frequency === "person") {
-                        return total + amenity.price * numberOfGuest;
+                        return total + amenity.price * 1;
                     }
                     else if (amenity.frequency === "room") {
                         return total + amenity.price * itinerary.rooms.length;
@@ -201,52 +198,69 @@ class ReservePageContent extends react_1.Component {
                 }, 0)
                 : 0;
             itinerary.total = amenitiesTotal + roomsTotal;
-            console.log(`🚨🚨🚨🚨🚨🚨 itinerary- `, itinerary);
             return updateRooms({
                 payload: {
                     rooms: [...rooms, room],
                     itinerary
                 },
-                type: "TOGGLE_ROOMS"
+                type: "TOGGLE_ITEMS"
             });
         };
         this.toogleAmenity = (amenityName) => {
             const { amenities, itinerary, updateAmenities } = this.props;
-            const { numberOfGuest } = this.state;
+            const { numberOfGuest, numOfNights } = this.state;
             const amenity = amenities.find((amenity) => amenity.name === amenityName);
-            const inItineraryIndex = itinerary.amenities.findIndex((amenity) => amenity.name === amenityName);
-            itinerary.rooms = !!inItineraryIndex
-                ? itinerary.amenities.splice(inItineraryIndex, 1)
-                : [
-                    ...itinerary.amenities,
-                    {
-                        name: amenity.name,
-                        price: amenity.price,
-                        frequency: amenity.frequency
-                    }
-                ];
-            itinerary.total =
-                itinerary.rooms.reduce((total, room) => {
+            const itineraryIndex = !!itinerary.amenities
+                ? itinerary.amenities.findIndex((amenity) => amenity.name === amenityName)
+                : null;
+            itinerary.amenities =
+                itineraryIndex != null && itineraryIndex >= 0
+                    ? (itinerary.amenities.splice(itineraryIndex, 1), itinerary.amenities)
+                    : !!itinerary.amenities
+                        ? [
+                            ...itinerary.amenities,
+                            {
+                                name: amenity.name,
+                                price: amenity.price,
+                                frequency: amenity.frequency
+                            }
+                        ]
+                        : [
+                            {
+                                name: amenity.name,
+                                price: amenity.price,
+                                frequency: amenity.frequency
+                            }
+                        ];
+            const roomsTotal = !!itinerary.rooms
+                ? itinerary.rooms.reduce((total, room) => {
                     return total + room.price * room.occupancy;
-                }, 0) +
-                    itinerary.amenities.reduce((total, amenity) => {
-                        if (amenity.frequency === "person") {
-                            return total + amenity.price * numberOfGuest;
-                        }
-                        else if (amenity.frequency === "room") {
-                            return total + amenity.price * itinerary.rooms.length;
-                        }
-                    }, 0);
+                }, 0)
+                : 0;
+            const amenitiesTotal = itinerary.amenities.reduce((total, amenity) => {
+                if (amenity.frequency === "person") {
+                    return total + amenity.price * 1;
+                }
+                else if (amenity.frequency === "room") {
+                    return total + amenity.price * itinerary.rooms.length;
+                }
+            }, 0);
+            itinerary.total = amenitiesTotal + roomsTotal;
             return updateAmenities({
                 payload: { itinerary },
-                type: "TOOGLE_AMENITY"
+                type: "TOGGLE_ITEMS"
             });
         };
         this.state = {
             rooms: [],
             toDate: "",
             fromDate: "",
-            numberOfGuest: 0
+            numberOfGuest: 0,
+            numOfNights: 1,
+            itinerary: {
+                rooms: [],
+                amenities: []
+            }
         };
         this.toogleRoom = this.toogleRoom.bind(this);
         this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -295,7 +309,43 @@ class ReservePageContent extends react_1.Component {
                                     core_1.jsx("span", { className: "close", onClick: () => {
                                             this.toogleAmenity(amenity.name);
                                         } }, "\u00D7")))))))))),
-            core_1.jsx(row_1.TwoColumnRow, { leftcolumn: secondRowLeftColumn, rightcolumn: secondRowRightColumn })));
+            core_1.jsx("div", { className: "row", css: row },
+                core_1.jsx("div", { className: "column", css: column }),
+                core_1.jsx("div", { className: "column", css: column },
+                    core_1.jsx(react_1.default.Fragment, null,
+                        core_1.jsx("h1", null, " ITINERARY"),
+                        " ",
+                        core_1.jsx("p", null,
+                            core_1.jsx("div", { css: tableDiv },
+                                core_1.jsx("table", { css: table },
+                                    core_1.jsx("tr", null,
+                                        core_1.jsx("th", { css: th, colSpan: 3 }, "ROOMS")),
+                                    !!this.props.itinerary.rooms &&
+                                        this.props.itinerary.rooms.map((room) => (core_1.jsx("tr", null,
+                                            core_1.jsx("td", { css: td },
+                                                " ",
+                                                room.name),
+                                            core_1.jsx("td", { css: td }, room.price),
+                                            core_1.jsx("td", { css: td }, room.price * this.state.numOfNights)))),
+                                    core_1.jsx("tr", null,
+                                        core_1.jsx("th", { css: th, colSpan: 3 }, "AMENITIES")),
+                                    !!this.props.itinerary.amenities &&
+                                        this.props.itinerary.amenities.map((amenity) => (core_1.jsx("tr", null,
+                                            core_1.jsx("td", { css: td },
+                                                " ",
+                                                amenity.name),
+                                            core_1.jsx("td", { css: td }, amenity.price),
+                                            core_1.jsx("td", { css: td }, amenity.price *
+                                                ((amenity.frequency === "person" &&
+                                                    this.state.numberOfGuest *
+                                                        this.state.numOfNights) ||
+                                                    (amenity.frequency === "room" &&
+                                                        this.props.itinerary.rooms.length)))))),
+                                    core_1.jsx("tr", null,
+                                        core_1.jsx("th", { css: th, colSpan: 3 }, "TOTAL")),
+                                    core_1.jsx("tr", null,
+                                        core_1.jsx("td", { css: td, colSpan: 2 }),
+                                        core_1.jsx("td", { css: td }, !!this.props.itinerary.total && this.props.itinerary.total))))))))));
     }
 }
 exports.ReservePageContent = ReservePageContent;
@@ -304,7 +354,8 @@ ReservePageContent.defaultProps = {
     offers: [],
     amenities: [],
     itinerary: {},
-    reservationId: 1
+    reservationId: 1,
+    numOfNights: 1
 };
 ReservePageContent.propTypes = {
     rooms: prop_types_1.default.array,

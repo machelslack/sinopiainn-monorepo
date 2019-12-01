@@ -3,10 +3,17 @@ import BlogPageContent from "../../components/compositions/page-content/blog-pag
 import ContactPageContent from "../../components/compositions/page-content/contact-page-content";
 import ReservePageContent from "../../components/compositions/page-content/reserve-page-content";
 import ShopPageContent from "../../components/compositions/page-content/shop-page-content";
+import ThingsToDoPageContent from "../../components/compositions/page-content/things-to-do-content";
 
 export const routes = [
     {
         path: '/',
+        exact: true,
+        fetchData: true,
+        component: HomePageContent
+    },
+    {
+        path: 'home',
         exact: true,
         fetchData: true,
         component: HomePageContent
@@ -24,6 +31,12 @@ export const routes = [
         component: ReservePageContent
     },
     {
+        path: 'reserve',
+        exact: true,
+        fetchData: true,
+        component: ReservePageContent
+    },
+    {
         path: '/contacts',
         exact: true,
         fetchData: false,
@@ -34,5 +47,11 @@ export const routes = [
         exact: true,
         fetchData: false,
         component: ShopPageContent
+    },
+    {
+        path: '/things-to-do',
+        exact: true,
+        fetchData: false,
+        component: ThingsToDoPageContent 
     }
 ]

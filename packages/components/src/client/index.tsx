@@ -40,7 +40,8 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
 };
 
 const pageSrc = {
-  imageBlock: imageBlockProps[location.pathname]
+  imageBlock: imageBlockProps[location.pathname],
+  route: location.pathname
 };
 
 // const initialContextValue: ReactReduxContextValue = { storeState: null, store };

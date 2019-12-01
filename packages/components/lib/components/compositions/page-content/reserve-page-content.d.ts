@@ -5,6 +5,8 @@ interface ReservePageContentState {
     toDate: any;
     fromDate: any;
     numberOfGuest: any;
+    numOfNights: any;
+    itinerary: any;
 }
 declare type ReservePageContentProps = {
     rooms: any;
@@ -22,6 +24,7 @@ export declare class ReservePageContent extends Component<ReservePageContentProp
         amenities: never[];
         itinerary: {};
         reservationId: number;
+        numOfNights: number;
     };
     static propTypes: {
         rooms: PropTypes.Requireable<any[]>;

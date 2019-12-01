@@ -8,9 +8,16 @@ const blog_page_content_1 = __importDefault(require("../../components/compositio
 const contact_page_content_1 = __importDefault(require("../../components/compositions/page-content/contact-page-content"));
 const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
 const shop_page_content_1 = __importDefault(require("../../components/compositions/page-content/shop-page-content"));
+const things_to_do_content_1 = __importDefault(require("../../components/compositions/page-content/things-to-do-content"));
 exports.routes = [
     {
         path: '/',
+        exact: true,
+        fetchData: true,
+        component: home_page_content_1.default
+    },
+    {
+        path: 'home',
         exact: true,
         fetchData: true,
         component: home_page_content_1.default
@@ -28,6 +35,12 @@ exports.routes = [
         component: reserve_page_content_1.default
     },
     {
+        path: 'reserve',
+        exact: true,
+        fetchData: true,
+        component: reserve_page_content_1.default
+    },
+    {
         path: '/contacts',
         exact: true,
         fetchData: false,
@@ -38,5 +51,11 @@ exports.routes = [
         exact: true,
         fetchData: false,
         component: shop_page_content_1.default
+    },
+    {
+        path: '/things-to-do',
+        exact: true,
+        fetchData: false,
+        component: things_to_do_content_1.default
     }
 ];

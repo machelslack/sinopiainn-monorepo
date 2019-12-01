@@ -71,24 +71,12 @@ export declare const reducers: Readonly<{
         occupancy: string;
         icon: string;
         price: string;
-        booking: never[];
+        bookings: never[];
         adults: string;
         children: string;
         infants: string;
         photos: string[];
-    }[], { payload, type }?: any) => {
-        _id: string;
-        name: string;
-        description: string;
-        occupancy: string;
-        icon: string;
-        price: string;
-        booking: never[];
-        adults: string;
-        children: string;
-        infants: string;
-        photos: string[];
-    }[];
+    }[], { payload, type }?: any) => any;
     amenities: (state?: {
         name: string;
         description: string;
@@ -143,7 +131,7 @@ export declare const reducers: Readonly<{
         nights: number;
         photos: string[];
     })[];
-    itinerary: (state?: {}, { payload, type }?: any) => {};
+    itinerary: (state?: {}, { payload, type }?: any) => any;
     reservationId: (state?: number, { payload, type }?: any) => number;
 }>;
 export declare const rootReducer: import("redux").Reducer<{
@@ -180,19 +168,7 @@ export declare const rootReducer: import("redux").Reducer<{
         date: string;
         enabled: string;
     };
-    readonly rooms: {
-        _id: string;
-        name: string;
-        description: string;
-        occupancy: string;
-        icon: string;
-        price: string;
-        booking: never[];
-        adults: string;
-        children: string;
-        infants: string;
-        photos: string[];
-    }[];
+    readonly rooms: any;
     readonly amenities: {
         name: string;
         description: string;
@@ -221,6 +197,6 @@ export declare const rootReducer: import("redux").Reducer<{
         nights: number;
         photos: string[];
     })[];
-    readonly itinerary: {};
+    readonly itinerary: any;
     readonly reservationId: number;
 }, import("redux").AnyAction>;

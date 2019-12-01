@@ -133,8 +133,7 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
     <section className="mainCotent" css={css`{
             background-color:#fbfbfb;
     }`}>
-        {/* {children} */}
-        <ReservePageContent />
+        {children}
     </section>
     <section className="footer" css={css`{
             background-color:black;

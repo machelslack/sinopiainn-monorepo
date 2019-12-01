@@ -3,6 +3,7 @@
  */
 
 export const ADD_ROOM = 'ADD_ROOM'
+export const TOGGLE_ROOMS = 'TOGGLE_ROOMS'
 
 /*
  * action creators
@@ -17,3 +18,11 @@ export const toogleItem = (item:any,type:string) => ({
   type: type,
   item
 })
+
+
+export const updateRooms= (payload:any,type:string) => (
+  {
+    payload,
+    type
+  }
+)

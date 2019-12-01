@@ -4,5 +4,13 @@ export default (
   state = initialState().rooms,
   { payload, type } = {} as any
 ) => {
-  return state;
+  switch (type) {
+    case "UPDATE_BOOKING":
+      return {
+        ...state,
+        ...payload
+      };
+    default:
+      return state;
+  }
 };

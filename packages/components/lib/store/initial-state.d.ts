@@ -39,7 +39,7 @@ declare const _default: () => {
         occupancy: string;
         icon: string;
         price: string;
-        booking: never[];
+        bookings: never[];
         adults: string;
         children: string;
         infants: string;

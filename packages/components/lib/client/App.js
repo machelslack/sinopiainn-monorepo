@@ -6,13 +6,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const layouts_1 = require("../layouts");
+const reserve_page_content_1 = __importDefault(require("../components/compositions/page-content/reserve-page-content"));
+const config_store_1 = __importDefault(require("../store/config-store"));
+const react_redux_1 = require("react-redux");
+const store = config_store_1.default();
 class App extends react_1.Component {
     render() {
-        return (react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement(layouts_1.PageLayout, Object.assign({}, this.props))));
+        return (react_1.default.createElement(react_redux_1.Provider, { store: store },
+            react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement(layouts_1.PageLayout, Object.assign({}, this.props),
+                    react_1.default.createElement(reserve_page_content_1.default, null)))));
     }
 }
 exports.default = App;

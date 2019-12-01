@@ -5,22 +5,10 @@ declare const _default: (state?: {
     occupancy: string;
     icon: string;
     price: string;
-    booking: never[];
+    bookings: never[];
     adults: string;
     children: string;
     infants: string;
     photos: string[];
-}[], { payload, type }?: any) => {
-    _id: string;
-    name: string;
-    description: string;
-    occupancy: string;
-    icon: string;
-    price: string;
-    booking: never[];
-    adults: string;
-    children: string;
-    infants: string;
-    photos: string[];
-}[];
+}[], { payload, type }?: any) => any;
 export default _default;

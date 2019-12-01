@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import React, { Component } from "react";
-import { connect, ReactReduxContext } from "react-redux";
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { TwoColumnRow } from "../../../layouts/row";
 import { toogleItem } from "../../../store/actions";
 import { AsyncResource } from "async_hooks";
+import amenities from "../../../store/reducers/amenities";
 
 // export interface ReservePageContextInterface {}
 
@@ -15,6 +16,32 @@ import { AsyncResource } from "async_hooks";
 
 //leftcolumn
 
+/* Create two columns that float next to eachother */
+//   color:#CB410B;
+const column = css`
+  display: table-cell;
+  width: 50%;
+  padding: 30px;
+  h1 {
+    border-bottom: thin dashed #cb410b;
+    font-size: xxx-large;
+    font-weight: 200;
+    font-family: "FontspringLight";
+    padding-bottom: 20px;
+  }
+`;
+
+/* Clear floats after the columns */
+const row = css`
+  display: table;
+  width: 100%;
+  &:after: {
+    content: ;
+    display: table;
+    clear: both;
+  }
+`;
+
 const ul = css`
   list-style: none;
   width: 100%;
@@ -23,11 +50,11 @@ const ul = css`
 
 const div = css`
   display: table;
+  width: 100%;
 `;
 
 const innerDiv = css`
   display: table-cell;
-  vertical-align: middle;
 `;
 
 const i = css`
@@ -81,7 +108,6 @@ const optionsArray = ["option 1", "option 2", "option 3"];
 const rightcolumn = (
   <React.Fragment>
     <h1> AMENITIES</h1>
-
     <ul css={ul}>
       <li>
         <div css={div}>
@@ -169,34 +195,33 @@ interface ReservePageContentState {
 }
 
 type ReservePageContentProps = {
-  rooms?: any;
-  itinerary?: any;
-  reservationId?: any;
-  amenities?: any;
-  updateRooms?: any;
-  updateAmenities?: any;
+  rooms: any;
+  offers: any;
+  amenities: any;
+  itinerary: any;
+  reservationId: any;
+  updateRooms: any;
+  updateAmenities: any;
 };
-
 
 export class ReservePageContent extends Component<
   ReservePageContentProps,
   ReservePageContentState
 > {
-
-  // static defaultProps = {
-  //   rooms: [],
-  //   offers: [],
-  //   amenities: [],
-  //   itinerary: {},
-  //   reservationId: 1
-  // };
-  // static propTypes = {
-  //   rooms: PropTypes.array,
-  //   offers: PropTypes.array,
-  //   amenities: PropTypes.array,
-  //   itinerary: PropTypes.object,
-  //   reservationId: PropTypes.number
-  // };
+  static defaultProps = {
+    rooms: [],
+    offers: [],
+    amenities: [],
+    itinerary: {},
+    reservationId: 1
+  };
+  static propTypes = {
+    rooms: PropTypes.array,
+    offers: PropTypes.array,
+    amenities: PropTypes.array,
+    itinerary: PropTypes.object,
+    reservationId: PropTypes.number
+  };
 
   constructor(props: any) {
     super(props);
@@ -212,7 +237,14 @@ export class ReservePageContent extends Component<
 
   componentDidMount() {
     //create reservationId
-    console.log(`🍻🍻🍻🍻🍻🍻🍻`, this.props);
+    console.log(`🍻🍻🍻🍻🍻🍻🍻 component mount`, this.props.amenities);
+  }
+
+  componentDidUpdate(prevProps: any, prevState: any, snapshot: any) {
+    console.log(
+      "this.props.mandatory_fields.updateNeeded -- ",
+      JSON.stringify(this.state)
+    );
   }
 
   toogleRoom = (roomId: any) => {
@@ -221,61 +253,77 @@ export class ReservePageContent extends Component<
     const { toDate, fromDate, numberOfGuest } = this.state;
 
     const room = rooms.find((room: any) => room._id === roomId);
+
     const roomIndex = rooms.findIndex((room: any) => room._id === roomId);
-
     const bookingIndex = room.bookings.findIndex(
-      (booking: any) => booking._id === reservationId
+      (booking: any) => booking.RID === reservationId
     );
 
-    room.bookings = !!bookingIndex
-      ? room.bookings.splice(bookingIndex, 1)
-      : [
-          ...room.bookings,
-          {
-            RID: reservationId,
-            fromdate: fromDate,
-            enddate: toDate
+    room.bookings =
+      bookingIndex >= 0
+        ? room.bookings.splice(bookingIndex, 1)
+        : [
+            ...room.bookings,
+            {
+              RID: reservationId,
+              fromdate: fromDate,
+              enddate: toDate
+            }
+          ];
+
+    // rooms = !!bookingIndex
+    //   ? (rooms.splice(roomIndex, 1), [...rooms, room])
+    //   : [...rooms];
+
+    const itineraryIndex = !!itinerary.rooms
+      ? itinerary.rooms.findIndex((room: any) => room.id === roomId)
+      : null;
+
+    itinerary.rooms =
+      itineraryIndex != null && itineraryIndex >= 0
+        ? (itinerary.rooms.splice(itineraryIndex, 1), itinerary.rooms)
+        : !!itinerary.rooms
+        ? [
+            ...itinerary.rooms,
+            {
+              id: room._id,
+              name: room.name,
+              price: room.price,
+              occupancy: room.occupancy
+            }
+          ]
+        : [
+            {
+              id: room._id,
+              name: room.name,
+              price: room.price,
+              occupancy: room.occupancy
+            }
+          ];
+
+    const roomsTotal = itinerary.rooms.reduce((total: any, room: any) => {
+      return total + room.price * room.occupancy;
+    }, 0);
+
+    const amenitiesTotal = !!itinerary.amenities
+      ? itinerary.amenities.reduce((total: any, amenity: any) => {
+          if (amenity.frequency === "person") {
+            return total + amenity.price * numberOfGuest;
+          } else if (amenity.frequency === "room") {
+            return total + amenity.price * itinerary.rooms.length;
           }
-        ];
+        }, 0)
+      : 0;
 
-    rooms = !!bookingIndex
-      ? (rooms.splice(roomIndex, 1), [...rooms, room])
-      : [...rooms];
+    itinerary.total = amenitiesTotal + roomsTotal;
 
-    const inItineraryIndex = itinerary.rooms.findIndex(
-      (room: any) => room._id === roomId
-    );
-
-    itinerary.rooms = !!inItineraryIndex
-      ? itinerary.rooms.splice(inItineraryIndex, 1)
-      : [
-          ...itinerary.rooms,
-          {
-            id: room._id,
-            name: room.name,
-            price: room.price,
-            occupancy: room.occupancy
-          }
-        ];
-
-    itinerary.total =
-      itinerary.rooms.reduce((total: any, room: any) => {
-        return total + room.price * room.occupancy;
-      }, 0) +
-      itinerary.amenities.reduce((total: any, amenity: any) => {
-        if (amenity.frequency === "person") {
-          return total + amenity.price * numberOfGuest;
-        } else if (amenity.frequency === "room") {
-          return total + amenity.price * itinerary.rooms.length;
-        }
-      }, 0);
-
+    console.log(`🚨🚨🚨🚨🚨🚨 itinerary- `, itinerary);
     return updateRooms({
       payload: {
         rooms: [...rooms, room],
         itinerary
       },
-      type: "TOGGLE_ROOMS"
+      type: "TOGGLE_ITEMS"
     });
   };
 
@@ -287,36 +335,53 @@ export class ReservePageContent extends Component<
       (amenity: any) => amenity.name === amenityName
     );
 
-    const inItineraryIndex = itinerary.amenities.findIndex(
-      (amenity: any) => amenity.name === amenityName
-    );
+    const itineraryIndex = !!itinerary.amenities
+      ? itinerary.amenities.findIndex(
+          (amenity: any) => amenity.name === amenityName
+        )
+      : null;
 
-    itinerary.rooms = !!inItineraryIndex
-      ? itinerary.amenities.splice(inItineraryIndex, 1)
-      : [
-          ...itinerary.amenities,
-          {
-            name: amenity.name,
-            price: amenity.price,
-            frequency: amenity.frequency
-          }
-        ];
+    itinerary.amenities =
+      itineraryIndex != null && itineraryIndex >= 0
+        ? (itinerary.amenities.splice(itineraryIndex, 1), itinerary.amenities)
+        : !!itinerary.amenities
+        ? [
+            ...itinerary.amenities,
+            {
+              name: amenity.name,
+              price: amenity.price,
+              frequency: amenity.frequency
+            }
+          ]
+        : [
+            {
+              name: amenity.name,
+              price: amenity.price,
+              frequency: amenity.frequency
+            }
+          ];
+    const roomsTotal = !!itinerary.rooms
+      ? itinerary.rooms.reduce((total: any, room: any) => {
+          return total + room.price * room.occupancy;
+        }, 0)
+      : 0;
 
-    itinerary.total =
-      itinerary.rooms.reduce((total: any, room: any) => {
-        return total + room.price * room.occupancy;
-      }, 0) +
-      itinerary.amenities.reduce((total: any, amenity: any) => {
+    const amenitiesTotal = itinerary.amenities.reduce(
+      (total: any, amenity: any) => {
         if (amenity.frequency === "person") {
           return total + amenity.price * numberOfGuest;
         } else if (amenity.frequency === "room") {
           return total + amenity.price * itinerary.rooms.length;
         }
-      }, 0);
+      },
+      0
+    );
+
+    itinerary.total = amenitiesTotal + roomsTotal;
 
     return updateAmenities({
       payload: { itinerary },
-      type: "TOOGLE_AMENITY"
+      type: "TOGGLE_ITEMS"
     });
   };
 
@@ -324,12 +389,12 @@ export class ReservePageContent extends Component<
     return (
       <React.Fragment>
         {/* <TwoColumnRow leftcolumn={renderItem(this.props.rooms)} rightcolumn={renderItem(this.props.amenities)} /> */}
-        <TwoColumnRow
-          leftcolumn={
+        <div className="row" css={row}>
+          <div className="column" css={column}>
             <React.Fragment>
               <h1> ROOMS</h1>
               <ul css={ul}>
-                {this.state.rooms.map((room: any) => (
+                {this.props.rooms.map((room: any) => (
                   <li>
                     <div css={div}>
                       <div css={innerDiv}>
@@ -358,9 +423,42 @@ export class ReservePageContent extends Component<
                 ))}
               </ul>
             </React.Fragment>
-          }
-          rightcolumn={rightcolumn}
-        />
+          </div>
+          <div className="column" css={column}>
+            <React.Fragment>
+              <h1> AMENITIES</h1>
+              <ul css={ul}>
+                {this.props.amenities.map((amenity: any) => (
+                  <li>
+                    <div css={div}>
+                      <div css={innerDiv}>
+                        <i
+                          className="material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle"
+                          css={i}
+                        ></i>
+                      </div>
+                      <div css={innerDiv}>
+                        <span css={firstLine}>{amenity.name}</span>
+                        <br></br>
+                        <span css={secondLine}>{amenity.description}</span>
+                      </div>
+                      <div css={innerDiv}>
+                        <span
+                          className="close"
+                          onClick={() => {
+                            this.toogleAmenity(amenity.name);
+                          }}
+                        >
+                          ×
+                        </span>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          </div>
+        </div>
         <TwoColumnRow
           leftcolumn={secondRowLeftColumn}
           rightcolumn={secondRowRightColumn}
@@ -376,7 +474,7 @@ const mapStateToProps = (state: any, ownProps: any) => {
     offers: state.offers,
     amenities: state.amenities,
     itinerary: state.itinerary,
-    reservationId: state.reservationsId
+    reservationId: state.reservationId
   };
 };
 
@@ -388,7 +486,5 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => {
       dispatch(toogleItem(payload, type))
   };
 };
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReservePageContent);

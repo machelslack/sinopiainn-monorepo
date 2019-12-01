@@ -5,5 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const initial_state_1 = __importDefault(require("../initial-state"));
 exports.default = (state = initial_state_1.default().rooms, { payload, type } = {}) => {
-    return state;
+    switch (type) {
+        case "UPDATE_BOOKING":
+            return {
+                ...state,
+                ...payload
+            };
+        default:
+            return state;
+    }
 };

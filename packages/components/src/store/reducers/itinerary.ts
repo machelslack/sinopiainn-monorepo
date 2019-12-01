@@ -5,29 +5,10 @@ export default (
   { payload, type } = {} as any
 ) => {
   switch (type) {
-    case "ADD_ROOMS":
+    case "TOGGLE_ITEMS":
       return {
-        ...state
-      };
-    case "REMOVE_ROOMS":
-      return {
-        ...state
-      };
-    case "ADD_OFFER":
-      return {
-        ...state
-      };
-    case "REMOVE_OFFER":
-      return {
-        ...state
-      };
-    case "ADD_AMENITY":
-      return {
-        ...state
-      };
-    case "REMOVE_AMENITY":
-      return {
-        ...state
+        ...state,
+        ...payload
       };
     default:
       return state;

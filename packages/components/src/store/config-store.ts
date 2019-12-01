@@ -11,8 +11,6 @@ import itineraryReducer from "./reducers/itinerary";
 import reservationReducer from "./reducers/reservation";
 import { routerMiddleware } from "react-router-redux";
 
-export const history = createHistory();
-
 export const reducers = Object.freeze({
   hotel: hotelReducer,
   rooms: roomsReducer,
@@ -25,7 +23,6 @@ export const reducers = Object.freeze({
 const rootReducer = combineReducers(reducers);
 
 const middleware: any = [
-    routerMiddleware(history),
     localStorageMiddleware
 ];
 
@@ -35,8 +32,7 @@ export default () => {
     initialState(),
     compose(
       applyMiddleware(...middleware),
-      // eslint-disable-next-line no-underscore-dangle
-      window.__REDUX_DEVTOOLS_EXTENSION__
+      typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
         ? window.__REDUX_DEVTOOLS_EXTENSION__()
         : (f: any) => f
     )

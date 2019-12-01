@@ -56,9 +56,9 @@ export const generateTemplate = (pageData: any = {}, req: any) => {
   const body = renderStylesToString(
     renderToString(
       renderer.body(
-        <StaticRouter location={req.url} context={{}}>
+        // <StaticRouter location={req.url} context={{}}> </StaticRouter>
           <App pageData={pageSrc} />
-        </StaticRouter>,
+       ,
         req
       )
     )

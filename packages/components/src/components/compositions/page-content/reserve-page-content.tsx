@@ -50,11 +50,17 @@ const ul = css`
 
 const div = css`
   display: table;
-  width: 100%;
 `;
 
 const innerDiv = css`
   display: table-cell;
+  vertical-align: middle;
+`;
+
+const secondInnerDiv = css`
+   {
+    width: 100%;
+  }
 `;
 
 const i = css`
@@ -90,7 +96,7 @@ const table = css`
 const td = css`
   text-align: left;
   padding: 8px;
-  bordeR:none;
+  border: none;
 `;
 
 const tableDiv = css`
@@ -100,63 +106,24 @@ const tableDiv = css`
 const th = css`border:#cb410b thin dashed; color black;text-align: left;
 padding: 8px;`;
 
-// tr: nth - child(even){ background - color: #f2f2f2 }
+const btn = css`
+   {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+  }
+`;
 
-//rightcolumn
-const optionsArray = ["option 1", "option 2", "option 3"];
-
-const rightcolumn = (
-  <React.Fragment>
-    <h1> AMENITIES</h1>
-    <ul css={ul}>
-      <li>
-        <div css={div}>
-          <div css={innerDiv}>
-            <i
-              className="material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle"
-              css={i}
-            ></i>
-          </div>
-          <div css={innerDiv}>
-            <span css={firstLine}>Complimentary Breakfast</span>
-            <br></br>
-            <span css={secondLine}>
-              Enjoy our traditional Jamaican breakfast included as part of our
-              nightly room rates
-            </span>
-          </div>
-          <div css={innerDiv}>
-            <span className="close">×</span>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </React.Fragment>
-);
-
-const secondRowLeftColumn = <React.Fragment></React.Fragment>;
-
-const secondRowRightColumn = (
-  <React.Fragment>
-    <h1> ITINERARY</h1>{" "}
-    <p>
-      <div css={tableDiv}>
-        <table css={table}>
-          <tr>
-            <th css={th} colSpan={3}>
-              First Name
-            </th>
-          </tr>
-          <tr>
-            <td css={td}>First Name</td>
-            <td css={td}>Last Name</td>
-            <td css={td}>Points</td>
-          </tr>
-        </table>
-      </div>
-    </p>
-  </React.Fragment>
-);
+const defaultBtn = css`
+   {
+    background-color: #e7e7e7;
+    color: black;
+    &:hover {
+      background: #ddd;
+    }
+  }
+`;
 
 const renderItem = (items: any) => {
   return (
@@ -171,7 +138,7 @@ const renderItem = (items: any) => {
                   css={i}
                 ></img>
               </div>
-              <div css={innerDiv}>
+              <div css={[innerDiv, secondInnerDiv]}>
                 <span css={firstLine}>{items.name}</span>
                 <br></br>
                 <span css={secondLine}>{items.description}</span>
@@ -187,16 +154,17 @@ const renderItem = (items: any) => {
   );
 };
 
-interface ReservePageContentState {
+export interface ReservePageContentState {
   rooms: any;
   toDate: any;
   fromDate: any;
   numberOfGuest: any;
   numOfNights: any;
   itinerary: any;
+  checking: any;
 }
 
-type ReservePageContentProps = {
+export type ReservePageContentProps = {
   rooms: any;
   offers: any;
   amenities: any;
@@ -237,7 +205,8 @@ export class ReservePageContent extends Component<
       itinerary: {
         rooms: [],
         amenities: []
-      }
+      },
+      checking: false
     };
     this.toogleRoom = this.toogleRoom.bind(this);
     this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -410,10 +379,10 @@ export class ReservePageContent extends Component<
                           css={i}
                         ></i>
                       </div>
-                      <div css={innerDiv}>
-                        <span css={firstLine}>${room.name}</span>
+                      <div css={[innerDiv, secondInnerDiv]}>
+                        <span css={firstLine}>{room.name}</span>
                         <br></br>
-                        <span css={secondLine}>${room.description}</span>
+                        <span css={secondLine}>{room.description}</span>
                       </div>
                       <div css={innerDiv}>
                         <span
@@ -444,7 +413,7 @@ export class ReservePageContent extends Component<
                           css={i}
                         ></i>
                       </div>
-                      <div css={innerDiv}>
+                      <div css={[innerDiv, secondInnerDiv]}>
                         <span css={firstLine}>{amenity.name}</span>
                         <br></br>
                         <span css={secondLine}>{amenity.description}</span>
@@ -456,7 +425,7 @@ export class ReservePageContent extends Component<
                             this.toogleAmenity(amenity.name);
                           }}
                         >
-                          ×
+                          {amenity.booked ? "REMOVE" : "ADD"}
                         </span>
                       </div>
                     </div>
@@ -518,9 +487,15 @@ export class ReservePageContent extends Component<
                       <td css={td} colSpan={2}>
                         {}
                       </td>
-                      <td css={td}>{!!this.props.itinerary.total && this.props.itinerary.total}</td>
+                      <td css={td}>
+                        {!!this.props.itinerary.total &&
+                          this.props.itinerary.total}
+                      </td>
                     </tr>
                   </table>
+                  <button type="button" css={[btn, defaultBtn]}>
+                    CONTINUE
+                  </button>
                 </div>
               </p>
             </React.Fragment>

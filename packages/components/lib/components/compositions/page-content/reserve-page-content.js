@@ -52,10 +52,15 @@ const ul = core_1.css `
 `;
 const div = core_1.css `
   display: table;
-  width: 100%;
 `;
 const innerDiv = core_1.css `
   display: table-cell;
+  vertical-align: middle;
+`;
+const secondInnerDiv = core_1.css `
+   {
+    width: 100%;
+  }
 `;
 const i = core_1.css `
   font-size: 40px;
@@ -85,49 +90,37 @@ const table = core_1.css `
 const td = core_1.css `
   text-align: left;
   padding: 8px;
-  bordeR:none;
+  border: none;
 `;
 const tableDiv = core_1.css `
   overflow-x: auto;
 `;
 const th = core_1.css `border:#cb410b thin dashed; color black;text-align: left;
 padding: 8px;`;
-// tr: nth - child(even){ background - color: #f2f2f2 }
-//rightcolumn
-const optionsArray = ["option 1", "option 2", "option 3"];
-const rightcolumn = (core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("h1", null, " AMENITIES"),
-    core_1.jsx("ul", { css: ul },
-        core_1.jsx("li", null,
-            core_1.jsx("div", { css: div },
-                core_1.jsx("div", { css: innerDiv },
-                    core_1.jsx("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle", css: i })),
-                core_1.jsx("div", { css: innerDiv },
-                    core_1.jsx("span", { css: firstLine }, "Complimentary Breakfast"),
-                    core_1.jsx("br", null),
-                    core_1.jsx("span", { css: secondLine }, "Enjoy our traditional Jamaican breakfast included as part of our nightly room rates")),
-                core_1.jsx("div", { css: innerDiv },
-                    core_1.jsx("span", { className: "close" }, "\u00D7")))))));
-const secondRowLeftColumn = core_1.jsx(react_1.default.Fragment, null);
-const secondRowRightColumn = (core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx("h1", null, " ITINERARY"),
-    " ",
-    core_1.jsx("p", null,
-        core_1.jsx("div", { css: tableDiv },
-            core_1.jsx("table", { css: table },
-                core_1.jsx("tr", null,
-                    core_1.jsx("th", { css: th, colSpan: 3 }, "First Name")),
-                core_1.jsx("tr", null,
-                    core_1.jsx("td", { css: td }, "First Name"),
-                    core_1.jsx("td", { css: td }, "Last Name"),
-                    core_1.jsx("td", { css: td }, "Points")))))));
+const btn = core_1.css `
+   {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+  }
+`;
+const defaultBtn = core_1.css `
+   {
+    background-color: #e7e7e7;
+    color: black;
+    &:hover {
+      background: #ddd;
+    }
+  }
+`;
 const renderItem = (items) => {
     return (core_1.jsx(react_1.default.Fragment, null, items.map((items) => (core_1.jsx("ul", { css: ul },
         core_1.jsx("li", null,
             core_1.jsx("div", { css: div },
                 core_1.jsx("div", { css: innerDiv },
                     core_1.jsx("img", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle", css: i })),
-                core_1.jsx("div", { css: innerDiv },
+                core_1.jsx("div", { css: [innerDiv, secondInnerDiv] },
                     core_1.jsx("span", { css: firstLine }, items.name),
                     core_1.jsx("br", null),
                     core_1.jsx("span", { css: secondLine }, items.description)),
@@ -260,7 +253,8 @@ class ReservePageContent extends react_1.Component {
             itinerary: {
                 rooms: [],
                 amenities: []
-            }
+            },
+            checking: false
         };
         this.toogleRoom = this.toogleRoom.bind(this);
         this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -282,14 +276,10 @@ class ReservePageContent extends react_1.Component {
                             core_1.jsx("div", { css: div },
                                 core_1.jsx("div", { css: innerDiv },
                                     core_1.jsx("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle", css: i })),
-                                core_1.jsx("div", { css: innerDiv },
-                                    core_1.jsx("span", { css: firstLine },
-                                        "$",
-                                        room.name),
+                                core_1.jsx("div", { css: [innerDiv, secondInnerDiv] },
+                                    core_1.jsx("span", { css: firstLine }, room.name),
                                     core_1.jsx("br", null),
-                                    core_1.jsx("span", { css: secondLine },
-                                        "$",
-                                        room.description)),
+                                    core_1.jsx("span", { css: secondLine }, room.description)),
                                 core_1.jsx("div", { css: innerDiv },
                                     core_1.jsx("span", { className: "close", onClick: () => {
                                             this.toogleRoom(room._id);
@@ -301,14 +291,14 @@ class ReservePageContent extends react_1.Component {
                             core_1.jsx("div", { css: div },
                                 core_1.jsx("div", { css: innerDiv },
                                     core_1.jsx("i", { className: "material-icons  mdl-list__item-avatar amenitiesAvatar fa fa-check-circle", css: i })),
-                                core_1.jsx("div", { css: innerDiv },
+                                core_1.jsx("div", { css: [innerDiv, secondInnerDiv] },
                                     core_1.jsx("span", { css: firstLine }, amenity.name),
                                     core_1.jsx("br", null),
                                     core_1.jsx("span", { css: secondLine }, amenity.description)),
                                 core_1.jsx("div", { css: innerDiv },
                                     core_1.jsx("span", { className: "close", onClick: () => {
                                             this.toogleAmenity(amenity.name);
-                                        } }, "\u00D7")))))))))),
+                                        } }, amenity.booked ? "REMOVE" : "ADD")))))))))),
             core_1.jsx("div", { className: "row", css: row },
                 core_1.jsx("div", { className: "column", css: column }),
                 core_1.jsx("div", { className: "column", css: column },
@@ -345,7 +335,9 @@ class ReservePageContent extends react_1.Component {
                                         core_1.jsx("th", { css: th, colSpan: 3 }, "TOTAL")),
                                     core_1.jsx("tr", null,
                                         core_1.jsx("td", { css: td, colSpan: 2 }),
-                                        core_1.jsx("td", { css: td }, !!this.props.itinerary.total && this.props.itinerary.total))))))))));
+                                        core_1.jsx("td", { css: td }, !!this.props.itinerary.total &&
+                                            this.props.itinerary.total))),
+                                core_1.jsx("button", { type: "button", css: [btn, defaultBtn] }, "CONTINUE"))))))));
     }
 }
 exports.ReservePageContent = ReservePageContent;

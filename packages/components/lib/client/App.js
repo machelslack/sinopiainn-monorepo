@@ -18,7 +18,6 @@ const react_redux_1 = require("react-redux");
 const store = config_store_1.default();
 class App extends react_1.Component {
     render() {
-        console.log(`🚨🚨🚨🚨🚨`, this.props);
         const Route = routes_1.routes.find(route => route.path === this.props.pageData.route);
         const Component = Route.component;
         return (react_1.default.createElement(react_redux_1.Provider, { store: store },

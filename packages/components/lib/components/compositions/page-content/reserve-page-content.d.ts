@@ -1,14 +1,15 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
-interface ReservePageContentState {
+export interface ReservePageContentState {
     rooms: any;
     toDate: any;
     fromDate: any;
     numberOfGuest: any;
     numOfNights: any;
     itinerary: any;
+    checking: any;
 }
-declare type ReservePageContentProps = {
+export declare type ReservePageContentProps = {
     rooms: any;
     offers: any;
     amenities: any;

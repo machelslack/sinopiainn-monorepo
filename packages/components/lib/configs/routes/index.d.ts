@@ -15,4 +15,9 @@ export declare const routes: ({
     exact: boolean;
     fetchData: boolean;
     component: import("react").FunctionComponent<{}>;
+} | {
+    path: string;
+    exact: boolean;
+    fetchData: boolean;
+    component: import("react-redux").ConnectedComponent<typeof import("../../components/compositions/page-content/checkout-page-content").CheckoutPageContent, any>;
 })[];

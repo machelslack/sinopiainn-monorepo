@@ -4,54 +4,61 @@ import ContactPageContent from "../../components/compositions/page-content/conta
 import ReservePageContent from "../../components/compositions/page-content/reserve-page-content";
 import ShopPageContent from "../../components/compositions/page-content/shop-page-content";
 import ThingsToDoPageContent from "../../components/compositions/page-content/things-to-do-content";
+import CheckoutPageContent from "../../components/compositions/page-content/checkout-page-content";
 
 export const routes = [
-    {
-        path: '/',
-        exact: true,
-        fetchData: true,
-        component: HomePageContent
-    },
-    {
-        path: 'home',
-        exact: true,
-        fetchData: true,
-        component: HomePageContent
-    },
-    {
-        path: '/blog',
-        exact: true,
-        fetchData: true,
-        component: BlogPageContent
-    },
-    {
-        path: '/reserve',
-        exact: true,
-        fetchData: true,
-        component: ReservePageContent
-    },
-    {
-        path: 'reserve',
-        exact: true,
-        fetchData: true,
-        component: ReservePageContent
-    },
-    {
-        path: '/contacts',
-        exact: true,
-        fetchData: false,
-        component: ContactPageContent
-    },
-    {
-        path: '/shop',
-        exact: true,
-        fetchData: false,
-        component: ShopPageContent
-    },
-    {
-        path: '/things-to-do',
-        exact: true,
-        fetchData: false,
-        component: ThingsToDoPageContent 
-    }
-]
+  {
+    path: "/",
+    exact: true,
+    fetchData: true,
+    component: HomePageContent
+  },
+  {
+    path: "home",
+    exact: true,
+    fetchData: true,
+    component: HomePageContent
+  },
+  {
+    path: "/blog",
+    exact: true,
+    fetchData: true,
+    component: BlogPageContent
+  },
+  {
+    path: "/reserve",
+    exact: true,
+    fetchData: true,
+    component: ReservePageContent
+  },
+  {
+    path: "reserve",
+    exact: true,
+    fetchData: true,
+    component: ReservePageContent
+  },
+  {
+    path: "/contacts",
+    exact: true,
+    fetchData: false,
+    component: ContactPageContent
+  },
+  {
+    path: "/shop",
+    exact: true,
+    fetchData: false,
+    component: ShopPageContent
+  },
+  {
+    path: "/things-to-do",
+    exact: true,
+    fetchData: false,
+    component: ThingsToDoPageContent
+  },
+  {
+    path: "/checkout",
+    exact: true,
+    fetchData: false,
+    component: CheckoutPageContent
+  }
+];

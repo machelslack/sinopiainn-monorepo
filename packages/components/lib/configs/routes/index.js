@@ -9,53 +9,60 @@ const contact_page_content_1 = __importDefault(require("../../components/composi
 const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
 const shop_page_content_1 = __importDefault(require("../../components/compositions/page-content/shop-page-content"));
 const things_to_do_content_1 = __importDefault(require("../../components/compositions/page-content/things-to-do-content"));
+const checkout_page_content_1 = __importDefault(require("../../components/compositions/page-content/checkout-page-content"));
 exports.routes = [
     {
-        path: '/',
+        path: "/",
         exact: true,
         fetchData: true,
         component: home_page_content_1.default
     },
     {
-        path: 'home',
+        path: "home",
         exact: true,
         fetchData: true,
         component: home_page_content_1.default
     },
     {
-        path: '/blog',
+        path: "/blog",
         exact: true,
         fetchData: true,
         component: blog_page_content_1.default
     },
     {
-        path: '/reserve',
+        path: "/reserve",
         exact: true,
         fetchData: true,
         component: reserve_page_content_1.default
     },
     {
-        path: 'reserve',
+        path: "reserve",
         exact: true,
         fetchData: true,
         component: reserve_page_content_1.default
     },
     {
-        path: '/contacts',
+        path: "/contacts",
         exact: true,
         fetchData: false,
         component: contact_page_content_1.default
     },
     {
-        path: '/shop',
+        path: "/shop",
         exact: true,
         fetchData: false,
         component: shop_page_content_1.default
     },
     {
-        path: '/things-to-do',
+        path: "/things-to-do",
         exact: true,
         fetchData: false,
         component: things_to_do_content_1.default
+    },
+    {
+        path: "/checkout",
+        exact: true,
+        fetchData: false,
+        component: checkout_page_content_1.default
     }
 ];

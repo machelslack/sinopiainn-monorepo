@@ -17,8 +17,7 @@ const store = configureStore();
 class App extends Component<{ pageData: appData }> {
   
     render() {
-        console.log(`🚨🚨🚨🚨🚨`,this.props );
-
+    
         const Route = routes.find(route => route.path === this.props.pageData.route );
 
        const Component = Route!.component;

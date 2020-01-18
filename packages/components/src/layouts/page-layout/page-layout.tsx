@@ -152,8 +152,9 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
                 <small>contact us at 001-876-12345678</small>
             </Column>
             <Column>
-                <large>Conntect with us</large>
-                <p><SocialIconBar /></p>
+            <large>Links</large>
+                {/* <large>Conntect with us</large> */}
+                {/* <p><SocialIconBar /></p>
                 <large>Recent posts</large>
                 <br></br>
                 <ul>
@@ -164,10 +165,9 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({ children, pageData }
                             <small>{post.description},{post.postDate}</small>
                         </li>)
                     }
-                </ul>
+                </ul> */}
             </Column>
             <Column>
-
                 <p></p>
             </Column>
         </Row>

@@ -162,6 +162,7 @@ export interface ReservePageContentState {
   numOfNights: any;
   itinerary: any;
   checking: any;
+  sticky: any;
 }
 
 export type ReservePageContentProps = {
@@ -206,7 +207,8 @@ export class ReservePageContent extends Component<
         rooms: [],
         amenities: []
       },
-      checking: false
+      checking: false,
+      sticky: false
     };
     this.toogleRoom = this.toogleRoom.bind(this);
     this.toogleAmenity = this.toogleAmenity.bind(this);

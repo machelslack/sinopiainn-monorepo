@@ -1,10 +1,11 @@
 /// <reference types="@emotion/core" />
-import BlogPageContent from "../../components/compositions/page-content/blog-page-content";
+import HomePageContent from "../../components/compositions/page-content/home-page-content";
+import ThingsToDoPageContent from "../../components/compositions/page-content/things-to-do-content";
 export declare const routes: ({
     path: string;
     exact: boolean;
     fetchData: boolean;
-    component: typeof BlogPageContent;
+    component: typeof HomePageContent;
 } | {
     path: string;
     exact: boolean;
@@ -15,6 +16,11 @@ export declare const routes: ({
     exact: boolean;
     fetchData: boolean;
     component: import("react").FunctionComponent<{}>;
+} | {
+    path: string;
+    exact: boolean;
+    fetchData: boolean;
+    component: typeof ThingsToDoPageContent;
 } | {
     path: string;
     exact: boolean;

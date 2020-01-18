@@ -12,14 +12,14 @@ export default function Navbar () {
             name:'THINGS TO DO',
             route:'things-to-do'
         },
-        {
-            name:'BLOG',
-            route:'blog'
-        },
-        {
-            name:'SHOP',
-            route:'shop'
-        },
+        // {
+        //     name:'BLOG',
+        //     route:'blog'
+        // },
+        // {
+        //     name:'SHOP',
+        //     route:'shop'
+        // },
         {
             name:'RESERVE',
             route:'reserve'

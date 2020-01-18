@@ -6,8 +6,8 @@ import React, { FunctionComponent } from 'react';
 /* Create two columns that float next to eachother */
 //   color:#CB410B;
 const column = css`
-display: table-cell;
-width: 50%;
+-ms-flex: 50%; /* IE10 */
+flex: 50%;
 padding: 30px;
 vertical-align:middle;
 h1 {
@@ -22,13 +22,10 @@ h1 {
 /* Clear floats after the columns */
 const row = css`
 
-  display: table;
-  width: 100%;
-  &:after: {
-        content: ;
-         display: table;
-         clear: both;
-     }
+display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
 `
 
 const breakpoints = [600]

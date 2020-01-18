@@ -35,61 +35,77 @@ const row = css`
   }
 `;
 
-const innerrow = css`{
+const innerrow = css`
+   {
     display: -ms-flexbox; /* IE10 */
     display: flex;
     -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
     margin: 0 -16px;
-}`
+  }
+`;
 
-const col25 = css`{
+const col25 = css`
+   {
     -ms-flex: 25%; /* IE10 */
     flex: 25%;
     padding: 0 16px;
-  }`
-  
-  const col50 = css`{
+  }
+`;
+
+const col50 = css`
+   {
     -ms-flex: 50%; /* IE10 */
     flex: 50%;
     padding: 0 16px;
-  }`
-  
-  const col75 = css`{
+  }
+`;
+
+const col75 = css`
+   {
     -ms-flex: 75%; /* IE10 */
     flex: 75%;
     padding: 0 16px;
-  }`
-  
+  }
+`;
 
-  const container = css`{
+const container = css`
+   {
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
-  }`
-  
-  const textInput = css`{
+  }
+`;
+
+const textInput = css`
+   {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
-  }`
-  
-  const label = css`{
+  }
+`;
+
+const label = css`
+   {
     margin-bottom: 10px;
     display: block;
-  }`
-  
-  const iconContainer = css`{
+  }
+`;
+
+const iconContainer = css`
+   {
     margin-bottom: 20px;
     padding: 7px 0;
     font-size: 24px;
-  }`
-  
-  const btn = css`{
-    background-color: #4CAF50;
+  }
+`;
+
+const btn = css`
+   {
+    background-color: #cb410b;
     color: white;
     padding: 12px;
     margin: 10px 0;
@@ -99,24 +115,39 @@ const col25 = css`{
     cursor: pointer;
     font-size: 17px;
     &:hover {
-        background-color: #45a049;
-      }
-  }`
-    
-  const a = css`{
-    color: #2196F3;
-  }`
-  
-  const hr = css`{
+      background-color: #45a049;
+    }
+  }
+`;
+
+const a = css`
+   {
+    color: #2196f3;
+  }
+`;
+
+const hr = css`
+   {
     border: 1px solid lightgrey;
-  }`
-  
-  const panPrice = css`{
+  }
+`;
+
+const panPrice = css`
+   {
     float: right;
     color: grey;
-  }`
+  }
+`;
 
 export class CheckoutPageContent extends Component<{}> {
+  constructor(props: any) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(`🚨🍻🚨🍻🚨🍻🚨🍻`, this.props);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -124,19 +155,20 @@ export class CheckoutPageContent extends Component<{}> {
           <div className="column" css={[column, firstColumn]}>
             <div className="container">
               <h4>
-                ORDER SUMMARY{" "}
+                {"ORDER SUMMARY"}
                 <span className="price">
-                  <i className="fa fa-shopping-cart"></i> <b>4</b>
+                  <i className="fa fa-shopping-cart"></i> <b>{"4"}</b>
                 </span>
               </h4>
               <p>
-                <a href="#">Product 1</a> <span className="price">$15</span>
+                <a href="#">{"Product 1"}</a>{" "}
+                <span className="price">{"$15"}</span>
               </p>
               <hr />
               <p>
-                TOTAL{" "}
+                {"TOTAL"}
                 <span className="price">
-                  <b>$30</b>
+                  <b>{"$30"}</b>
                 </span>
               </p>
             </div>
@@ -146,9 +178,9 @@ export class CheckoutPageContent extends Component<{}> {
               <form action="/action_page.php">
                 <div className="row" css={innerrow}>
                   <div className="col-50" css={col50}>
-                    <h3>Billing Address</h3>
+                    <h3>{"Billing Address"}</h3>
                     <label data-forfor="fname" css={label}>
-                      <i className="fa fa-user"></i> Full Name
+                      <i className="fa fa-user"></i> {"Full Name"}
                     </label>
                     <input
                       type="text"
@@ -158,7 +190,7 @@ export class CheckoutPageContent extends Component<{}> {
                       css={textInput}
                     ></input>
                     <label data-for="email" css={label}>
-                      <i className="fa fa-envelope"></i> Email
+                      <i className="fa fa-envelope"></i> {"Email"}
                     </label>
                     <input
                       type="text"
@@ -168,7 +200,7 @@ export class CheckoutPageContent extends Component<{}> {
                       css={textInput}
                     ></input>
                     <label data-for="adr" css={label}>
-                      <i className="fa fa-address-card-o"></i> Address
+                      <i className="fa fa-address-card-o"></i> {"Address"}
                     </label>
                     <input
                       type="text"
@@ -178,7 +210,7 @@ export class CheckoutPageContent extends Component<{}> {
                       css={textInput}
                     ></input>
                     <label data-for="city" css={label}>
-                      <i className="fa fa-institution"></i> City
+                      <i className="fa fa-institution"></i> {"City"}
                     </label>
                     <input
                       type="text"
@@ -190,7 +222,7 @@ export class CheckoutPageContent extends Component<{}> {
 
                     <div className="row" css={container}>
                       <div className="col-50" css={col50}>
-                        <label data-for="state" css={label}>State</label>
+                        <label data-for="state" css={label}>{"State"}</label>
                         <input
                           type="text"
                           id="state"
@@ -200,7 +232,7 @@ export class CheckoutPageContent extends Component<{}> {
                         ></input>
                       </div>
                       <div className="col-50" css={container}>
-                        <label data-for="zip" css={label}>Zip</label>
+                        <label data-for="zip" css={label}>{"Zip"}</label>
                         <input
                           type="text"
                           id="zip"
@@ -213,15 +245,15 @@ export class CheckoutPageContent extends Component<{}> {
                   </div>
 
                   <div className="col-50" css={col50}>
-                    <h3>Payment</h3>
-                    <label data-for="fname" css={label}>Accepted Cards</label>
+                    <h3>{"Payment"}</h3>
+                    <label data-for="fname" css={label}>{"Accepted Cards"}</label>
                     <div className="icon-container" css={iconContainer}>
                       <i className="fa fa-cc-visa"></i>
                       <i className="fa fa-cc-amex"></i>
                       <i className="fa fa-cc-mastercard"></i>
                       <i className="fa fa-cc-discover"></i>
                     </div>
-                    <label data-for="cname">Name on Card</label>
+                    <label data-for="cname">{"Name on Card"}</label>
                     <input
                       type="text"
                       id="cname"
@@ -229,7 +261,7 @@ export class CheckoutPageContent extends Component<{}> {
                       placeholder="John More Doe"
                       css={textInput}
                     ></input>
-                    <label data-for="ccnum" css={label}>Credit card number</label>
+                    <label data-for="ccnum" css={label}>{"Credit card number"}</label>
                     <input
                       type="text"
                       id="ccnum"
@@ -237,7 +269,7 @@ export class CheckoutPageContent extends Component<{}> {
                       placeholder="1111-2222-3333-4444"
                       css={textInput}
                     ></input>
-                    <label data-for="expmonth" css={label}>Exp Month</label>
+                    <label data-for="expmonth" css={label}>{"Exp Month"}</label>
                     <input
                       type="text"
                       id="expmonth"
@@ -247,7 +279,7 @@ export class CheckoutPageContent extends Component<{}> {
                     ></input>
                     <div className="row" css={container}>
                       <div className="col-50" css={col50}>
-                        <label data-for="expyear" css={label}>Exp Year</label>
+                        <label data-for="expyear" css={label}>{"Exp Year"}</label>
                         <input
                           type="text"
                           id="expyear"
@@ -257,7 +289,7 @@ export class CheckoutPageContent extends Component<{}> {
                         ></input>
                       </div>
                       <div className="col-50" css={col50}>
-                        <label data-for="cvv" css={label}>CVV</label>
+                        <label data-for="cvv" css={label}>{"CVV"}</label>
                         <input
                           type="text"
                           id="cvv"
@@ -269,12 +301,11 @@ export class CheckoutPageContent extends Component<{}> {
                     </div>
                   </div>
                 </div>
-                <label css={label}>
-                  <input type="checkbox" checked={true} name="sameadr">
-                    {" "}
-                    Shipping address same as billing
+                {/* <label css={label}>
+                  <input type="checkbox" checked name="sameadr">
+                    {" Shipping address same as billing"}
                   </input>
-                </label>
+                </label> */}
                 <input
                   type="submit"
                   value="Continue to checkout"

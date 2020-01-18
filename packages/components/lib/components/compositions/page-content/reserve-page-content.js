@@ -254,7 +254,8 @@ class ReservePageContent extends react_1.Component {
                 rooms: [],
                 amenities: []
             },
-            checking: false
+            checking: false,
+            sticky: false
         };
         this.toogleRoom = this.toogleRoom.bind(this);
         this.toogleAmenity = this.toogleAmenity.bind(this);

@@ -2,9 +2,12 @@
 import { Global, jsx, css } from "@emotion/core";
 import React, { FunctionComponent, Component } from "react";
 
+const breakpoints = [600];
+
+const mq = breakpoints.map(bp => `@media (max-width: ${bp}px)`);
+
 /* The actual timeline (the vertical ruler) */
 const timeline = css`
-   {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -18,14 +21,12 @@ const timeline = css`
       left: 50%;
       margin-left: -3px;
     }
-  }
 `;
 
 /* The actual timeline (the vertical ruler) */
 
 /* Container around content */
 const container = css`
-   {
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
@@ -42,12 +43,12 @@ const container = css`
       border-radius: 50%;
       z-index: 1;
     }
-  }
+    &:before {
+    }
 `;
 
 /* Place the container to the left */
 const left = css`
-   {
     left: 0;
     &:before {
       content: " ";
@@ -60,13 +61,13 @@ const left = css`
       border: medium solid white;
       border-width: 10px 0 10px 10px;
       border-color: transparent transparent transparent white;
+    },
+    &:after {
     }
-  }
 `;
 
 /* Place the container to the right */
 const right = css`
-   {
     left: 50%;
     &:before {
       content: " ";
@@ -83,7 +84,6 @@ const right = css`
     &:after {
       left: -16px;
     }
-  }
 `;
 
 /* The actual content */
@@ -102,12 +102,14 @@ const fullWidthImage = css`
   }
 `;
 
-const tab = css`{
-  overflow:hidden;
-  text-align:center;
-  width: 100%;
-  border-bottom: thin solid #f1f1f1;
-}`;
+const tab = css`
+   {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    border-bottom: thin solid #f1f1f1;
+  }
+`;
 
 const tabButton = css`
    {

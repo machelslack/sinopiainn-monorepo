@@ -23,7 +23,7 @@ const datepicker = core_1.css `
     overflow: hidden;
     background-color: #f1f1f1;
     margin: 0 auto;
-    width: 55%;
+    width: 100%;
   }
 `;
 const inputContainer = core_1.css `
@@ -44,7 +44,8 @@ const formInline = core_1.css `
    {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    width: 55%;
+    margin: 0 auto;
   }
 `;
 const inputStyles = {
@@ -102,8 +103,9 @@ const ul = core_1.css `
   width: 100%;
   padding: 0px;
 `;
-const tooltiptext = core_1.css `{
-    visibility: visible;
+const tooltiptext = core_1.css `
+   {
+    visibility: hidden;
     width: auto;
     background-color: #cb410b;
     color: #000000;
@@ -115,17 +117,18 @@ const tooltiptext = core_1.css `{
     margin-left: -160px;
     margin-top: 30px;
     &:after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -5px;
-        margin-top: 30px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent #cb410b transparent;
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      margin-top: 30px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #cb410b transparent;
     }
-  }`;
+  }
+`;
 class Datepicker extends react_1.Component {
     constructor(props) {
         super(props);
@@ -240,12 +243,17 @@ class Datepicker extends react_1.Component {
                 type: "TOGGLE_ITEMS"
             });
         };
-        this.setSticky = () => {
+        this.setSticky = (e) => {
+            console.log(`🚨🚨🚨`, window.pageYOffset, this.stickPosition);
             if (window.pageYOffset > this.stickPosition) {
-                this.datePicker.classList.add("sticky");
+                this.setState({ sticky: true }, () => {
+                    this.datePicker.classList.add("sticky");
+                });
             }
             else {
-                this.datePicker.classList.remove("sticky");
+                this.setState({ sticky: false }, () => {
+                    this.datePicker.classList.remove("sticky");
+                });
             }
         };
         this.state = {
@@ -258,7 +266,8 @@ class Datepicker extends react_1.Component {
                 rooms: [],
                 amenities: []
             },
-            checking: false
+            checking: false,
+            sticky: false
         };
         this.toogleRoom = this.toogleRoom.bind(this);
         this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -267,10 +276,10 @@ class Datepicker extends react_1.Component {
     componentDidMount() {
         this.datePicker = document.getElementById("datePicker");
         this.stickPosition = this.datePicker.offsetTop;
-        // window.onscroll = this.setSticky();
+        window.onscroll = this.setSticky;
     }
     render() {
-        return (core_1.jsx("section", { css: [datepicker], id: "datePicker" },
+        return (core_1.jsx("section", { css: this.state.sticky ? [datepicker, sticky] : [datepicker], id: "datePicker" },
             core_1.jsx("form", { className: "form-inline", action: "/action_page.php", css: formInline },
                 core_1.jsx("div", { className: "input-container tooltip", css: inputContainer },
                     core_1.jsx("i", { className: "fa fa-calendar icon", css: icon },

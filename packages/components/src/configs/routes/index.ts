@@ -19,12 +19,12 @@ export const routes = [
     fetchData: true,
     component: HomePageContent
   },
-  {
-    path: "/blog",
-    exact: true,
-    fetchData: true,
-    component: BlogPageContent
-  },
+  // {
+  //   path: "/blog",
+  //   exact: true,
+  //   fetchData: true,
+  //   component: BlogPageContent
+  // },
   {
     path: "/reserve",
     exact: true,
@@ -43,12 +43,12 @@ export const routes = [
     fetchData: false,
     component: ContactPageContent
   },
-  {
-    path: "/shop",
-    exact: true,
-    fetchData: false,
-    component: ShopPageContent
-  },
+  // {
+  //   path: "/shop",
+  //   exact: true,
+  //   fetchData: false,
+  //   component: ShopPageContent
+  // },
   {
     path: "/things-to-do",
     exact: true,

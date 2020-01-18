@@ -4,10 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const home_page_content_1 = __importDefault(require("../../components/compositions/page-content/home-page-content"));
-const blog_page_content_1 = __importDefault(require("../../components/compositions/page-content/blog-page-content"));
 const contact_page_content_1 = __importDefault(require("../../components/compositions/page-content/contact-page-content"));
 const reserve_page_content_1 = __importDefault(require("../../components/compositions/page-content/reserve-page-content"));
-const shop_page_content_1 = __importDefault(require("../../components/compositions/page-content/shop-page-content"));
 const things_to_do_content_1 = __importDefault(require("../../components/compositions/page-content/things-to-do-content"));
 const checkout_page_content_1 = __importDefault(require("../../components/compositions/page-content/checkout-page-content"));
 exports.routes = [
@@ -23,12 +21,12 @@ exports.routes = [
         fetchData: true,
         component: home_page_content_1.default
     },
-    {
-        path: "/blog",
-        exact: true,
-        fetchData: true,
-        component: blog_page_content_1.default
-    },
+    // {
+    //   path: "/blog",
+    //   exact: true,
+    //   fetchData: true,
+    //   component: BlogPageContent
+    // },
     {
         path: "/reserve",
         exact: true,
@@ -47,12 +45,12 @@ exports.routes = [
         fetchData: false,
         component: contact_page_content_1.default
     },
-    {
-        path: "/shop",
-        exact: true,
-        fetchData: false,
-        component: shop_page_content_1.default
-    },
+    // {
+    //   path: "/shop",
+    //   exact: true,
+    //   fetchData: false,
+    //   component: ShopPageContent
+    // },
     {
         path: "/things-to-do",
         exact: true,

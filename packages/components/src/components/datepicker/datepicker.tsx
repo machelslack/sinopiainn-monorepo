@@ -18,7 +18,7 @@ const datepicker = css`
     overflow: hidden;
     background-color: #f1f1f1;
     margin: 0 auto;
-    width: 55%;
+    width: 100%;
   }
 `;
 
@@ -42,7 +42,8 @@ const formInline = css`
    {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    width: 55%;
+    margin: 0 auto;
   }
 `;
 
@@ -108,9 +109,9 @@ const ul = css`
   padding: 0px;
 `;
 
-
-const tooltiptext = css`{
-    visibility: visible;
+const tooltiptext = css`
+   {
+    visibility: hidden;
     width: auto;
     background-color: #cb410b;
     color: #000000;
@@ -122,18 +123,19 @@ const tooltiptext = css`{
     margin-left: -160px;
     margin-top: 30px;
     &:after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: -5px;
-        margin-top: 30px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: transparent transparent #cb410b transparent;
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      margin-top: 30px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #cb410b transparent;
     }
-  }`
-  
+  }
+`;
+
 export class Datepicker extends Component<
   ReservePageContentProps,
   ReservePageContentState
@@ -168,7 +170,8 @@ export class Datepicker extends Component<
         rooms: [],
         amenities: []
       },
-      checking: false
+      checking: false,
+      sticky: false
     };
     this.toogleRoom = this.toogleRoom.bind(this);
     this.toogleAmenity = this.toogleAmenity.bind(this);
@@ -178,7 +181,7 @@ export class Datepicker extends Component<
   componentDidMount() {
     this.datePicker = document.getElementById("datePicker");
     this.stickPosition = this.datePicker.offsetTop;
-    // window.onscroll = this.setSticky();
+    window.onscroll = this.setSticky;
   }
 
   toogleRoom = (roomId: any) => {
@@ -314,17 +317,25 @@ export class Datepicker extends Component<
     });
   };
 
-  setSticky = () => {
+  setSticky = (e: any) => {
+    console.log(`🚨🚨🚨`, window.pageYOffset, this.stickPosition);
     if (window.pageYOffset > this.stickPosition) {
-      this.datePicker.classList.add("sticky");
+      this.setState({ sticky: true }, () => {
+        this.datePicker.classList.add("sticky");
+      });
     } else {
-      this.datePicker.classList.remove("sticky");
+      this.setState({ sticky: false }, () => {
+        this.datePicker.classList.remove("sticky");
+      });
     }
   };
 
   render() {
     return (
-      <section css={[datepicker]} id="datePicker">
+      <section
+        css={this.state.sticky ? [datepicker, sticky] : [datepicker]}
+        id="datePicker"
+      >
         <form
           className="form-inline"
           action="/action_page.php"
@@ -332,25 +343,40 @@ export class Datepicker extends Component<
         >
           <div className="input-container tooltip" css={inputContainer}>
             <i className="fa fa-calendar icon" css={icon}>
-            <span className="tooltiptext" css={tooltiptext}>
-                <Calendar name="to"/>
-            </span>
+              <span className="tooltiptext" css={tooltiptext}>
+                <Calendar name="to" />
+              </span>
             </i>
-            <input type="text" className="input-field" style={inputStyles} placeholder="FROM DATE"/>
+            <input
+              type="text"
+              className="input-field"
+              style={inputStyles}
+              placeholder="FROM DATE"
+            />
           </div>
 
           <div className="input-container tooltip" css={inputContainer}>
             <i className="fa fa-calendar icon" css={icon}>
-            <span className="tooltiptext" css={tooltiptext}>  
-            {/* <Calendar /> */}
-            </span>
+              <span className="tooltiptext" css={tooltiptext}>
+                {/* <Calendar /> */}
+              </span>
             </i>
-            <input type="text" className="input-field" style={inputStyles} placeholder="TO DATE"/>
+            <input
+              type="text"
+              className="input-field"
+              style={inputStyles}
+              placeholder="TO DATE"
+            />
           </div>
 
           <div className="input-container" css={inputContainer}>
             <i className="fa fa-gift icon" css={icon}></i>
-            <input type="text" className="input-field" style={inputStyles} placeholder="PROMO CODE"/>
+            <input
+              type="text"
+              className="input-field"
+              style={inputStyles}
+              placeholder="PROMO CODE"
+            />
           </div>
 
           <div className="input-container" css={inputContainer}>

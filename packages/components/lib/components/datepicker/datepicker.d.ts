@@ -23,7 +23,7 @@ export declare class Datepicker extends Component<ReservePageContentProps, Reser
     componentDidMount(): void;
     toogleRoom: (roomId: any) => any;
     toogleAmenity: (amenityName: any) => any;
-    setSticky: () => void;
+    setSticky: (e: any) => void;
     render(): JSX.Element;
 }
 declare const _default: import("react-redux").ConnectedComponent<typeof Datepicker, any>;

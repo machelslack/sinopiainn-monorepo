@@ -8,6 +8,7 @@ export interface ReservePageContentState {
     numOfNights: any;
     itinerary: any;
     checking: any;
+    sticky: any;
 }
 export declare type ReservePageContentProps = {
     rooms: any;

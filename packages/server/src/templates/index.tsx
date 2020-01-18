@@ -51,6 +51,11 @@ const imageBlockProps: Record<string, inmageBlockPropsInterface> = {
     heading: "AMAZING VALUE",
     paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
   },
+  "/checkout": {
+    imgSrc: "assets/images/hero-images/hero-images-1.jpg",
+    heading: "AMAZING VALUE",
+    paragragh: `At an affordable rate, giving you access to the entire villa and all of it's amenities `
+  },
 };
 
 export const generateTemplate = (pageData: any = {}, req: any) => {

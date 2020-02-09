@@ -8,7 +8,8 @@ const wrapper = (handler) => function handlerWrapper(req, res, next) {
         .catch(next);
 };
 module.exports = (app) => {
-    routes_1.routes.forEach((route) => {
+    routes_1.routes.forEach(route => {
         app.get(route.path, wrapper(handlers_1.pageHandler));
     });
+    app.post("/enquiry", wrapper(handlers_1.pageHandler));
 };

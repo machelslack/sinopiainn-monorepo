@@ -18,7 +18,7 @@ class App extends Component<{ pageData: appData }> {
   
     render() {
    
-        const Route = routes.find(route => route.path === this.props.pageData.route );
+        const Route = routes.find(route => route.path === this.props.pageData.route && !!route.component);
        
        const Component = Route!.component;
 

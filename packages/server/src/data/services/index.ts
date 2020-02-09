@@ -1,3 +1,5 @@
+import { mailchimp_client } from "./mailchimp/mailchimp";
+
 export const services: Record<string, any> = {
     'home': (req: any) => new Promise((resolve, reject) => {
         resolve('home');
@@ -10,5 +12,8 @@ export const services: Record<string, any> = {
     }),
     'shop': (req: any) => new Promise((resolve, reject) => {
         resolve('shop');
+    }),
+    'enquiry': (req: any) => new Promise((resolve, reject) => {
+        mailchimp_client(req.body,resolve,reject)
     }),
 };

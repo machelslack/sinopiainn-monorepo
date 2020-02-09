@@ -60,5 +60,11 @@ export const routes = [
     exact: true,
     fetchData: false,
     component: CheckoutPageContent
-  }
+  },
+  // {
+  //   path: "/enquiry",
+  //   exact: true,
+  //   fetchData: true,
+  //   component: null
+  // }
 ];

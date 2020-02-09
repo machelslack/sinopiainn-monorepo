@@ -10,11 +10,15 @@ const column = {
     "padding": "10px"
 };
 /* Clear floats after the columns */
-const row = {
-    display: "table",
-    width: "100%",
-};
+/* Clear floats after the columns */
+const row = core_1.css `
+
+display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+`;
 const breakpoints = [600];
 const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
-const SingleRow = ({ children }) => core_1.jsx("div", { className: "row", style: row }, children);
+const SingleRow = ({ children }) => core_1.jsx("div", { className: "row", css: row }, children);
 exports.default = SingleRow;

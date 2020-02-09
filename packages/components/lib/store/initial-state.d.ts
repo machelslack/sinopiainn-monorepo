@@ -75,5 +75,6 @@ declare const _default: () => {
     })[];
     itinerary: {};
     reservationId: number;
+    enquiry: {};
 };
 export default _default;

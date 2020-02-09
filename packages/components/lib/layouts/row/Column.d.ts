@@ -1,3 +1,3 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent } from "react";
 declare const Column: FunctionComponent<{}>;
 export default Column;

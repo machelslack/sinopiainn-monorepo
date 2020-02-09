@@ -9,7 +9,9 @@ import roomsReducer from "./reducers/rooms";
 import offersReducer from "./reducers/offers";
 import itineraryReducer from "./reducers/itinerary";
 import reservationReducer from "./reducers/reservation";
+import enquiryReducer from "./reducers/enquiry";
 import { routerMiddleware } from "react-router-redux";
+import thunk from 'redux-thunk'
 
 export const reducers = Object.freeze({
   hotel: hotelReducer,
@@ -17,13 +19,15 @@ export const reducers = Object.freeze({
   amenities: amenitiesReducer,
   offers: offersReducer,
   itinerary: itineraryReducer,
-  reservationId: reservationReducer
+  reservationId: reservationReducer,
+  enquiry: enquiryReducer,
 });
 
 const rootReducer = combineReducers(reducers);
 
 const middleware: any = [
-    localStorageMiddleware
+    localStorageMiddleware,
+    thunk
 ];
 
 export default () => {

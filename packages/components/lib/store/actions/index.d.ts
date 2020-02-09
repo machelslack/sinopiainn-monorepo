@@ -12,3 +12,16 @@ export declare const updateRooms: (payload: any, type: string) => {
     payload: any;
     type: string;
 };
+export declare const loadEnquiriesRequest: () => {
+    type: string;
+};
+export declare const loadEnquirieSuccess: (posts: any) => {
+    type: string;
+    payload: any;
+};
+export declare const loadEnquirieFailure: (error: any) => {
+    type: string;
+    payload: any;
+    error: boolean;
+};
+export declare const postEquiry: (equiry: any) => (dispatch: any) => void;

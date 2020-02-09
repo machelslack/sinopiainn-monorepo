@@ -5,5 +5,6 @@ exports.apis = {
     '/': services_1.services['home'],
     '/blog': services_1.services['blog'],
     '/reserve': services_1.services['reserve'],
-    '/shop': services_1.services['shop']
+    '/shop': services_1.services['shop'],
+    '/enquiry': services_1.services['enquiry'],
 };

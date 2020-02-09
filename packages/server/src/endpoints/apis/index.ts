@@ -4,6 +4,7 @@ export const apis: Record<string, any> = {
     '/':services['home'],
     '/blog':services['blog'],
     '/reserve':services['reserve'],
-    '/shop':services['shop']
+    '/shop':services['shop'],
+    '/enquiry':services['enquiry'],
   };
   

@@ -8,11 +8,19 @@ interface route {
     fetchData?: boolean;
 }
 const pageHandler = async (req: any, res: any, next: any) => {
-    const activeRoute: route = routes.find((route: route) => matchPath(req.url, route)) || {};
-    const constructHTML = activeRoute.fetchData ? apis[req.path] : (arg1: any) => new Promise((resolve) => {
-        resolve(arg1.url);
-    });
-    constructHTML(req).then((pageData: any) => pageBuilder(pageData, req).then((html: any) => res.send(html))).catch(next);
+
+   
+    if(req.method === 'GET'){
+
+        const activeRoute: route = routes.find((route: route) => matchPath(req.url, route)) || {};
+        const constructHTML = activeRoute.fetchData ? apis[req.path] : (arg1: any) => new Promise((resolve) => {
+            resolve(arg1.url);
+        });
+        constructHTML(req).then((pageData: any) => pageBuilder(pageData, req).then((html: any) => res.send(html))).catch(next);
+    } else {
+        apis[req.path](req).then((response:any) => res.json(response)).catch(next)
+    }
+
 };
 
 export default pageHandler;

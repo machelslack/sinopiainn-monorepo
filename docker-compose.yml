@@ -13,3 +13,4 @@ services:
 
 ## run docker-compose up 
 ## then docker-compose ps to see expose to port 0.0.0.0:32769
+## `docker-compose build` or `docker-compose up --build`

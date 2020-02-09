@@ -62,5 +62,5 @@ exports.routes = [
         exact: true,
         fetchData: false,
         component: checkout_page_content_1.default
-    }
+    },
 ];

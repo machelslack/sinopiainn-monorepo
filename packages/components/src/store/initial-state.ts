@@ -172,7 +172,8 @@ export default () => {
         }
       ],
       itinerary:{},
-      reservationId:1
+      reservationId:1,
+      enquiry:{}
     };
   };
   

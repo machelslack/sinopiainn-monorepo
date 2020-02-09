@@ -13,3 +13,5 @@ RUN npm run build
 WORKDIR /app/packages/server
 
 EXPOSE 3000
+
+CMD ["npm","run","dev"]

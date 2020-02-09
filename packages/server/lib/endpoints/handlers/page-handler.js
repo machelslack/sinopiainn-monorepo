@@ -8,10 +8,15 @@ const routes_1 = require("@sinopiainn/components/lib/configs/routes");
 const page_builder_1 = __importDefault(require("../../page-builder"));
 const apis_1 = require("../apis");
 const pageHandler = async (req, res, next) => {
-    const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};
-    const constructHTML = activeRoute.fetchData ? apis_1.apis[req.path] : (arg1) => new Promise((resolve) => {
-        resolve(arg1.url);
-    });
-    constructHTML(req).then((pageData) => page_builder_1.default(pageData, req).then((html) => res.send(html))).catch(next);
+    if (req.method === 'GET') {
+        const activeRoute = routes_1.routes.find((route) => react_router_dom_1.matchPath(req.url, route)) || {};
+        const constructHTML = activeRoute.fetchData ? apis_1.apis[req.path] : (arg1) => new Promise((resolve) => {
+            resolve(arg1.url);
+        });
+        constructHTML(req).then((pageData) => page_builder_1.default(pageData, req).then((html) => res.send(html))).catch(next);
+    }
+    else {
+        apis_1.apis[req.path](req).then((response) => res.json(response)).catch(next);
+    }
 };
 exports.default = pageHandler;

@@ -13,11 +13,14 @@ const column = {
 } as React.CSSProperties;
 
 /* Clear floats after the columns */
-const row = {
-    display: "table",
-    width: "100%",
-} as React.CSSProperties;
+/* Clear floats after the columns */
+const row = css`
 
+display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+`
 const breakpoints = [600]
 
 const mq = breakpoints.map(
@@ -26,7 +29,7 @@ const mq = breakpoints.map(
 
 
 const SingleRow: FunctionComponent<{}> = ({ children }) =>
-    <div className="row" style={row}>
+    <div className="row" css={row}>
         {children}
     </div>
 

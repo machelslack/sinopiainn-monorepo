@@ -33,11 +33,13 @@
   },
   "dependencies": {
     "@emotion/styled": "^10.0.17",
+    "aws-sdk": "^2.619.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "emotion": "^10.0.17",
     "emotion-server": "^10.0.17",
     "express": "^4.17.1",
-    "mandrill-api": "^1.0.45"
+    "mandrill-api": "^1.0.45",
+    "uuid": "^3.4.0"
   }
 }

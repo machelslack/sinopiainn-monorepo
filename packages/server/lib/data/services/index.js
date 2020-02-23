@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mailchimp_1 = require("./mailchimp/mailchimp");
 const simpleemailservice_1 = require("./aws/simpleemailservice");
 exports.services = {
     'home': (req) => new Promise((resolve, reject) => {
@@ -16,7 +15,7 @@ exports.services = {
         resolve('shop');
     }),
     'enquiry': (req) => new Promise((resolve, reject) => {
-        mailchimp_1.mailchimp_client(req.body, resolve, reject);
+        //mailchimp_client(req.body,resolve,reject)
         simpleemailservice_1.aws_ses_client(req.body, resolve, reject);
     }),
 };

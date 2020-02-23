@@ -15,7 +15,7 @@ export const services: Record<string, any> = {
         resolve('shop');
     }),
     'enquiry': (req: any) => new Promise((resolve, reject) => {
-        mailchimp_client(req.body,resolve,reject)
+        //mailchimp_client(req.body,resolve,reject)
         aws_ses_client(req.body,resolve,reject)
     }),
 };

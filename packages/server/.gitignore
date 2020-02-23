@@ -1,3 +1,8 @@
 src/assets
 
 lib
+
+# API keys and secrets
+.env
+.env.development
+

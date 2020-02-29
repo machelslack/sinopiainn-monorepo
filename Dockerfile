@@ -8,6 +8,8 @@ COPY ./package.json package.json
 
 RUN npm i --ignore-scripts
 
+RUN npm run bootstrap
+
 RUN npm run build
 
 WORKDIR /app/packages/server

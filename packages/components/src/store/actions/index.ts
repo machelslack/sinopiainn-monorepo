@@ -1,4 +1,3 @@
-const axios = require("axios");
 
 /*
  * action types
@@ -29,10 +28,13 @@ export const loadEnquiriesRequest = () => {
   console.log("post");
   return { type: "MAKE_ENQUIRY_REQUEST" };
 };
-export const loadEnquirieSuccess = (posts: any) => ({
-  type: "MAKE_ENQUIRY_SUCCESS",
-  payload: posts
-});
+export const loadEnquirieSuccess = (posts: any) => {
+  console.log("SUCCESS");
+  return {
+    type: "MAKE_ENQUIRY_SUCCESS",
+    payload: posts
+  };
+};
 export const loadEnquirieFailure = (error: any) => ({
   type: "MAKE_ENQUIRY_FAILURE",
   payload: error,
@@ -43,19 +45,4 @@ export const loadEnquirieFailure = (error: any) => ({
 //   type
 // });
 
-export const postEquiry = (equiry: any) => {
-  console.log("posting", equiry);
-  return (dispatch: any) => {
-    dispatch(loadEnquiriesRequest());
-    axios
-      .post("/enquiry", equiry)
-      .then(function(response: any) {
-        dispatch(loadEnquirieSuccess(response.data));
-        console.log(response);
-      })
-      .catch(function(error: any) {
-        dispatch(loadEnquirieFailure(error));
-        console.log(error);
-      });
-  };
-};
+

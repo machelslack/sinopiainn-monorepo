@@ -1,9 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const axios = require("axios");
 /*
  * action types
  */
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ADD_ROOM = "ADD_ROOM";
 exports.TOGGLE_ROOMS = "TOGGLE_ROOMS";
 /*
@@ -25,10 +24,13 @@ exports.loadEnquiriesRequest = () => {
     console.log("post");
     return { type: "MAKE_ENQUIRY_REQUEST" };
 };
-exports.loadEnquirieSuccess = (posts) => ({
-    type: "MAKE_ENQUIRY_SUCCESS",
-    payload: posts
-});
+exports.loadEnquirieSuccess = (posts) => {
+    console.log("SUCCESS");
+    return {
+        type: "MAKE_ENQUIRY_SUCCESS",
+        payload: posts
+    };
+};
 exports.loadEnquirieFailure = (error) => ({
     type: "MAKE_ENQUIRY_FAILURE",
     payload: error,
@@ -38,19 +40,3 @@ exports.loadEnquirieFailure = (error) => ({
 //   payload,
 //   type
 // });
-exports.postEquiry = (equiry) => {
-    console.log("posting", equiry);
-    return (dispatch) => {
-        dispatch(exports.loadEnquiriesRequest());
-        axios
-            .post("/enquiry", equiry)
-            .then(function (response) {
-            dispatch(exports.loadEnquirieSuccess(response.data));
-            console.log(response);
-        })
-            .catch(function (error) {
-            dispatch(exports.loadEnquirieFailure(error));
-            console.log(error);
-        });
-    };
-};

@@ -31,10 +31,11 @@ const params = {
 
 export const aws_ses_client = (enquiry: any, resolve: any, reject: any) => {
   console.log('🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨')
-  ses.sendEmail(params, (err: any, data: any) => {
-    if (err) console.log('🚨🚨🚨',err, err.stack);
-    else console.log(data);
-  });
+  resolve(enquiry);
+  // ses.sendEmail(params, (err: any, data: any) => {
+  //   if (err) {reject(err),console.log('🚨🚨🚨',err, err.stack)}
+  //   else {resolve(data),console.log(data)};
+  // });
 };
 
 // // Load the AWS SDK for Node.js

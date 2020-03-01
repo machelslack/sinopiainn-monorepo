@@ -4,20 +4,16 @@ export default (state = {}, { payload, type } = {} as any) => {
   switch (type) {
     case "MAKE_ENQUIRY_REQUEST":
       return {
-        ...state,
         enquiry_loading: true
       };
     case "MAKE_ENQUIRY_SUCCESS":
+      console.log('🍻',payload)
       return {
-        ...state,
-        enquiry_loading: false,
-        enquiry: payload
+       ...payload
       };
     case "MAKE_ENQUIRY_FAILURE":
       return {
-        ...state,
-        enquiry_loading: false,
-        enquiry_error: payload
+        ...payload
       };
     default:
       return state;

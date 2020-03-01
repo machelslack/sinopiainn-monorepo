@@ -24,4 +24,3 @@ export declare const loadEnquirieFailure: (error: any) => {
     payload: any;
     error: boolean;
 };
-export declare const postEquiry: (equiry: any) => (dispatch: any) => void;

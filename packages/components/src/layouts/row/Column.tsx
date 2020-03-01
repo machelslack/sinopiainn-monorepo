@@ -4,8 +4,8 @@ import React, { FunctionComponent } from "react";
 
 /* Create two columns that float next to eachother */
 const column = css`
-  -ms-flex: 33%; /* IE10 */
-  flex: 33%;
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
   padding: 10px;
   display: table-cell;
   border-right: thin dashed white;

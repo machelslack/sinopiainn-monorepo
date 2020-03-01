@@ -27,11 +27,11 @@ const paragraph = core_1.css `
 `;
 const listItems = [
     {
-        title: 'Complimentary Breakfast',
-        subtitle: 'Enjoy our traditional Jamaican breakfast included as part of our nightly room rates ',
+        title: 'Traditional Jamaican Breakfast',
+        subtitle: 'Avaiable as an add on to our nightly room rates ',
     }, {
-        title: 'On Site Security',
-        subtitle: 'Relax and enjoy real peace of mind',
+        title: 'Personal Cook',
+        subtitle: 'So you can relax and enjoy real peace of mind',
     }, {
         title: 'Complimentary Wireless Internet',
         subtitle: 'Free wireless internet access in guest rooms, meeting spaces and lounge ',
@@ -42,7 +42,7 @@ const listItems = [
         title: 'Local guided tours',
         subtitle: '',
     }, {
-        title: 'Airport shuttle: pick up and drop off',
+        title: 'Airport shuttle provided by knutsford express',
         subtitle: '',
     }, {
         title: 'Free parking',
@@ -61,7 +61,14 @@ const slideshowImages = [
 const firstRowLeftcolumn = core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " SINOPIA INN"),
     " ",
-    core_1.jsx("p", { css: paragraph }, " Set on two acres of lush green gardens, less than a stone\u2019s throw away from Dragon Bay, location of Tom Cruise\u2019s iconic Cocktail movie, you'll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families. There is air-conditioning in all  suites of Sinopia Inn, and  the coolness of the entire home will present a welcome respite to the heat."),
+    core_1.jsx("p", { css: paragraph },
+        " Set on two acres of lush green gardens, less than a stone\u2019s throw away from Dragon Bay, location of Tom Cruise\u2019s iconic Cocktail movie, you",
+        core_1.jsx("span", { css: core_1.css `
+   {
+    font-family: Arial;
+  }
+` }, "'"),
+        "ll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families. There is air-conditioning in all  suites of Sinopia Inn, and  the coolness of the entire home will present a welcome respite to the heat."),
     " ");
 const firstRowRightcolumn = core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 0 }, slideshowImages.map((src) => core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })));
 const roomsSlideShowImages = [
@@ -76,7 +83,26 @@ const secondRowLeftcolumn = core_1.jsx(slideshow_1.SlideShowContainer, { slideNu
 const secondRowRightcolumn = core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " OUR ROOMS"),
     " ",
-    core_1.jsx("p", { css: paragraph }, "We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica\u2019s mid-19th century heyday. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. These units are perfect for all types - families, couples, individuals or groups \u2013 all to use as a base to explore what many call the natural parish of Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril We like to think of our home as Jamaica East\u2019s best-kept secret. And home to some of Jamaica's best positive alternative experiences - its cool countryside, hidden beaches, falls and its vibrant local culture."),
+    core_1.jsx("p", { css: paragraph },
+        "We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica\u2019s mid ",
+        core_1.jsx("span", { css: core_1.css `
+                 {
+                  font-family: Arial;
+                }
+              ` }, "-"),
+        "19th century heyday. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. These units are perfect for all types ",
+        core_1.jsx("span", { css: core_1.css `
+                 {
+                  font-family: Arial;
+                }
+              ` }, "-"),
+        " families, couples, individuals or groups \u2013 all to use as a base to explore what many call the natural parish of Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril We like to think of our home as Jamaica East\u2019s best",
+        core_1.jsx("span", { css: core_1.css `
+                 {
+                  font-family: Arial;
+                }
+              ` }, "-"),
+        "kept secret. And home to some of Jamaica's best positive alternative experiences - its cool countryside, hidden beaches, falls and its vibrant local culture."),
     " ");
 const amenitiesSlideShowImages = [
     'assets/images/slideshow/amenities/photo_1.jpg',

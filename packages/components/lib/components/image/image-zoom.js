@@ -3,14 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
 const core_1 = require("@emotion/core");
 const zoomContainer = core_1.css `
-height:auto;
+height:400px;
 display: flex;
 .zoom {
   padding: 50px;
   background-color: blue;
   transition: transform .2s;
   width: 200px;
-  height: 200px;
+  height: 100%;
   margin: 0 auto;
 }
   .zoom:hover: {

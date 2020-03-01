@@ -177,12 +177,20 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({
             <br></br>
             <small> Port Antonio, Jamaica</small>
             <br></br>
-            <small>contact us at 001-876-12345678</small>
+            <small
+              css={css`
+                 {
+                  font-family: Arial;
+                }
+              `}
+            >
+              contact us at 001 (876) 430 6261
+            </small>
           </p>
           <ImageZoom />
         </Column>
-        <Column>
-          <large>Links</large>
+        {/* <Column>
+          <large>Links</large> */}
           {/* <large>Conntect with us</large> */}
           {/* <p><SocialIconBar /></p>
                 <large>Recent posts</large>
@@ -196,10 +204,10 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({
                         </li>)
                     }
                 </ul> */}
-        </Column>
+        {/* </Column> */}
         <Column>
           <p>Contact US</p>
-         <ContactForm />
+          <ContactForm />
         </Column>
       </Row>
     </section>

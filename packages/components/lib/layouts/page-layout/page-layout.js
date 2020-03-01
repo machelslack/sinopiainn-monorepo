@@ -132,10 +132,12 @@ const PageLayout = ({ children, pageData }) => (core_1.jsx(react_1.default.Fragm
                     core_1.jsx("br", null),
                     core_1.jsx("small", null, " Port Antonio, Jamaica"),
                     core_1.jsx("br", null),
-                    core_1.jsx("small", null, "contact us at 001-876-12345678")),
+                    core_1.jsx("small", { css: core_1.css `
+                 {
+                  font-family: Arial;
+                }
+              ` }, "contact us at 001 (876) 430 6261")),
                 core_1.jsx(image_1.ImageZoom, null)),
-            core_1.jsx(row_1.Column, null,
-                core_1.jsx("large", null, "Links")),
             core_1.jsx(row_1.Column, null,
                 core_1.jsx("p", null, "Contact US"),
                 core_1.jsx(contact_form_1.default, null))))));

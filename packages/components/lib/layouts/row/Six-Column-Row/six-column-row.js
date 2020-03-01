@@ -26,8 +26,8 @@ h1 {
 }
 
 p{
-  font-weight:100;
-  font-family: 'FontspringRegular';
+  font-weight:50;
+  font-family: 'Arial';
   line-height:2;
 
 }

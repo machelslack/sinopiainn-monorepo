@@ -23,8 +23,8 @@ h1 {
 }
 
 p{
-  font-weight:100;
-  font-family: 'FontspringRegular';
+  font-weight:50;
+  font-family: 'Arial';
   line-height:2;
 
 }
@@ -54,7 +54,6 @@ const breakpoints = [600]
 const mq = breakpoints.map(
   bp => `@media (min-width: ${bp}px)`
 )
-
 
 interface IconItem {
 

@@ -70,15 +70,15 @@ const textBlockParagraph = css`
 
 const iconTypes = [
   {
-    class: "fa fa-coffee",
+    class: "fas fa-coffee",
     text: "",
     title: "Jamaican Breakfast",
-    subtitle: "included in our room rates"
+    subtitle: "available when requested"
   },
   {
-    class: "fa fa-shield",
+    class: "fas fa-concierge-bell",
     text: "",
-    title: "On Site Security",
+    title: "Personal Cook",
     subtitle: "available during your stay"
   },
   {
@@ -91,7 +91,7 @@ const iconTypes = [
     class: "fa fa-bus",
     text: "",
     title: "Airport Shuttle",
-    subtitle: "for all guests"
+    subtitle: "available via knutsford express"
   },
   {
     class: "fa fa-wifi",

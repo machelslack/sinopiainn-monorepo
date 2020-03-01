@@ -1,57 +1,53 @@
-
 /** @jsx jsx */
-import { jsx, css, keyframes } from '@emotion/core'
-import React, { FunctionComponent } from 'react';
-
+import { jsx, css, keyframes } from "@emotion/core";
+import React, { FunctionComponent } from "react";
 
 /* Slideshow container */
 const slideshowContainer = {
-    maxWidth: "1000px",
-    position: "relative",
-    margin: "auto"
+  maxWidth: "1000px",
+  position: "relative",
+  margin: "auto"
 } as React.CSSProperties;
 
 /* Next & previous buttons */
 const buttons = {
-    cursor: "pointer",
-    position: "absolute",
-    top: "50%",
-    width: "auto",
-    padding: "16px",
-    marginTop: "-22px",
-    color: "white",
-    fontWeight: "bold",
-    fontSize: "18px",
-    transition: "0.6s ease",
-    borderRadius: "0 3px 3px 0",
-    userSelect: "none",
-    "&:hover": " background - color: rgba(0, 0, 0, 0.8)"
+  cursor: "pointer",
+  position: "absolute",
+  top: "50%",
+  width: "auto",
+  padding: "16px",
+  marginTop: "-22px",
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "18px",
+  transition: "0.6s ease",
+  borderRadius: "0 3px 3px 0",
+  userSelect: "none",
+  "&:hover": " background - color: rgba(0, 0, 0, 0.8)"
 } as React.CSSProperties;
 
 /* Position the "next button" to the right */
 const slides = {
-    display: "none",
-    verticalAlign:"middle",
-    textAlign:"center"
+  display: "none",
+  verticalAlign: "middle",
+  textAlign: "center"
 } as React.CSSProperties;
 
 const slidesImage = {
-    width: "100%",
-    verticalAlign: "middle"
+  width: "100%",
+  verticalAlign: "middle"
 } as React.CSSProperties;
 
 /* Caption text */
 const slideCaption = {
-    color: "#f2f2f2",
-    fontSize: "15px",
-    padding: "8px 12px",
-    position: "absolute",
-    bottom: "8px",
-    width: "100%",
-    textAlign: "center"
-
+  color: "#f2f2f2",
+  fontSize: "15px",
+  padding: "8px 12px",
+  position: "absolute",
+  bottom: "8px",
+  width: "100%",
+  textAlign: "center"
 } as React.CSSProperties;
-
 
 // /* Fading animation */
 // .fade {
@@ -62,12 +58,12 @@ const slideCaption = {
 //   }
 
 //   @-webkit-keyframes fade {
-//     from {opacity: .4} 
+//     from {opacity: .4}
 //     to {opacity: 1}
 //   }
 
 //   @keyframes fade {
-//     from {opacity: .4} 
+//     from {opacity: .4}
 //     to {opacity: 1}
 //   }
 
@@ -97,22 +93,34 @@ const large = {};
 
 const medium = {};
 
-const SlideShowTextSlide: FunctionComponent<{ quote: any, quoteLink: any, quoteSource: any, slideNumber: any }> = ({ quote, quoteLink, quoteSource, slideNumber }) =>
-    <div className={`mySlides${slideNumber} fade`} style={slides}>
-        <span style={large}>
-            <i>
-                <q>{quote} </q>
-            </i>
-        </span>
-        <br></br>
-        <span style={medium}>
-
-            <br></br>
-            <a href={quoteLink}>
-                <b>{quoteSource} </b>
-            </a>
-        </span>
-    </div>
-
+const SlideShowTextSlide: FunctionComponent<{
+  quote: any;
+  quoteLink: any;
+  quoteSource: any;
+  slideNumber: any;
+}> = ({ quote, quoteLink, quoteSource, slideNumber }) => (
+  <div className={`mySlides${slideNumber} fade`} style={slides}>
+    <span style={large}>
+      <i>
+        <q
+          css={css`
+             {
+              font-family: Arial;
+            }
+          `}
+        >
+          {quote}{" "}
+        </q>
+      </i>
+    </span>
+    <br></br>
+    <span style={medium}>
+      <br></br>
+      <a href={quoteLink}>
+        <b>{quoteSource} </b>
+      </a>
+    </span>
+  </div>
+);
 
 export default SlideShowTextSlide;

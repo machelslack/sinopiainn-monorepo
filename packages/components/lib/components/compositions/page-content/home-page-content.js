@@ -18,109 +18,121 @@ const slideshow_1 = require("../../slideshow");
 const lists_1 = require("../../lists");
 const slideshow_text_slide_1 = __importDefault(require("../../slideshow/slideshow-text-slide"));
 exports.HomepageContext = react_1.default.createContext({
-    changeSlide: ''
+    changeSlide: ""
 });
 const paragraph = core_1.css `
-  font-weight:100;
-  font-family: 'FontspringRegular';
-  line-height:2;
+  font-weight: 100;
+  font-family: "FontspringRegular";
+  line-height: 2;
 `;
 const listItems = [
     {
-        title: 'Traditional Jamaican Breakfast',
-        subtitle: 'Avaiable as an add on to our nightly room rates ',
-    }, {
-        title: 'Personal Cook',
-        subtitle: 'So you can relax and enjoy real peace of mind',
-    }, {
-        title: 'Complimentary Wireless Internet',
-        subtitle: 'Free wireless internet access in guest rooms, meeting spaces and lounge ',
-    }, {
-        title: 'Outdoor Deck And Jerk Pit',
-        subtitle: 'Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay',
-    }, {
-        title: 'Local guided tours',
-        subtitle: '',
-    }, {
-        title: 'Airport shuttle provided by knutsford express',
-        subtitle: '',
-    }, {
-        title: 'Free parking',
-        subtitle: '',
+        title: "Traditional Jamaican Breakfast",
+        subtitle: "Avaiable as an add on to our nightly room rates "
+    },
+    {
+        title: "Personal Cook",
+        subtitle: "So you can relax and enjoy real peace of mind"
+    },
+    {
+        title: "Complimentary Wireless Internet",
+        subtitle: "Free wireless internet access in guest rooms, meeting spaces and lounge "
+    },
+    {
+        title: "Outdoor Deck And Jerk Pit",
+        subtitle: "Sit back and relax with views of the cool countryside and a jerk pit ready and wood-stocked perfect for entertaining family and friends during your stay"
+    },
+    {
+        title: "Local guided tours",
+        subtitle: ""
+    },
+    {
+        title: "Airport shuttle provided by knutsford express",
+        subtitle: ""
+    },
+    {
+        title: "Free parking",
+        subtitle: ""
     }
 ];
 const slideshowImages = [
-    'assets/images/slideshow/homepage/photo_1.jpg',
-    'assets/images/slideshow/homepage/photo_2.jpg',
-    'assets/images/slideshow/homepage/photo_3.jpg',
-    'assets/images/slideshow/homepage/photo_4.jpg',
-    'assets/images/slideshow/homepage/photo_5.jpg',
-    'assets/images/slideshow/homepage/photo_6.jpg',
-    'assets/images/slideshow/homepage/photo_7.jpg',
+    "assets/images/slideshow/homepage/photo_1.jpg",
+    "assets/images/slideshow/homepage/photo_2.jpg",
+    "assets/images/slideshow/homepage/photo_3.jpg",
+    "assets/images/slideshow/homepage/photo_4.jpg",
+    "assets/images/slideshow/homepage/photo_5.jpg",
+    "assets/images/slideshow/homepage/photo_6.jpg",
+    "assets/images/slideshow/homepage/photo_7.jpg"
 ];
-const firstRowLeftcolumn = core_1.jsx(react_1.default.Fragment, null,
+const firstRowLeftcolumn = (core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " SINOPIA INN"),
     " ",
     core_1.jsx("p", { css: paragraph },
-        " Set on two acres of lush green gardens, less than a stone\u2019s throw away from Dragon Bay, location of Tom Cruise\u2019s iconic Cocktail movie, you",
+        " ",
+        "Set on two acres of lush green gardens, less than a stone\u2019s throw away from Dragon Bay, location of Tom Cruise\u2019s iconic Cocktail movie, you",
         core_1.jsx("span", { css: core_1.css `
-   {
-    font-family: Arial;
-  }
-` }, "'"),
-        "ll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families. There is air-conditioning in all  suites of Sinopia Inn, and  the coolness of the entire home will present a welcome respite to the heat."),
-    " ");
-const firstRowRightcolumn = core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 0 }, slideshowImages.map((src) => core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })));
+           {
+            font-family: Arial;
+          }
+        ` }, "'"),
+        "ll quickly understand why Hollywood came calling. And you'll see why the entire villa is the perfect holiday de-stress HQ for families. There is air-conditioning in all suites of Sinopia Inn, and the coolness of the entire home will present a welcome respite to the heat."),
+    " "));
+const firstRowRightcolumn = (core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 0 }, slideshowImages.map(src => (core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: src, slideNumber: 1 })))));
 const roomsSlideShowImages = [
-    'assets/images/slideshow/rooms/photo_1.jpg',
-    'assets/images/slideshow/rooms/photo_2.jpg',
-    'assets/images/slideshow/rooms/photo_3.jpg',
-    'assets/images/slideshow/rooms/photo_4.jpg',
-    'assets/images/slideshow/rooms/photo_5.jpg',
-    'assets/images/slideshow/rooms/photo_6.jpg',
+    "assets/images/slideshow/rooms/photo_1.jpg",
+    "assets/images/slideshow/rooms/photo_2.jpg",
+    "assets/images/slideshow/rooms/photo_3.jpg",
+    "assets/images/slideshow/rooms/photo_4.jpg",
+    "assets/images/slideshow/rooms/photo_5.jpg",
+    "assets/images/slideshow/rooms/photo_6.jpg"
 ];
-const secondRowLeftcolumn = core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 1 }, roomsSlideShowImages.map((imgsrc) => core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 2 })));
-const secondRowRightcolumn = core_1.jsx(react_1.default.Fragment, null,
+const secondRowLeftcolumn = (core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 1 }, roomsSlideShowImages.map(imgsrc => (core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 2 })))));
+const secondRowRightcolumn = (core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " OUR ROOMS"),
     " ",
     core_1.jsx("p", { css: paragraph },
-        "We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica\u2019s mid ",
+        "We offer 2 family sized air conditioned en suite bedrooms and 2 double occupancy en suite bedrooms, with modern interior decor that still evokes a feeling of Jamaica\u2019s mid",
+        " ",
         core_1.jsx("span", { css: core_1.css `
-                 {
-                  font-family: Arial;
-                }
-              ` }, "-"),
-        "19th century heyday. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. These units are perfect for all types ",
+           {
+            font-family: Arial;
+          }
+        ` }, "-"),
+        "19th century heyday. The abundance of palm trees and other Jamaican flora make it a stunning hideaway in Portland, Jamaica. These units are perfect for all types",
+        " ",
         core_1.jsx("span", { css: core_1.css `
-                 {
-                  font-family: Arial;
-                }
-              ` }, "-"),
-        " families, couples, individuals or groups \u2013 all to use as a base to explore what many call the natural parish of Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril We like to think of our home as Jamaica East\u2019s best",
+           {
+            font-family: Arial;
+          }
+        ` }, "-"),
+        " ",
+        "families, couples, individuals or groups \u2013 all to use as a base to explore what many call the natural parish of Jamaica. Here you are able to experience tranquil nights and great accommodation alternatives to the resort locations of Montego Bay, Ocho Rios and Negril We like to think of our home as Jamaica East\u2019s best",
         core_1.jsx("span", { css: core_1.css `
-                 {
-                  font-family: Arial;
-                }
-              ` }, "-"),
+           {
+            font-family: Arial;
+          }
+        ` }, "-"),
         "kept secret. And home to some of Jamaica's best positive alternative experiences - its cool countryside, hidden beaches, falls and its vibrant local culture."),
-    " ");
+    " "));
 const amenitiesSlideShowImages = [
-    'assets/images/slideshow/amenities/photo_1.jpg',
-    'assets/images/slideshow/amenities/photo_2.jpg',
-    'assets/images/slideshow/amenities/photo_4.jpg',
-    'assets/images/slideshow/amenities/photo_5.jpg',
+    "assets/images/slideshow/amenities/photo_1.jpg",
+    "assets/images/slideshow/amenities/photo_2.jpg",
+    "assets/images/slideshow/amenities/photo_4.jpg",
+    "assets/images/slideshow/amenities/photo_5.jpg"
 ];
-const thirdRowRightcolumn = core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 2 }, amenitiesSlideShowImages.map((imgsrc) => core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })));
-const thirdRowLeftcolumn = core_1.jsx(react_1.default.Fragment, null,
+const thirdRowRightcolumn = (core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 2 }, amenitiesSlideShowImages.map(imgsrc => (core_1.jsx(slideshow_1.SlideShowSlide, { imgSrc: imgsrc, slideNumber: 3 })))));
+const thirdRowLeftcolumn = (core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " THINGS TO DO "),
     " ",
-    core_1.jsx("p", { css: paragraph }, "  Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman\u2019s Cove sea views. Sitting at the foot of the UNESCO Blue Mountains, a leisurely \u2013 or, for the more experienced \u2013 hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world\u2019s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site. And finally, let\u2019s not forget the Blue Lagoon. This adds the indescribable wow-factor to any visit. With its magical blue waters that change colour during the day through to every shade of blue, jade and emerald, going in for a dip is a must-do activity before you leave the area."),
-    " ");
-const fourthRowLeftcolumn = core_1.jsx(react_1.default.Fragment, null,
+    core_1.jsx("p", { css: paragraph },
+        " ",
+        "Apart from its panoramic views, A trip to a local beach is a must as Portland is famous for its Winifred and Frenchman\u2019s Cove sea views. Sitting at the foot of the UNESCO Blue Mountains, a leisurely \u2013 or, for the more experienced \u2013 hearty hike into the area, will reaffirm your spirit with its stunning views and a chance to sample and buy the world\u2019s best coffee: Jamaica Blue Mountain, from its birthplace. For an additional fee, private tours can be arranged once you arrive on-site. And finally, let\u2019s not forget the Blue Lagoon. This adds the indescribable wow-factor to any visit. With its magical blue waters that change colour during the day through to every shade of blue, jade and emerald, going in for a dip is a must-do activity before you leave the area."),
+    " "));
+const fourthRowLeftcolumn = (core_1.jsx(react_1.default.Fragment, null,
     core_1.jsx("h1", null, " Why book with us?"),
     core_1.jsx(lists_1.UnorderedList, null, listItems.map(item => {
-        return core_1.jsx(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: '', image: '' });
-    })));
+        return (core_1.jsx(lists_1.UnorderedListItem, { title: item.title, subtitle: item.subtitle, icon: "", image: "" }));
+    }))));
 const slideshowTestimonials = [
     {
         quote: `Portland is one my favourite destinations in Jamaica. I absolutely loved that this villa kept true to
@@ -128,28 +140,30 @@ const slideshowTestimonials = [
     spot in Boston. I can't wait to return! Loved it!!!`,
         quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
         quoteSource: `via Trip advisor`
-    }, {
+    },
+    {
         quote: `Jamaica, as we all know, is a bright jewel in the Caribbean clutch of precious islands. Portland, in
     the much-undiscovered east of the isle, is the island's diamond for which you rightly have to dig deep
     for. Having overdone the victuals over Xmas I needed somewhere to detox quietly and within my own space.`,
         quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12267757-Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
         quoteSource: `via Trip advisor`
-    }, {
+    },
+    {
         quote: `Beautiful location - near to the Long Bay beach with its bright blue sea and EMPTY beach. Sinopia offers
     a glimpse of rural Jamaica but with all the modern conveniences.`,
         quoteLink: `https://www.tripadvisor.co.uk/VacationRentalReview-g147314-d12371237-The_Pimento_Room_in_Sinopia_Inn-Port_Antonio_Portland_Parish_Jamaica.html`,
         quoteSource: `via Trip advisor`
     }
 ];
-const fourthRowRightcolumn = core_1.jsx(react_1.default.Fragment, null,
-    core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 3 }, slideshowTestimonials.map((testimonial) => core_1.jsx(slideshow_text_slide_1.default, Object.assign({}, testimonial, { slideNumber: 4 })))));
+const fourthRowRightcolumn = (core_1.jsx(react_1.default.Fragment, null,
+    core_1.jsx(slideshow_1.SlideShowContainer, { slideNumber: 3 }, slideshowTestimonials.map(testimonial => (core_1.jsx(slideshow_text_slide_1.default, Object.assign({}, testimonial, { slideNumber: 4 })))))));
 class HomePageContent extends react_1.Component {
     constructor(props) {
         super(props);
         this.slideIndex = [];
         this.slideId = [];
         this.plusSlides = (n, no) => {
-            this.showSlides(this.slideIndex[no] += n, no);
+            this.showSlides((this.slideIndex[no] += n), no);
         };
         this.showSlides = (n, no, auto = false) => {
             var i;
@@ -165,9 +179,10 @@ class HomePageContent extends react_1.Component {
                 x[i].style.display = "none";
             }
             x[this.slideIndex[no] - 1].style.display = "block";
-            auto && setTimeout(() => {
-                return this.showSlides(this.slideIndex[no] += 1, no, auto);
-            }, 3000);
+            auto &&
+                setTimeout(() => {
+                    return this.showSlides((this.slideIndex[no] += 1), no, auto);
+                }, 3000);
         };
         this.showSlides = this.showSlides.bind(this);
         this.plusSlides = this.plusSlides.bind(this);
@@ -188,7 +203,20 @@ class HomePageContent extends react_1.Component {
                 core_1.jsx(row_1.TwoColumnRow, { leftcolumn: firstRowLeftcolumn, rightcolumn: firstRowRightcolumn }),
                 core_1.jsx(row_1.TwoColumnRow, { leftcolumn: secondRowLeftcolumn, rightcolumn: secondRowRightcolumn }),
                 core_1.jsx(row_1.TwoColumnRow, { leftcolumn: thirdRowLeftcolumn, rightcolumn: thirdRowRightcolumn }),
-                core_1.jsx(row_1.TwoColumnRow, { leftcolumn: fourthRowLeftcolumn, rightcolumn: fourthRowRightcolumn }))));
+                core_1.jsx(row_1.Row, null,
+                    core_1.jsx(row_1.Column, null,
+                        " ",
+                        fourthRowLeftcolumn,
+                        " "),
+                    core_1.jsx(row_1.Column, null,
+                        core_1.jsx("section", { css: core_1.css `
+                  display: table;
+                  height: 500px;
+                ` },
+                            core_1.jsx("section", { css: core_1.css `
+                    display: table-cell;
+                    vertical-align: middle;
+                  ` }, fourthRowRightcolumn)))))));
     }
 }
 exports.default = HomePageContent;

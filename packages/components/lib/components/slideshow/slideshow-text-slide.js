@@ -52,11 +52,11 @@ const slideCaption = {
 //     animation-duration: 1.5s;
 //   }
 //   @-webkit-keyframes fade {
-//     from {opacity: .4} 
+//     from {opacity: .4}
 //     to {opacity: 1}
 //   }
 //   @keyframes fade {
-//     from {opacity: .4} 
+//     from {opacity: .4}
 //     to {opacity: 1}
 //   }
 // css={css`
@@ -78,10 +78,14 @@ const slideCaption = {
 // `
 const large = {};
 const medium = {};
-const SlideShowTextSlide = ({ quote, quoteLink, quoteSource, slideNumber }) => core_1.jsx("div", { className: `mySlides${slideNumber} fade`, style: slides },
+const SlideShowTextSlide = ({ quote, quoteLink, quoteSource, slideNumber }) => (core_1.jsx("div", { className: `mySlides${slideNumber} fade`, style: slides },
     core_1.jsx("span", { style: large },
         core_1.jsx("i", null,
-            core_1.jsx("q", null,
+            core_1.jsx("q", { css: core_1.css `
+             {
+              font-family: Arial;
+            }
+          ` },
                 quote,
                 " "))),
     core_1.jsx("br", null),
@@ -90,5 +94,5 @@ const SlideShowTextSlide = ({ quote, quoteLink, quoteSource, slideNumber }) => c
         core_1.jsx("a", { href: quoteLink },
             core_1.jsx("b", null,
                 quoteSource,
-                " "))));
+                " ")))));
 exports.default = SlideShowTextSlide;

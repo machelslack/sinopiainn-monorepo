@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
+import { jsx,css } from "@emotion/core";
 import { Component } from "react";
 import React from "react";
 import { TextField, TextArea, SubmitButton } from "../form";
@@ -182,7 +182,7 @@ export class ContactForm extends Component<any, any> {
           className="contactFormField"
           wrap="hard"
         ></textarea>
-        <span id="errorMessage"></span>
+        <span id="errorMessage" css={css`color:red`}></span>
         <br></br>
         <button
           type="button"

@@ -12,7 +12,7 @@ padding: 30px;
 vertical-align:middle;
 h1 {
   border-bottom: thin dashed #CB410B;
-  font-size:xxx-large;
+  font-size:60px;
   font-weight:200;
   font-family: 'FontspringLight';
   padding-bottom:20px;

@@ -140,12 +140,12 @@ object-assign
 `,l={width:"100%"},s=r.css`
   border-bottom: thin dashed #aa9d2e;
   text-align: center;
-  font-size: xxx-large;
+  font-size: 60px;
   font-weight: 200;
   font-family: "FontspringLight";
   padding-bottom: 5px;
   @media (max-width: 1200px) {
-    font-size: xx-large;
+    font-size: 40px;
   }
  }
 `,u=r.css`
@@ -170,7 +170,7 @@ padding: 30px;
 vertical-align:middle;
 h1 {
   border-bottom: thin dashed #CB410B;
-  font-size:xxx-large;
+  font-size:60px;
   font-weight:200;
   font-family: 'FontspringLight';
   padding-bottom:20px;

@@ -47,12 +47,12 @@ const image = {
 const textBlockHeading = css`
   border-bottom: thin dashed #aa9d2e;
   text-align: center;
-  font-size: xxx-large;
+  font-size: 60px;
   font-weight: 200;
   font-family: "FontspringLight";
   padding-bottom: 5px;
   @media (max-width: 1200px) {
-    font-size: xx-large;
+    font-size: 40px;
   }
  }
 `;

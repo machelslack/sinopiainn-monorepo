@@ -186,13 +186,25 @@ const PageLayout: FunctionComponent<{ pageData: any }> = ({
             >
               contact us at 001 (876) 430 6261
             </small>
+            <br></br>
+            <small
+              css={css`
+                 {
+                  font-family: Arial;
+                }
+              `}
+            >
+              {" "}
+              info@sinopiainn.com
+            </small>
+            <br></br>
           </p>
           <ImageZoom />
         </Column>
         {/* <Column>
           <large>Links</large> */}
-          {/* <large>Conntect with us</large> */}
-          {/* <p><SocialIconBar /></p>
+        {/* <large>Conntect with us</large> */}
+        {/* <p><SocialIconBar /></p>
                 <large>Recent posts</large>
                 <br></br>
                 <ul>

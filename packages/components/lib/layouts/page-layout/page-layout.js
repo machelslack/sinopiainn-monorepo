@@ -136,7 +136,16 @@ const PageLayout = ({ children, pageData }) => (core_1.jsx(react_1.default.Fragm
                  {
                   font-family: Arial;
                 }
-              ` }, "contact us at 001 (876) 430 6261")),
+              ` }, "contact us at 001 (876) 430 6261"),
+                    core_1.jsx("br", null),
+                    core_1.jsx("small", { css: core_1.css `
+                 {
+                  font-family: Arial;
+                }
+              ` },
+                        " ",
+                        "info@sinopiainn.com"),
+                    core_1.jsx("br", null)),
                 core_1.jsx(image_1.ImageZoom, null)),
             core_1.jsx(row_1.Column, null,
                 core_1.jsx("p", null, "Contact US"),

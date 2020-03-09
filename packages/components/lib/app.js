@@ -134,7 +134,11 @@ object-assign
                  {
                   font-family: Arial;
                 }
-              `},"contact us at 001 (876) 430 6261")),o.jsx(s.ImageZoom,null)),o.jsx(l.Column,null,o.jsx("p",null,"Contact US"),o.jsx(c.default,null)))))},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(35);t.ImageTextBlock=r.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const r=n(1),o=n(6),a={position:"relative",fontFamily:"Arial"},i=r.css`
+              `},"contact us at 001 (876) 430 6261"),o.jsx("br",null),o.jsx("small",{css:o.css`
+                 {
+                  font-family: Arial;
+                }
+              `}," ","info@sinopiainn.com"),o.jsx("br",null)),o.jsx(s.ImageZoom,null)),o.jsx(l.Column,null,o.jsx("p",null,"Contact US"),o.jsx(c.default,null)))))},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(35);t.ImageTextBlock=r.default},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const r=n(1),o=n(6),a={position:"relative",fontFamily:"Arial"},i=r.css`
   position: absolute;
   top: 20%;
   right: 20px;
